@@ -23,6 +23,13 @@ nav:
     - 04.-Capas: .//03.-Conceptos Clave/04.-Capas.md
     - 05.-Redes: .//03.-Conceptos Clave/05.-Redes.md
     - .//03.-Conceptos Clave/index.md
+  - Features:
+    - LaTeX Math Support: .//Features/LaTeX Math Support.md
+    - Mermaid Diagrams: .//Features/Mermaid Diagrams.md
+    - Text Formatting: .//Features/Text Formatting.md
+  - Topic 1:
+    - Note 1: .//Topic 1/Note 1.md
+    - Note 2: .//Topic 1/Note 2.md
   - ./index.md
 
 

@@ -1,0 +1,3 @@
+Docker Hub es el mayor repositorio del mundo de **imágenes de contenedores** con una gran variedad de fuentes de contenido, incluidos 
+desarrolladores, proyectos de código abierto y proveedores de software independientes (ISV) que construyen y distribuyen su código en contenedores.
+Los usuarios tienen acceso a repositorios públicos gratuitos para almacenar y compartir imágenes o pueden elegir un plan de suscripción para repositorios privados.
