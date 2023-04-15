@@ -5,11 +5,11 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="../../02.-Instalaci%C3%B3n/" rel="prev"/>
-<link href="../02.-Contenedores/" rel="next"/>
+<link href="02.-Docker%20Hub/" rel="prev"/>
+<link href="nav.yml" rel="next"/>
 <link href="../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.4.2, mkdocs-material-9.1.1" name="generator"/>
-<title>01.-Imágenes - Sistemas Informáticos</title>
+<title>Imágenes - Sistemas Informáticos</title>
 <link href="../../assets/stylesheets/main.402914a4.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.a0c5b2b5.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -23,6 +23,9 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
+<a class="md-skip" href="#imagenes">
+          Saltar a contenido
+        </a>
 </div>
 <div data-md-component="announce">
 </div>
@@ -44,7 +47,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              01.-Imágenes
+              Imágenes
             
           </span>
 </div>
@@ -107,7 +110,7 @@
     </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link md-tabs__link--active" href="./">
+<a class="md-tabs__link md-tabs__link--active" href="02.-Docker%20Hub/">
         03.-Conceptos Clave
       </a>
 </li>
@@ -156,11 +159,32 @@
           03.-Conceptos Clave
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
-<a class="md-nav__link md-nav__link--active" href="./">
-        01.-Imágenes
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_3_1" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index md-nav__link--active">
+<a href="./">01.-Imágenes</a>
+<label for="__nav_3_1">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="true" aria-labelledby="__nav_3_1_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_1">
+<span class="md-nav__icon md-icon"></span>
+          01.-Imágenes
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="02.-Docker%20Hub/">
+        02.-Docker Hub
       </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="nav.yml">
+        nav.yml
+      </a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../02.-Contenedores/">
@@ -205,10 +229,10 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1>01.-Imágenes</h1>
+<h1 id="imagenes">Imágenes<a class="headerlink" href="#imagenes" title="Permanent link">¶</a></h1>
 <p>Una <a href="https://keepcoding.io/blog/que-es-una-imagen-en-docker/"><strong>imagen</strong></a> de Docker es un <strong>paquete de software que contiene todo lo necesario para ejecutar una aplicación</strong>, incluyendo el código, las dependencias, el sistema operativo, las bibliotecas y las configuraciones. 
 Las imágenes de Docker se utilizan como <strong>plantillas</strong> para crear <strong>contenedores</strong> de Docker, que son instancias en tiempo de ejecución de una imagen. Las imágenes se crean a partir de un archivo de configuración llamado <code>dockerfile</code>, que especifica los componentes y configuraciones necesarios para la aplicación.
-Una vez que se ha creado una imagen de Docker, se puede almacenar en un registro de imágenes de Docker, como <a href="../../docker/docker_hub/">Docker Hub</a> o un registro privado, para que otros usuarios puedan descargarla y utilizarla en la creación de contenedores.
+Una vez que se ha creado una imagen de Docker, se puede almacenar en un registro de imágenes de Docker, como <a href="02.-Docker%20Hub/">02.-Docker Hub</a> o un registro privado, para que otros usuarios puedan descargarla y utilizarla en la creación de contenedores.
 Las imágenes de Docker son <strong>portables</strong> y se pueden ejecutar en cualquier sistema que admita la plataforma Docker. Además, como las imágenes están aisladas del sistema operativo del host, <strong>se pueden ejecutar varias instancias</strong> de la misma imagen en diferentes contenedores sin interferir entre sí.</p>
 </article>
 </div>
