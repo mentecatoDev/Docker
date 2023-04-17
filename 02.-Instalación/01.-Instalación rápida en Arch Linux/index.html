@@ -5,12 +5,12 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="02.-Docker%20Hub/" rel="prev"/>
-<link href="nav.yml" rel="next"/>
+<link href="../" rel="prev"/>
+<link href="../../03.-Conceptos%20Clave/" rel="next"/>
 <link href="../../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.4.2, mkdocs-material-9.1.1" name="generator"/>
-<title>Imágenes - Sistemas Informáticos</title>
-<link href="../../assets/stylesheets/main.402914a4.min.css" rel="stylesheet"/>
+<meta content="mkdocs-1.4.2, mkdocs-material-9.1.4" name="generator"/>
+<title>01.-Instalación rápida en Arch Linux - Sistemas Informáticos</title>
+<link href="../../assets/stylesheets/main.240905d7.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.a0c5b2b5.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
@@ -23,7 +23,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#imagenes">
+<a class="md-skip" href="#instalacion">
           Saltar a contenido
         </a>
 </div>
@@ -47,7 +47,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Imágenes
+              01.-Instalación rápida en Arch Linux
             
           </span>
 </div>
@@ -100,24 +100,24 @@
 <div class="md-grid">
 <ul class="md-tabs__list">
 <li class="md-tabs__item">
+<a class="md-tabs__link" href="../..">
+      Home
+    </a>
+</li>
+<li class="md-tabs__item">
 <a class="md-tabs__link" href="../../01.-Introducci%C3%B3n/">
       01.-Introducción
     </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../02.-Instalaci%C3%B3n/">
-      02.-Instalación
-    </a>
-</li>
-<li class="md-tabs__item">
-<a class="md-tabs__link md-tabs__link--active" href="02.-Docker%20Hub/">
-        03.-Conceptos Clave
+<a class="md-tabs__link md-tabs__link--active" href="../">
+        02.-Instalación
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../..">
-      Home
-    </a>
+<a class="md-tabs__link" href="../../03.-Conceptos%20Clave/">
+        03.-Conceptos Clave
+      </a>
 </li>
 </ul>
 </div>
@@ -136,19 +136,19 @@
   </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../01.-Introducci%C3%B3n/">
-        01.-Introducción
+<a class="md-nav__link" href="../..">
+        Home
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../02.-Instalaci%C3%B3n/">
-        02.-Instalación
+<a class="md-nav__link" href="../../01.-Introducci%C3%B3n/">
+        01.-Introducción
       </a>
 </li>
 <li class="md-nav__item md-nav__item--active md-nav__item--nested">
 <input checked="" class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../">03.-Conceptos Clave</a>
+<a href="../">02.-Instalación</a>
 <label for="__nav_3">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -156,63 +156,150 @@
 <nav aria-expanded="true" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_3">
 <span class="md-nav__icon md-icon"></span>
-          03.-Conceptos Clave
+          02.-Instalación
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" id="__nav_3_1" type="checkbox"/>
-<div class="md-nav__link md-nav__link--index md-nav__link--active">
-<a href="./">01.-Imágenes</a>
-<label for="__nav_3_1">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          01.-Instalación rápida en Arch Linux
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+        01.-Instalación rápida en Arch Linux
+      </a>
+<nav aria-label="Tabla de contenidos" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#instalacion">
+    Instalación
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#actualizamos-repositorios">
+    Actualizamos repositorios
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#instalamos-docker-y-docker-compose">
+    Instalamos Docker y Docker Compose
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#iniciamos-docker-y-lo-habilitamos-para-que-se-inicie-al-reiniciar">
+    Iniciamos Docker y lo habilitamos para que se inicie al reiniciar
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#comprobamos-la-version-de-docker-y-si-esta-instalado">
+    Comprobamos la versión de docker y si está instalado
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#anadimos-a-nuestro-usuario-para-controlar-docker">
+    Añadimos a nuestro usuario para controlar Docker
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#docker-compose-en-arch-con-python">
+    Docker-Compose en Arch con Python
+  </a>
+<nav aria-label="Docker-Compose en Arch con Python" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#instalando">
+    Instalando
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#version">
+    Versión
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#levantar-un-docker-con-docker-compose">
+    Levantar un docker con docker-compose
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#instalando-portainer">
+    Instalando Portainer
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../03.-Conceptos%20Clave/">03.-Conceptos Clave</a>
+<label for="__nav_4">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-expanded="true" aria-labelledby="__nav_3_1_label" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_3_1">
+<nav aria-expanded="false" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+          03.-Conceptos Clave
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+          01.-Imágenes
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_2">
 <span class="md-nav__icon md-icon"></span>
           01.-Imágenes
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="02.-Docker%20Hub/">
-        02.-Docker Hub
+<a class="md-nav__link" href="../../03.-Conceptos%20Clave/01.-Im%C3%A1genes/01.-Im%C3%A1genes/">
+        01.-Imágenes
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="nav.yml">
-        nav.yml
+<a class="md-nav__link" href="../../03.-Conceptos%20Clave/01.-Im%C3%A1genes/02.-Docker%20Hub/">
+        02.-Docker Hub
       </a>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../02.-Contenedores/">
+<a class="md-nav__link" href="../../03.-Conceptos%20Clave/02.-Contenedores/">
         02.-Contenedores
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../03.-Vol%C3%BAmenes/">
+<a class="md-nav__link" href="../../03.-Conceptos%20Clave/03.-Vol%C3%BAmenes/">
         03.-Volúmenes
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../04.-Capas/">
+<a class="md-nav__link" href="../../03.-Conceptos%20Clave/04.-Capas/">
         04.-Capas
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../05.-Redes/">
+<a class="md-nav__link" href="../../03.-Conceptos%20Clave/05.-Redes/">
         05.-Redes
       </a>
 </li>
 </ul>
 </nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../..">
-        Home
-      </a>
 </li>
 </ul>
 </nav>
@@ -223,24 +310,137 @@
 <div class="md-sidebar__scrollwrap">
 <div class="md-sidebar__inner">
 <nav aria-label="Tabla de contenidos" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#instalacion">
+    Instalación
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#actualizamos-repositorios">
+    Actualizamos repositorios
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#instalamos-docker-y-docker-compose">
+    Instalamos Docker y Docker Compose
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#iniciamos-docker-y-lo-habilitamos-para-que-se-inicie-al-reiniciar">
+    Iniciamos Docker y lo habilitamos para que se inicie al reiniciar
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#comprobamos-la-version-de-docker-y-si-esta-instalado">
+    Comprobamos la versión de docker y si está instalado
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#anadimos-a-nuestro-usuario-para-controlar-docker">
+    Añadimos a nuestro usuario para controlar Docker
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#docker-compose-en-arch-con-python">
+    Docker-Compose en Arch con Python
+  </a>
+<nav aria-label="Docker-Compose en Arch con Python" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#instalando">
+    Instalando
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#version">
+    Versión
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#levantar-un-docker-con-docker-compose">
+    Levantar un docker con docker-compose
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#instalando-portainer">
+    Instalando Portainer
+  </a>
+</li>
+</ul>
 </nav>
 </div>
 </div>
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="imagenes">Imágenes<a class="headerlink" href="#imagenes" title="Permanent link">¶</a></h1>
-<p>Una <a href="https://keepcoding.io/blog/que-es-una-imagen-en-docker/"><strong>imagen</strong></a> de Docker es un <strong>paquete de software que contiene todo lo necesario para ejecutar una aplicación</strong>, incluyendo el código, las dependencias, el sistema operativo, las bibliotecas y las configuraciones. 
-Las imágenes de Docker se utilizan como <strong>plantillas</strong> para crear <strong>contenedores</strong> de Docker, que son instancias en tiempo de ejecución de una imagen. Las imágenes se crean a partir de un archivo de configuración llamado <code>dockerfile</code>, que especifica los componentes y configuraciones necesarios para la aplicación.
-Una vez que se ha creado una imagen de Docker, se puede almacenar en un registro de imágenes de Docker, como <a href="02.-Docker%20Hub/">02.-Docker Hub</a> o un registro privado, para que otros usuarios puedan descargarla y utilizarla en la creación de contenedores.
-Las imágenes de Docker son <strong>portables</strong> y se pueden ejecutar en cualquier sistema que admita la plataforma Docker. Además, como las imágenes están aisladas del sistema operativo del host, <strong>se pueden ejecutar varias instancias</strong> de la misma imagen en diferentes contenedores sin interferir entre sí.</p>
+<h1>01.-Instalación rápida en Arch Linux</h1>
+<h2 id="instalacion">Instalación<a class="headerlink" href="#instalacion" title="Permanent link">¶</a></h2>
+<h2 id="actualizamos-repositorios">Actualizamos repositorios<a class="headerlink" href="#actualizamos-repositorios" title="Permanent link">¶</a></h2>
+<pre><code>sudo pacman -Syy
+</code></pre>
+<h2 id="instalamos-docker-y-docker-compose">Instalamos Docker y Docker Compose<a class="headerlink" href="#instalamos-docker-y-docker-compose" title="Permanent link">¶</a></h2>
+<pre><code>sudo pacman -S docker docker-compose
+</code></pre>
+<h2 id="iniciamos-docker-y-lo-habilitamos-para-que-se-inicie-al-reiniciar">Iniciamos Docker y lo habilitamos para que se inicie al reiniciar<a class="headerlink" href="#iniciamos-docker-y-lo-habilitamos-para-que-se-inicie-al-reiniciar" title="Permanent link">¶</a></h2>
+<pre><code>sudo systemctl enable docker
+sudo systemctl start docker
+</code></pre>
+<h2 id="comprobamos-la-version-de-docker-y-si-esta-instalado">Comprobamos la versión de docker y si está instalado<a class="headerlink" href="#comprobamos-la-version-de-docker-y-si-esta-instalado" title="Permanent link">¶</a></h2>
+<p><code>docker -v</code></p>
+<h2 id="anadimos-a-nuestro-usuario-para-controlar-docker">Añadimos a nuestro usuario para controlar Docker<a class="headerlink" href="#anadimos-a-nuestro-usuario-para-controlar-docker" title="Permanent link">¶</a></h2>
+<p>Creamos el grupo <code>docker</code>:</p>
+<pre><code>sudo groupadd docker
+</code></pre>
+<p>Añadimos al usuario:</p>
+<pre><code>sudo usermod -aG docker $USER
+</code></pre>
+<h2 id="docker-compose-en-arch-con-python">Docker-Compose en Arch con Python<a class="headerlink" href="#docker-compose-en-arch-con-python" title="Permanent link">¶</a></h2>
+<h3 id="instalando">Instalando<a class="headerlink" href="#instalando" title="Permanent link">¶</a></h3>
+<p>Si no tienes instalado pip, deberás instalarlo</p>
+<pre><code>sudo pacman -S  python-pip
+</code></pre>
+<p>Ahora vamos a instalar docker-compose</p>
+<pre><code>sudo pip3 install docker-compose
+</code></pre>
+<h3 id="version">Versión<a class="headerlink" href="#version" title="Permanent link">¶</a></h3>
+<p>Vamos a verificar la versión de docker-compose</p>
+<pre><code>docker-compose -v
+</code></pre>
+<h3 id="levantar-un-docker-con-docker-compose">Levantar un docker con docker-compose<a class="headerlink" href="#levantar-un-docker-con-docker-compose" title="Permanent link">¶</a></h3>
+<p>Ahora cuando tenga un archivo <em>docker-compose.yml</em>, lo levantaré con:</p>
+<pre><code>docker-compose up -d
+</code></pre>
+<h2 id="instalando-portainer">Instalando Portainer<a class="headerlink" href="#instalando-portainer" title="Permanent link">¶</a></h2>
+<p>Portainer gestiona los contenedores de un modo gráfico:</p>
+<pre><code>portainer:
+  image: portainer/portainer-ce:latest
+  container_name: portainer
+  restart: unless-stopped
+  security_opt:
+    - no-new-privileges:true
+  volumes:
+    - /etc/localtime:/etc/localtime:ro
+    - /var/run/docker.sock:/var/run/docker.sock:ro
+    - ./portainer-data:/data
+  ports:
+    - 9000:9000
+</code></pre>
+<p><a href="https://ugeek.github.io/blog/post/2022-12-07-docker-instalar-docker-docker-compose-y-portainer-en-arch-linux.html">Publicado por Angel el 07/12/2022</a></p>
 </article>
 </div>
 </div>
-<a class="md-top md-icon" data-md-component="top" hidden="" href="#">
+<button class="md-top md-icon" data-md-component="top" hidden="" type="button">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"></path></svg>
             Volver al principio
-          </a>
+          </button>
 </main>
 <footer class="md-footer">
 <div class="md-footer-meta md-typeset">
@@ -261,7 +461,7 @@ Las imágenes de Docker son <strong>portables</strong> y se pueden ejecutar en c
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.top", "navigation.top.sticky", "navigation.tabs", "navigation.indexes"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}}</script>
-<script src="../../assets/javascripts/bundle.b78d2936.min.js"></script>
+<script src="../../assets/javascripts/bundle.19047be9.min.js"></script>
 <script src="../../javascripts/mathjax.js"></script>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
