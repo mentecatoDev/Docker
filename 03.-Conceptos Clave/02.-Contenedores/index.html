@@ -23,6 +23,9 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
+<a class="md-skip" href="#contenedores-windows-y-contenedores-linux">
+          Saltar a contenido
+        </a>
 </div>
 <div data-md-component="announce">
 </div>
@@ -210,9 +213,26 @@
 </li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          02.-Contenedores
+          <span class="md-nav__icon md-icon"></span>
+</label>
 <a class="md-nav__link md-nav__link--active" href="./">
         02.-Contenedores
       </a>
+<nav aria-label="Tabla de contenidos" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#contenedores-windows-y-contenedores-linux">
+    Contenedores Windows y contenedores Linux
+  </a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../03.-Vol%C3%BAmenes/">
@@ -246,6 +266,17 @@
 <div class="md-sidebar__scrollwrap">
 <div class="md-sidebar__inner">
 <nav aria-label="Tabla de contenidos" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#contenedores-windows-y-contenedores-linux">
+    Contenedores Windows y contenedores Linux
+  </a>
+</li>
+</ul>
 </nav>
 </div>
 </div>
@@ -263,6 +294,18 @@
 <li>Está aislado de otros contenedores y ejecuta su propio software, binarios y configuraciones.</li>
 </ul>
 <p>Una imagen de Docker es un archivo compuesto por múltiples capas que se utiliza para ejecutar código en un contenedor de Docker. Estas <a href="../01.-Im%C3%A1genes/01.-Im%C3%A1genes/">imágenes</a> son las plantillas base desde la que partimos ya sea para crear una nueva imagen o crear nuevos contenedores para ejecutar las aplicaciones.</p>
+<h2 id="contenedores-windows-y-contenedores-linux">Contenedores Windows y contenedores Linux<a class="headerlink" href="#contenedores-windows-y-contenedores-linux" title="Permanent link">¶</a></h2>
+<p>Los contenedores Windows corren sobre Windows y los contenedores Linux sobre Linux Se diferencian en los tipos de aislamiento que tienen ambos</p>
+<p>Los contenedores Linux:</p>
+<ul>
+<li>Se ejecutan sobre el host de modo que son visibles a ellos</li>
+<li>Se ejecutan sobre el kernel como un proceso visible desde el host</li>
+</ul>
+<p>Los contenedores Windows:</p>
+<ul>
+<li>Se ejecutan sobre una máquina virtual línux controlada por el hipervisor de windows (Hyper-V)</li>
+<li>En Hyper-V Windows lanza una MV super fina que tiene su propio kernel y por tanto los contenedores <strong>no son visibles desde el propio SO</strong>.</li>
+</ul>
 </article>
 </div>
 </div>

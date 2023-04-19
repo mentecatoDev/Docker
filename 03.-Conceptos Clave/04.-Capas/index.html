@@ -276,6 +276,9 @@
 <li>
 <p>Al ejecutar un comando a partir de la imagen creada, se ejecuta el comando especificado y se convierte en el proceso con PID 1 dentro del árbol virtual de procesos.</p>
 </li>
+<li>
+<p>Cada vez que se ejecuta una instrucción, se crea un contenedor y se etiqueta con un hash creado para obtener un nombre único. De este modo, podemos reutilizar estas capas intermedias y solo tener que construirlas una vez.</p>
+</li>
 </ul>
 <p>El contenedor seguirá en marcha mientras el proceso creado siga en ejecución.</p>
 </article>
