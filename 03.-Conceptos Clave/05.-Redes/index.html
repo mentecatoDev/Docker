@@ -244,13 +244,21 @@
 <h1>05.-Redes</h1>
 <p>En Docker, las redes son una forma de <strong>conectar contenedores y permitir que se comuniquen entre sí</strong> y con otros servicios en la red. Las redes de Docker se utilizan para facilitar la comunicación entre contenedores y para aislar los contenedores de otras redes.
 Docker proporciona varios tipos de redes, que se utilizan para diferentes propósitos:</p>
-<ol>
-<li><strong>Bridge network (red puente)</strong>: Es la red predeterminada en Docker. Cada contenedor se conecta a una red puente virtual, que se encuentra en el host. Los contenedores en la misma red puente pueden comunicarse entre sí mediante sus nombres de host.</li>
-<li><strong>Host network (red de host)</strong>: En esta red, los contenedores se conectan directamente a la red del host, en lugar de a una red virtual. Esto permite que los contenedores tengan acceso directo a los recursos de red del host, pero también puede presentar problemas de seguridad.</li>
-<li><strong>Overlay network (red de superposición)</strong>: Esta red se utiliza para conectar contenedores que se ejecutan en diferentes hosts. Los contenedores en la misma red de superposición pueden comunicarse entre sí como si estuvieran en la misma red local.</li>
-<li><strong>Macvlan network (red de Macvlan)</strong>: Esta red se utiliza para conectar contenedores directamente a una interfaz de red física del host. Esto permite que los contenedores tengan direcciones IP únicas y se comuniquen directamente con otros dispositivos en la red.
-Además de estos tipos de redes, Docker también permite crear redes personalizadas para satisfacer las necesidades específicas de una aplicación o servicio.</li>
-</ol>
+<ul>
+<li>
+<p><strong>Bridge network (red puente)</strong>: Es la red predeterminada en Docker. Cada contenedor se conecta a una red puente virtual, que se encuentra en el host. Los contenedores en la misma red puente pueden comunicarse entre sí mediante sus nombres de host.</p>
+</li>
+<li>
+<p><strong>Host network (red de host)</strong>: En esta red, los contenedores se conectan directamente a la red del host, en lugar de a una red virtual. Esto permite que los contenedores tengan acceso directo a los recursos de red del host, pero también puede presentar problemas de seguridad.</p>
+</li>
+<li>
+<p><strong>Overlay network (red de superposición)</strong>: Esta red se utiliza para conectar contenedores que se ejecutan en diferentes hosts. Los contenedores en la misma red de superposición pueden comunicarse entre sí como si estuvieran en la misma red local.</p>
+</li>
+<li>
+<p><strong>Macvlan network (red de Macvlan)</strong>: Esta red se utiliza para conectar contenedores directamente a una interfaz de red física del host. Esto permite que los contenedores tengan direcciones IP únicas y se comuniquen directamente con otros dispositivos en la red.</p>
+</li>
+</ul>
+<p>Además de estos tipos de redes, Docker también permite crear redes personalizadas para satisfacer las necesidades específicas de una aplicación o servicio.</p>
 </article>
 </div>
 </div>

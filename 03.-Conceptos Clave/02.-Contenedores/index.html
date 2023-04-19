@@ -243,13 +243,16 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1>02.-Contenedores</h1>
+<p>En pocas palabras, un contenedor es un <strong>proceso</strong> de espacio <strong>aislado</strong> en su máquina que está al margen de todos los demás procesos en la máquina host. Ese aislamiento aprovecha los <a href="https://medium.com/@saschagrunert/demystifying-containers-part-i-kernel-space-2c53d6979504">espacios de nombres del kernel y cgroups</a>, características que han estado en Linux durante mucho tiempo. Docker ha trabajado para que estas capacidades sean accesibles y fáciles de usar. Para resumir, un contenedor:</p>
 <ul>
-<li>Un contenedor es una imagen instanciada (en ejecución).</li>
+<li>Un contenedor es una <strong>imagen instanciada</strong> (en ejecución). Se puede crear, iniciar, detener, mover o eliminar un contenedor mediante <strong>DockerAPI</strong> o <strong>CLI</strong>.</li>
 <li>No albergan un sistema operativo sino que <strong>aíslan el espacio de usuario</strong>.</li>
 <li>Son muy <strong>ligeros</strong> porque corren como un <strong>proceso</strong> sobre el SO del host.</li>
-<li><strong>Escalan en función de la demanda</strong>, mientras que las Máquinas Virtuales (MV) tienen que ser aprovisionadas de recursos previamente.
-Una imagen de Docker es un archivo compuesto por múltiples capas que se utiliza para ejecutar código en un contenedor de Docker. Estas  <a href="../01.-Im%C3%A1genes/01.-Im%C3%A1genes/">imágenes</a> son las plantillas base desde la que partimos ya sea para crear una nueva imagen o crear nuevos contenedores para ejecutar las aplicaciones.</li>
+<li>Puede ejecutarse en máquinas <strong>locales</strong>, máquinas <strong>virtuales</strong> o implementarse en la <strong>nube</strong>.</li>
+<li><strong>Escalan en función de la demanda</strong>, mientras que las Máquinas Virtuales (MV) tienen que ser aprovisionadas de recursos previamente.</li>
+<li>Está aislado de otros contenedores y ejecuta su propio software, binarios y configuraciones.</li>
 </ul>
+<p>Una imagen de Docker es un archivo compuesto por múltiples capas que se utiliza para ejecutar código en un contenedor de Docker. Estas <a href="../01.-Im%C3%A1genes/01.-Im%C3%A1genes/">imágenes</a> son las plantillas base desde la que partimos ya sea para crear una nueva imagen o crear nuevos contenedores para ejecutar las aplicaciones.</p>
 </article>
 </div>
 </div>

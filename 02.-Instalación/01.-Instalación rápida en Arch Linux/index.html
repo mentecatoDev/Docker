@@ -186,7 +186,7 @@
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#instalamos-docker-y-docker-compose">
-    Instalamos Docker y Docker Compose
+    Instalamos docker y docker-Compose
   </a>
 </li>
 <li class="md-nav__item">
@@ -202,6 +202,11 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#anadimos-a-nuestro-usuario-para-controlar-docker">
     Añadimos a nuestro usuario para controlar Docker
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#comprobar-la-instalacion">
+    Comprobar la instalación
   </a>
 </li>
 <li class="md-nav__item">
@@ -327,7 +332,7 @@
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#instalamos-docker-y-docker-compose">
-    Instalamos Docker y Docker Compose
+    Instalamos docker y docker-Compose
   </a>
 </li>
 <li class="md-nav__item">
@@ -343,6 +348,11 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#anadimos-a-nuestro-usuario-para-controlar-docker">
     Añadimos a nuestro usuario para controlar Docker
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#comprobar-la-instalacion">
+    Comprobar la instalación
   </a>
 </li>
 <li class="md-nav__item">
@@ -386,7 +396,7 @@
 <h2 id="actualizamos-repositorios">Actualizamos repositorios<a class="headerlink" href="#actualizamos-repositorios" title="Permanent link">¶</a></h2>
 <pre><code>sudo pacman -Syy
 </code></pre>
-<h2 id="instalamos-docker-y-docker-compose">Instalamos Docker y Docker Compose<a class="headerlink" href="#instalamos-docker-y-docker-compose" title="Permanent link">¶</a></h2>
+<h2 id="instalamos-docker-y-docker-compose">Instalamos <code>docker</code> y <a href="../../docker/Docker%20Compose/"><code>docker-Compose</code></a><a class="headerlink" href="#instalamos-docker-y-docker-compose" title="Permanent link">¶</a></h2>
 <pre><code>sudo pacman -S docker docker-compose
 </code></pre>
 <h2 id="iniciamos-docker-y-lo-habilitamos-para-que-se-inicie-al-reiniciar">Iniciamos Docker y lo habilitamos para que se inicie al reiniciar<a class="headerlink" href="#iniciamos-docker-y-lo-habilitamos-para-que-se-inicie-al-reiniciar" title="Permanent link">¶</a></h2>
@@ -402,9 +412,44 @@ sudo systemctl start docker
 <p>Añadimos al usuario:</p>
 <pre><code>sudo usermod -aG docker $USER
 </code></pre>
+<pre><code>Para que los cambios surtan efecto habrá que reiniciar la sesión completamente, no basta con cerrar el terminal.
+</code></pre>
+<h2 id="comprobar-la-instalacion">Comprobar la instalación<a class="headerlink" href="#comprobar-la-instalacion" title="Permanent link">¶</a></h2>
+<p>Para comprobar si Docker está instalado correctamente en tu sistema, puedes ejecutar el siguiente comando:</p>
+<pre><code>docker run hello-world
+</code></pre>
+<p>Este comando descargará la imagen <code>hello-world</code> de Docker Hub y la ejecutará en un contenedor. Si todo funciona correctamente, deberías ver un mensaje que indica que Docker está instalado y funcionando correctamente.</p>
+<pre><code>Unable to find image 'hello-world:latest' locally
+latest: Pulling from library/hello-world
+2db29710123e: Pull complete 
+Digest: sha256:4e83453afed1b4fa1a3500525091dbfca6ce1e66903fd4c01ff015dbcb1ba33e
+Status: Downloaded newer image for hello-world:latest
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+    (amd64)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+ https://hub.docker.com/
+
+For more examples and ideas, visit:
+ https://docs.docker.com/get-started/
+</code></pre>
 <h2 id="docker-compose-en-arch-con-python">Docker-Compose en Arch con Python<a class="headerlink" href="#docker-compose-en-arch-con-python" title="Permanent link">¶</a></h2>
+<p>En principio ya se ha realizado la instalación de <code>docker-compose</code>. Otra forma de hacer lo propio es mediante la herramienta de instalación de paquetes de python <code>pip</code>.</p>
 <h3 id="instalando">Instalando<a class="headerlink" href="#instalando" title="Permanent link">¶</a></h3>
-<p>Si no tienes instalado pip, deberás instalarlo</p>
+<p>Si no tienes instalado <code>pip</code>, deberás instalarlo</p>
 <pre><code>sudo pacman -S  python-pip
 </code></pre>
 <p>Ahora vamos a instalar docker-compose</p>

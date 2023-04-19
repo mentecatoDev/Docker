@@ -243,15 +243,31 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1>04.-Capas</h1>
-<p>Las imágenes se construyen sobre una tecnología de <strong>sistema de ficheros por capas</strong>.
-Para crear una imagen, generalmente se crea el archivo de texto <code>dockerfile</code> formado por diferentes <strong>instrucciones</strong>. Cada línea representa una instrucción, y cada vez que se ejecuta el dockerfile se ejecutan dichas instrucciones de arriba a abajo.
-Estos <code>dockerfile</code>-s se almacenan como texto y se pueden compartir con facilidad, así como almacenarse en sistemas de control de versiones.
-Cada <strong>instrucción</strong> que se ejecuta cambia ligeramente el estado del sistema de archivos respecto a la instrucción anterior.
-La diferencia entre el estado del sistema de ficheros antes y después de cada instrucción se guarda en disco como un archivo, que conforma una <strong>capa</strong>.
-Cada <strong>imagen</strong> es un conjunto de capas que contienen los diferentes cambios que se van realizando sobre el sistema de archivos empaquetados.
-Al final del <code>dockerfile</code>, la última instrucción define el <strong>comando</strong> que se ejecutará cuando arranquemos el contenedor.
-Al ejecutar un comando a partir de la imagen creada, se ejecuta el comando especificado y se convierte en el proceso con PID 1 dentro del árbol virtual de procesos.
-El contenedor seguirá en marcha mientras el proceso creado siga en ejecución.</p>
+<p>Las imágenes se construyen sobre una tecnología de <strong>sistema de ficheros por capas</strong>:</p>
+<ul>
+<li>
+<p>Para crear una imagen, generalmente se crea el archivo de texto <code>dockerfile</code> formado por diferentes <strong>instrucciones</strong>. Cada línea representa una instrucción, y cada vez que se ejecuta el dockerfile se ejecutan dichas instrucciones de arriba a abajo.</p>
+</li>
+<li>
+<p>Estos <code>dockerfile</code>-s se almacenan como texto y se pueden compartir con facilidad, así como almacenarse en sistemas de control de versiones.</p>
+</li>
+<li>
+<p>Cada <strong>instrucción</strong> que se ejecuta cambia ligeramente el estado del sistema de archivos respecto a la instrucción anterior.</p>
+</li>
+<li>
+<p>La diferencia entre el estado del sistema de ficheros antes y después de cada instrucción se guarda en disco como un archivo, que conforma una <strong>capa</strong>.</p>
+</li>
+<li>
+<p>Cada <strong>imagen</strong> es un conjunto de capas que contienen los diferentes cambios que se van realizando sobre el sistema de archivos empaquetados.</p>
+</li>
+<li>
+<p>Al final del <code>dockerfile</code>, la última instrucción define el <strong>comando</strong> que se ejecutará cuando arranquemos el contenedor.</p>
+</li>
+<li>
+<p>Al ejecutar un comando a partir de la imagen creada, se ejecuta el comando especificado y se convierte en el proceso con PID 1 dentro del árbol virtual de procesos.</p>
+</li>
+</ul>
+<p>El contenedor seguirá en marcha mientras el proceso creado siga en ejecución.</p>
 </article>
 </div>
 </div>
