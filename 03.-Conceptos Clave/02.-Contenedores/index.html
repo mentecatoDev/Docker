@@ -231,6 +231,21 @@
     Contenedores Windows y contenedores Linux
   </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#portabilidad">
+    Portabilidad
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#inmutabilidad">
+    Inmutabilidad
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ligereza">
+    Ligereza
+  </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -276,6 +291,21 @@
     Contenedores Windows y contenedores Linux
   </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#portabilidad">
+    Portabilidad
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#inmutabilidad">
+    Inmutabilidad
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ligereza">
+    Ligereza
+  </a>
+</li>
 </ul>
 </nav>
 </div>
@@ -306,6 +336,12 @@
 <li>Se ejecutan sobre una máquina virtual línux controlada por el hipervisor de windows (Hyper-V)</li>
 <li>En Hyper-V Windows lanza una MV super fina que tiene su propio kernel y por tanto los contenedores <strong>no son visibles desde el propio SO</strong>.</li>
 </ul>
+<h2 id="portabilidad">Portabilidad<a class="headerlink" href="#portabilidad" title="Permanent link">¶</a></h2>
+<p>Un contenedor es ejecutado por lo que se denomina el <em>Docker Engine</em>, un demonio que es fácilmente instalable en todas las distribuciones Linux y también en Windows. Un contenedor ejecuta una imagen de docker, que es una representación del sistema de ficheros y otros metadatos que el contenedor va a utilizar para su ejecución. Una vez que hemos generado una imagen de Docker, ya sea en nuestro ordenador o vía una herramienta externa, esta imagen podrá ser ejecutada por cualquier Docker Engine, independientemente del sistema operativo y la infraestructura que haya por debajo.</p>
+<h2 id="inmutabilidad">Inmutabilidad<a class="headerlink" href="#inmutabilidad" title="Permanent link">¶</a></h2>
+<p>Una aplicación la componen tanto el código fuente como las librerías del sistema operativo y del lenguaje de programación necesarias para la ejecución de dicho código. Estas dependencias van en función, a su vez, del sistema operativo donde nuestro código va a ser ejecutado, y por esto mismo ocurre muchas veces aquello de que <em>“no sé, en mi máquina funciona”</em>. Sin embargo, el proceso de instalación de dependencias en Docker no depende del sistema operativo, sino que este proceso se realiza cuando se genera una imagen de docker. Es decir, una imagen de docker (también llamada <em>repositorio</em> por su parecido con los repositorios de <em>git</em>) contiene tanto el código de la aplicación como las dependencias que necesita para su ejecución. Una imagen se genera una vez y puede ser ejecutada las veces que sean necesarias, y siempre ejecutará con las misma versión del código fuente y sus dependencias, por lo que se dice que es inmutable. Si unimos inmutabilidad con el hecho de que Docker es portable, decimos que Docker es una herramienta fiable, ya que una vez generada una imagen, ésta se comporta de la misma manera independientemente del sistema operativo y de la infraestructura donde se esté ejecutando.</p>
+<h2 id="ligereza">Ligereza<a class="headerlink" href="#ligereza" title="Permanent link">¶</a></h2>
+<p>Los contenedores corriendo en la misma máquina comparten entre ellos el sistema operativo, pero cada contenedor es un proceso independiente con su propio sistema de ficheros y su propio espacio de procesos y usuarios (para este fin Docker utiliza <em>cgroups</em> y <em>namespaces</em>, recursos de aislamiento basados en el kernel de Linux). Esto hace que la ejecución de contenedores sea mucho más ligera que otros mecanismos de virtualización. Comparemos por ejemplo con otra tecnología muy utilizada como es Virtualbox. Virtualbox permite del orden de 4 ó 5 máquinas virtuales en un ordenador convencional, mientras que en el mismo ordenador podremos correr cientos de containers sin mayor problema, además de que su gestión es mucho más sencilla.</p>
 </article>
 </div>
 </div>
