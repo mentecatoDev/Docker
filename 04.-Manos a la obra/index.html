@@ -5,16 +5,17 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="01.-Introducci%C3%B3n/" rel="next"/>
-<link href="assets/images/favicon.png" rel="icon"/>
+<link href="../03.-Conceptos%20Clave/06.-Estructura%20de%20docker/" rel="prev"/>
+<link href="01.-Versi%C3%B3n%20y%20Gesti%C3%B3n%20del%20Servicio/" rel="next"/>
+<link href="../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.4.2, mkdocs-material-9.1.1" name="generator"/>
-<title>Sistemas Informáticos</title>
-<link href="assets/stylesheets/main.402914a4.min.css" rel="stylesheet"/>
-<link href="assets/stylesheets/palette.a0c5b2b5.min.css" rel="stylesheet"/>
+<title>04.-Manos a la obra - Sistemas Informáticos</title>
+<link href="../assets/stylesheets/main.402914a4.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/palette.a0c5b2b5.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
-<script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 </head>
 <body data-md-color-accent="green" data-md-color-primary="blue-grey" data-md-color-scheme="default" dir="ltr">
 <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
@@ -22,12 +23,15 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
+<a class="md-skip" href="#04-manos-a-la-obra">
+          Saltar a contenido
+        </a>
 </div>
 <div data-md-component="announce">
 </div>
 <header class="md-header" data-md-component="header">
 <nav aria-label="Cabecera" class="md-header__inner md-grid">
-<a aria-label="Sistemas Informáticos" class="md-header__button md-logo" data-md-component="logo" href="." title="Sistemas Informáticos">
+<a aria-label="Sistemas Informáticos" class="md-header__button md-logo" data-md-component="logo" href=".." title="Sistemas Informáticos">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
 </a>
 <label class="md-header__button md-icon" for="__drawer">
@@ -43,7 +47,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Home
+              04.-Manos a la obra
             
           </span>
 </div>
@@ -96,37 +100,37 @@
 <div class="md-grid">
 <ul class="md-tabs__list">
 <li class="md-tabs__item">
-<a class="md-tabs__link md-tabs__link--active" href=".">
+<a class="md-tabs__link" href="..">
       Home
     </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="01.-Introducci%C3%B3n/">
+<a class="md-tabs__link" href="../01.-Introducci%C3%B3n/">
       01.-Introducción
     </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="02.-Instalaci%C3%B3n/">
+<a class="md-tabs__link" href="../02.-Instalaci%C3%B3n/">
         02.-Instalación
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="03.-Conceptos%20Clave/">
+<a class="md-tabs__link" href="../03.-Conceptos%20Clave/">
         03.-Conceptos Clave
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="04.-Manos%20a%20la%20obra/">
+<a class="md-tabs__link md-tabs__link--active" href="./">
         04.-Manos a la obra
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="05.-Gesti%C3%B3n%20de%20im%C3%A1genes/">
+<a class="md-tabs__link" href="../05.-Gesti%C3%B3n%20de%20im%C3%A1genes/">
       05.-Gestión de imágenes
     </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="Untitled/">
+<a class="md-tabs__link" href="../Untitled/">
       Untitled
     </a>
 </li>
@@ -140,27 +144,26 @@
 <div class="md-sidebar__inner">
 <nav aria-label="Navegación" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
-<a aria-label="Sistemas Informáticos" class="md-nav__button md-logo" data-md-component="logo" href="." title="Sistemas Informáticos">
+<a aria-label="Sistemas Informáticos" class="md-nav__button md-logo" data-md-component="logo" href=".." title="Sistemas Informáticos">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
 </a>
     Sistemas Informáticos
   </label>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
-<a class="md-nav__link md-nav__link--active" href=".">
+<li class="md-nav__item">
+<a class="md-nav__link" href="..">
         Home
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="01.-Introducci%C3%B3n/">
+<a class="md-nav__link" href="../01.-Introducci%C3%B3n/">
         01.-Introducción
       </a>
 </li>
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="02.-Instalaci%C3%B3n/">02.-Instalación</a>
+<a href="../02.-Instalaci%C3%B3n/">02.-Instalación</a>
 <label for="__nav_3">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -172,32 +175,32 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="02.-Instalaci%C3%B3n/01.-Instalaci%C3%B3n%20r%C3%A1pida%20en%20Arch%20Linux/">
+<a class="md-nav__link" href="../02.-Instalaci%C3%B3n/01.-Instalaci%C3%B3n%20r%C3%A1pida%20en%20Arch%20Linux/">
         01.-Instalación rápida en Arch Linux
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="02.-Instalaci%C3%B3n/02.-Instalaci%C3%B3n%20r%C3%A1pida%20en%20Fedora/">
+<a class="md-nav__link" href="../02.-Instalaci%C3%B3n/02.-Instalaci%C3%B3n%20r%C3%A1pida%20en%20Fedora/">
         02.-Instalación rápida en Fedora
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="02.-Instalaci%C3%B3n/03.-Instalaci%C3%B3n%20r%C3%A1pida%20en%20Ubuntu/">
+<a class="md-nav__link" href="../02.-Instalaci%C3%B3n/03.-Instalaci%C3%B3n%20r%C3%A1pida%20en%20Ubuntu/">
         03.-Instalación rápida en Ubuntu
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="02.-Instalaci%C3%B3n/04.-Instalaci%C3%B3n%20r%C3%A1pida%20en%20Ubuntu/">
+<a class="md-nav__link" href="../02.-Instalaci%C3%B3n/04.-Instalaci%C3%B3n%20r%C3%A1pida%20en%20Ubuntu/">
         04.-Instalación rápida en Ubuntu
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="02.-Instalaci%C3%B3n/05.-Instalaci%C3%B3n%20r%C3%A1pida%20en%20Ubuntu/">
+<a class="md-nav__link" href="../02.-Instalaci%C3%B3n/05.-Instalaci%C3%B3n%20r%C3%A1pida%20en%20Ubuntu/">
         05.-Instalación rápida en Ubuntu
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="02.-Instalaci%C3%B3n/06.-Instalaci%C3%B3n%20r%C3%A1pida%20en%20Ubuntu/">
+<a class="md-nav__link" href="../02.-Instalaci%C3%B3n/06.-Instalaci%C3%B3n%20r%C3%A1pida%20en%20Ubuntu/">
         06.-Instalación rápida en Ubuntu
       </a>
 </li>
@@ -207,7 +210,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_4" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="03.-Conceptos%20Clave/">03.-Conceptos Clave</a>
+<a href="../03.-Conceptos%20Clave/">03.-Conceptos Clave</a>
 <label for="__nav_4">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -231,12 +234,12 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="03.-Conceptos%20Clave/01.-Im%C3%A1genes/01.-Im%C3%A1genes/">
+<a class="md-nav__link" href="../03.-Conceptos%20Clave/01.-Im%C3%A1genes/01.-Im%C3%A1genes/">
         01.-Imágenes
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="03.-Conceptos%20Clave/01.-Im%C3%A1genes/02.-Docker%20Hub/">
+<a class="md-nav__link" href="../03.-Conceptos%20Clave/01.-Im%C3%A1genes/02.-Docker%20Hub/">
         02.-Docker Hub
       </a>
 </li>
@@ -244,64 +247,64 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="03.-Conceptos%20Clave/02.-Contenedores/">
+<a class="md-nav__link" href="../03.-Conceptos%20Clave/02.-Contenedores/">
         02.-Contenedores
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="03.-Conceptos%20Clave/03.-Vol%C3%BAmenes/">
+<a class="md-nav__link" href="../03.-Conceptos%20Clave/03.-Vol%C3%BAmenes/">
         03.-Volúmenes
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="03.-Conceptos%20Clave/04.-Capas/">
+<a class="md-nav__link" href="../03.-Conceptos%20Clave/04.-Capas/">
         04.-Capas
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="03.-Conceptos%20Clave/05.-Redes/">
+<a class="md-nav__link" href="../03.-Conceptos%20Clave/05.-Redes/">
         05.-Redes
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="03.-Conceptos%20Clave/06.-Estructura%20de%20docker/">
+<a class="md-nav__link" href="../03.-Conceptos%20Clave/06.-Estructura%20de%20docker/">
         06.-Estructura de docker
       </a>
 </li>
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_5" type="checkbox"/>
-<div class="md-nav__link md-nav__link--index">
-<a href="04.-Manos%20a%20la%20obra/">04.-Manos a la obra</a>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_5" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index md-nav__link--active">
+<a href="./">04.-Manos a la obra</a>
 <label for="__nav_5">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-expanded="false" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
+<nav aria-expanded="true" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_5">
 <span class="md-nav__icon md-icon"></span>
           04.-Manos a la obra
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="04.-Manos%20a%20la%20obra/01.-Versi%C3%B3n%20y%20Gesti%C3%B3n%20del%20Servicio/">
+<a class="md-nav__link" href="01.-Versi%C3%B3n%20y%20Gesti%C3%B3n%20del%20Servicio/">
         01.-Versión y Gestión del Servicio
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="04.-Manos%20a%20la%20obra/02.-Usar%20el%20comando%20docker/">
+<a class="md-nav__link" href="02.-Usar%20el%20comando%20docker/">
         02.-Usar el comando docker
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="04.-Manos%20a%20la%20obra/03.-%20Trabajar%20con%20im%C3%A1genes%20de%20docker/">
+<a class="md-nav__link" href="03.-%20Trabajar%20con%20im%C3%A1genes%20de%20docker/">
         03.- Trabajar con imágenes de docker
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="04.-Manos%20a%20la%20obra/04.-Ejecutar%20un%20contenedor%20de%20Docker/">
+<a class="md-nav__link" href="04.-Ejecutar%20un%20contenedor%20de%20Docker/">
         04.-Ejecutar un contenedor de Docker
       </a>
 </li>
@@ -309,12 +312,12 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="05.-Gesti%C3%B3n%20de%20im%C3%A1genes/">
+<a class="md-nav__link" href="../05.-Gesti%C3%B3n%20de%20im%C3%A1genes/">
         05.-Gestión de imágenes
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="Untitled/">
+<a class="md-nav__link" href="../Untitled/">
         Untitled
       </a>
 </li>
@@ -333,21 +336,10 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1>Home</h1>
-<p><img alt="" src="img/Docker_%28container_engine%29_logo.png"/></p>
-<ul>
-<li><a href="01.-Introducci%C3%B3n/">01.-Introducción</a></li>
-<li><a href="./02.-Instalación/index.html">02.-Instalación</a></li>
-<li><a href="./03.-Conceptos%20Clave/index.html">03.-Conceptos Clave</a></li>
-<li><a href="05.-Gesti%C3%B3n%20de%20im%C3%A1genes/">05.-Gestión de imágenes</a></li>
-<li>Comandos básicos de Docker CLI para la gestión de imágenes y contenedores [<a href="https://danimrprofe.github.io/apuntes/docker/">2</a>]</li>
-<li>Creación de imágenes personalizadas y registro en Docker Hub [<a href="http://apuntes.ucr.ac.cr/index.php/Docker,_aplicaciones_en_cualquier_parte">1</a>]</li>
-<li>Implementación de una aplicación en contenedor de Docker [<a href="http://apuntes.ucr.ac.cr/index.php/Docker,_aplicaciones_en_cualquier_parte">1</a>]</li>
-<li>Integración de Docker con herramientas de orquestación como Kubernetes o Docker Compose [<a href="https://comacero.gitlab.io/notes_docker/">3</a>]</li>
-<li>Buenas prácticas y consideraciones de seguridad para el uso de Docker [<a href="https://comacero.gitlab.io/notes_docker/">3</a>]
-<a href="01.-Introducci%C3%B3n/">01.-Introducción</a>
-<a href="intermezzo/Docker%20en%20python%20y%20django/">Docker en python y django</a></li>
-</ul>
+<h1 id="04-manos-a-la-obra">04.-Manos a la obra<a class="headerlink" href="#04-manos-a-la-obra" title="Permanent link">¶</a></h1>
+<p>Una vez instalado <code>docker</code> en nuestro sistema o en una máquina virtual, empezamos con la parte práctica y divertida del uso de esta tecnología.
+Para empezar vamos a familiarizarnos con el gestión de imágenes y contenedores desde nuestra querida línea de comandos:</p>
+<p><a href="01.-Versi%C3%B3n%20y%20Gesti%C3%B3n%20del%20Servicio/">01.-Versión y Gestión del Servicio</a></p>
 </article>
 </div>
 </div>
@@ -374,9 +366,9 @@
 <div class="md-dialog" data-md-component="dialog">
 <div class="md-dialog__inner md-typeset"></div>
 </div>
-<script id="__config" type="application/json">{"base": ".", "features": ["navigation.top", "navigation.top.sticky", "navigation.tabs", "navigation.indexes"], "search": "assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}}</script>
-<script src="assets/javascripts/bundle.b78d2936.min.js"></script>
-<script src="javascripts/mathjax.js"></script>
+<script id="__config" type="application/json">{"base": "..", "features": ["navigation.top", "navigation.top.sticky", "navigation.tabs", "navigation.indexes"], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}}</script>
+<script src="../assets/javascripts/bundle.b78d2936.min.js"></script>
+<script src="../javascripts/mathjax.js"></script>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
