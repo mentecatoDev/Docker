@@ -420,8 +420,34 @@
 <pre><code>$ docker -version
 $ docker -v
 </code></pre>
+<pre><code>Docker version 23.0.3, build 3e7cbfdee1
+</code></pre>
 <h2 id="estado-del-servicio">Estado del servicio<a class="headerlink" href="#estado-del-servicio" title="Permanent link">¶</a></h2>
 <pre><code>$ sudo systemctl status docker
+</code></pre>
+<pre><code>● docker.service - Docker Application Container Engine
+     Loaded: loaded (/usr/lib/systemd/system/docker.service; enabled; preset: disabled)
+     Active: active (running) since Fri 2023-04-21 10:10:47 CEST; 13min ago
+TriggeredBy: ● docker.socket
+       Docs: https://docs.docker.com
+   Main PID: 685 (dockerd)
+      Tasks: 17
+     Memory: 123.2M
+        CPU: 438ms
+     CGroup: /system.slice/docker.service
+             └─685 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
+
+abr 21 10:10:46 SDD dockerd[685]: time="2023-04-21T10:10:46.219884270+02:00" level=info msg="Firewalld: i&gt;
+abr 21 10:10:46 SDD dockerd[685]: time="2023-04-21T10:10:46.744731604+02:00" level=info msg="Default brid&gt;
+abr 21 10:10:47 SDD dockerd[685]: time="2023-04-21T10:10:47.019068520+02:00" level=info msg="Firewalld: i&gt;
+abr 21 10:10:47 SDD dockerd[685]: time="2023-04-21T10:10:47.290530069+02:00" level=info msg="Loading cont&gt;
+abr 21 10:10:47 SDD dockerd[685]: time="2023-04-21T10:10:47.415183339+02:00" level=warning msg="Not using&gt;
+abr 21 10:10:47 SDD dockerd[685]: time="2023-04-21T10:10:47.415390693+02:00" level=info msg="Docker daemo&gt;
+abr 21 10:10:47 SDD dockerd[685]: time="2023-04-21T10:10:47.415694639+02:00" level=info msg="Daemon has c&gt;
+abr 21 10:10:47 SDD dockerd[685]: time="2023-04-21T10:10:47.470857994+02:00" level=info msg="[core] [Serv&gt;
+abr 21 10:10:47 SDD systemd[1]: Started Docker Application Container Engine.
+abr 21 10:10:47 SDD dockerd[685]: time="2023-04-21T10:10:47.494255040+02:00" level=info msg="API listen o&gt;
+lines 1-22/22 (END)
 </code></pre>
 <h2 id="arranque-del-servicio">Arranque del servicio<a class="headerlink" href="#arranque-del-servicio" title="Permanent link">¶</a></h2>
 <pre><code>$ sudo sytemctl start docker
