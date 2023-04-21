@@ -339,6 +339,33 @@
 <p>Podemos buscar imágenes disponibles en Docker Hub usando el comando <code>docker</code> con el subcomando <code>search</code>. Por ejemplo, para buscar la imagen de Ubuntu, escribimos lo siguiente:</p>
 <pre><code>$ docker search ubuntu
 </code></pre>
+<pre><code>NAME                             DESCRIPTION                                     STARS     OFFICIAL   AUTOMATED
+ubuntu                           Ubuntu is a Debian-based Linux operating sys…   15864     [OK]       
+websphere-liberty                WebSphere Liberty multi-architecture images …   293       [OK]       
+open-liberty                     Open Liberty multi-architecture images based…   59        [OK]       
+neurodebian                      NeuroDebian provides neuroscience research s…   100       [OK]       
+ubuntu-debootstrap               DEPRECATED; use "ubuntu" instead                50        [OK]       
+ubuntu-upstart                   DEPRECATED, as is Upstart (find other proces…   113       [OK]       
+ubuntu/nginx                     Nginx, a high-performance reverse proxy &amp; we…   84                   
+ubuntu/cortex                    Cortex provides storage for Prometheus. Long…   3                    
+ubuntu/squid                     Squid is a caching proxy for the Web. Long-t…   54                   
+ubuntu/apache2                   Apache, a secure &amp; extensible open-source HT…   57                   
+ubuntu/mysql                     MySQL open source fast, stable, multi-thread…   45                   
+ubuntu/kafka                     Apache Kafka, a distributed event streaming …   29                   
+ubuntu/bind9                     BIND 9 is a very flexible, full-featured DNS…   51                   
+ubuntu/redis                     Redis, an open source key-value store. Long-…   17                   
+ubuntu/prometheus                Prometheus is a systems and service monitori…   40                   
+ubuntu/postgres                  PostgreSQL is an open source object-relation…   27                   
+ubuntu/zookeeper                 ZooKeeper maintains configuration informatio…   5                    
+ubuntu/grafana                   Grafana, a feature rich metrics dashboard &amp; …   9                    
+ubuntu/memcached                 Memcached, in-memory keyvalue store for smal…   5                    
+ubuntu/prometheus-alertmanager   Alertmanager handles client alerts from Prom…   8                    
+ubuntu/dotnet-deps               Chiselled Ubuntu for self-contained .NET &amp; A…   7                    
+ubuntu/dotnet-runtime            Chiselled Ubuntu runtime image for .NET apps…   5                    
+ubuntu/cassandra                 Cassandra, an open source NoSQL distributed …   2                    
+ubuntu/dotnet-aspnet             Chiselled Ubuntu runtime image for ASP.NET a…   4                    
+ubuntu/telegraf                  Telegraf collects, processes, aggregates &amp; w…   4   
+</code></pre>
 <p>El comando que acabamos de ejecutar buscará en los repositorios de Docker Hub en busca de imágenes que coincidan con el criterio de búsqueda y devuelve los posibles candidatos.</p>
 <p>En la columna de <strong>OFFICIAL, OK</strong> indica que la imagen creada está avalada por la empresa responsable del proyecto. Una vez que identifique la imagen que desearía usar, podemos descargarla utilizando el subcomando docker pull.</p>
 <pre><code>$ docker pull ubuntu
