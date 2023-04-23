@@ -407,15 +407,15 @@ $ sudo usermod -aG docker $USER
 $ reboot
 </code></pre>
 <ul>
-<li>Ejecuta un contenedor a partir de la imagen <code>hello-word</code>. Comprueba que nos devuelve la salida adecuada. Comprueba que no se está ejecutando. Lista los contenedores que están parado. Borra el contenedor.</li>
+<li>Ejecuta un contenedor a partir de la imagen <code>hello-word</code>. Comprueba que nos devuelve la salida adecuada. Comprueba que no se está ejecutando. Lista los contenedores que están parados. Borra el contenedor.</li>
 </ul>
-<pre><code>$ docker run hello-world
+<pre><code>$ docker run --name mi_contenedor hello-world
 </code></pre>
 <pre><code>$ docker ps
 </code></pre>
 <pre><code>$ docker ps -a
 </code></pre>
-<pre><code>$ docker rm «nombre_contenedor»
+<pre><code>$ docker rm mi_contenedor
 </code></pre>
 <pre><code>$ docker image rm hello-world
 </code></pre>
@@ -438,7 +438,7 @@ $ apt install nano
 <p>Vuelve a iniciar el contenedor y accede de nuevo a él de forma interactiva. </p>
 <pre><code>$ docker start -i mi_contenedor
 </code></pre>
-<p>¿Sigue instalado el <code>nano</code>?.</p>
+<p>¿Sigue instalado  <code>nano</code>?.</p>
 <pre><code>«Sí»
 </code></pre>
 <p>Sal del contenedor, y bórralo. Crea un nuevo contenedor interactivo desde la misma imagen.</p>
@@ -452,10 +452,17 @@ $ docker run -it --name mi_nuevo_contenedor debian
 <ul>
 <li>Crea un contenedor demonio con un servidor <code>nginx</code>, usando la imagen oficial de nginx.</li>
 </ul>
-<pre><code>
+<pre><code>docker run -dit --name servidor_nginx -p 80:80 nginx
 </code></pre>
-<p>Al crear el contenedor, ¿has tenido que indicar algún comando para que lo ejecute? Accede al navegador web y comprueba que el servidor esta funcionando. Muestra los logs del contenedor.
-12.  Crea un contenedor con la aplicación Nextcloud, mirando la <a href="https://hub.docker.com/_/nextcloud">documentación en docker Hub</a>, para personalizar el nombre de la base de datos sqlite que va a utilizar.</p>
+<p>Al crear el contenedor, ¿has tenido que indicar algún comando para que lo ejecute?
+ <code>«No»</code>
+ Accede al navegador web y comprueba que el servidor esta funcionando. 
+ <code>firefox localhost</code>
+ Muestra los logs del contenedor.
+ <code>docker logs servidor_nginx</code></p>
+<ul>
+<li>Crea un contenedor con la aplicación Nextcloud, mirando la <a href="https://hub.docker.com/_/nextcloud">documentación en docker Hub</a>, para personalizar el nombre de la base de datos sqlite que va a utilizar.</li>
+</ul>
 <h2 id="ejercicio-para-entregar"><a href="https://iesgn.github.io/curso_docker_2021/sesion1/ejercicios.html#ejercicio-para-entregar"></a>Ejercicio para entregar<a class="headerlink" href="#ejercicio-para-entregar" title="Permanent link">¶</a></h2>
 <p>Vamos a entregar el ejercicio 4 con algunas modificaciones. Crearemos un contenedor demonio a partir de la imagen <code>nginx</code>, el contenedor se debe llamar <code>servidor_web</code> y se debe acceder a él utilizando el puerto 8181 del ordenador donde tengas instalado docker.</p>
 <p>Entrega un fichero comprimido o un documento pdf con los siguientes pantallazos:</p>
