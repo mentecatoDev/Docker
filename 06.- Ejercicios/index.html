@@ -8,7 +8,7 @@
 <link href="../05.-Gesti%C3%B3n%20de%20im%C3%A1genes/" rel="prev"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.4.2, mkdocs-material-9.1.1" name="generator"/>
-<title>Untitled - Sistemas Informáticos</title>
+<title>06.- Ejercicios - Sistemas Informáticos</title>
 <link href="../assets/stylesheets/main.402914a4.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.a0c5b2b5.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -22,6 +22,9 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
+<a class="md-skip" href="#ejercicios-para-repasar">
+          Saltar a contenido
+        </a>
 </div>
 <div data-md-component="announce">
 </div>
@@ -43,7 +46,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Untitled
+              06.- Ejercicios
             
           </span>
 </div>
@@ -127,7 +130,7 @@
 </li>
 <li class="md-tabs__item">
 <a class="md-tabs__link md-tabs__link--active" href="./">
-      Untitled
+      06.- Ejercicios
     </a>
 </li>
 </ul>
@@ -334,9 +337,31 @@
 </li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          06.- Ejercicios
+          <span class="md-nav__icon md-icon"></span>
+</label>
 <a class="md-nav__link md-nav__link--active" href="./">
-        Untitled
+        06.- Ejercicios
       </a>
+<nav aria-label="Tabla de contenidos" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ejercicios-para-repasar">
+    Ejercicios para repasar
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ejercicio-para-entregar">
+    Ejercicio para entregar
+  </a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -347,13 +372,99 @@
 <div class="md-sidebar__scrollwrap">
 <div class="md-sidebar__inner">
 <nav aria-label="Tabla de contenidos" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ejercicios-para-repasar">
+    Ejercicios para repasar
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ejercicio-para-entregar">
+    Ejercicio para entregar
+  </a>
+</li>
+</ul>
 </nav>
 </div>
 </div>
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1>Untitled</h1>
+<h1>06.- Ejercicios</h1>
+<h2 id="ejercicios-para-repasar">Ejercicios para repasar<a class="headerlink" href="#ejercicios-para-repasar" title="Permanent link">¶</a></h2>
+<ul>
+<li>Instala docker en una máquina y configúralo para que se pueda usar con un usuario sin privilegios.</li>
+</ul>
+<pre><code>$ sudo pacman -Syy
+$ sudo pacman -S docker docker-compose
+$ sudo systemctl enable docker
+$ sudo systemctl start docker
+$ sudo usermod -aG docker $USER
+$ reboot
+</code></pre>
+<ul>
+<li>Ejecuta un contenedor a partir de la imagen <code>hello-word</code>. Comprueba que nos devuelve la salida adecuada. Comprueba que no se está ejecutando. Lista los contenedores que están parado. Borra el contenedor.</li>
+</ul>
+<pre><code>$ docker run hello-world
+</code></pre>
+<pre><code>$ docker ps
+</code></pre>
+<pre><code>$ docker ps -a
+</code></pre>
+<pre><code>$ docker rm «nombre_contenedor»
+</code></pre>
+<pre><code>$ docker image rm hello-world
+</code></pre>
+<ul>
+<li>Crea un contenedor interactivo desde una imagen <code>debian</code>. Instala un paquete (por ejemplo <code>nano</code>).  Vuelve a iniciar el contenedor y accede de nuevo a él de forma interactiva. ¿Sigue instalado el <code>nano</code>?. Sal del contenedor, y bórralo. Crea un nuevo contenedor interactivo desde la misma imagen. ¿Tiene el <code>nano</code> instalado?</li>
+</ul>
+<pre><code>$ docker search debian
+$ docker run -it --name mi_contenedor debian
+$ apt update
+$ apt upgrade
+$ apt install nano
+</code></pre>
+<p>Sal de la terminal, ¿sigue el contenedor corriendo?</p>
+<pre><code>$ docker ps
+«No»
+</code></pre>
+<p>¿Por qué?</p>
+<pre><code>«El contenedor se detiene porque el proceso principal que se ejecuta en el contenedor, bash en este caso, termina su ejecución»
+</code></pre>
+<p>Vuelve a iniciar el contenedor y accede de nuevo a él de forma interactiva. </p>
+<pre><code>$ docker start -i mi_contenedor
+</code></pre>
+<p>¿Sigue instalado el <code>nano</code>?.</p>
+<pre><code>«Sí»
+</code></pre>
+<p>Sal del contenedor, y bórralo. Crea un nuevo contenedor interactivo desde la misma imagen.</p>
+<pre><code>$ docker rm debian
+$ docker ps -a
+$ docker run -it --name mi_nuevo_contenedor debian
+</code></pre>
+<p>¿Tiene el <code>nano</code> instalado?</p>
+<pre><code>«No»
+</code></pre>
+<ul>
+<li>Crea un contenedor demonio con un servidor <code>nginx</code>, usando la imagen oficial de nginx.</li>
+</ul>
+<pre><code>
+</code></pre>
+<p>Al crear el contenedor, ¿has tenido que indicar algún comando para que lo ejecute? Accede al navegador web y comprueba que el servidor esta funcionando. Muestra los logs del contenedor.
+12.  Crea un contenedor con la aplicación Nextcloud, mirando la <a href="https://hub.docker.com/_/nextcloud">documentación en docker Hub</a>, para personalizar el nombre de la base de datos sqlite que va a utilizar.</p>
+<h2 id="ejercicio-para-entregar"><a href="https://iesgn.github.io/curso_docker_2021/sesion1/ejercicios.html#ejercicio-para-entregar"></a>Ejercicio para entregar<a class="headerlink" href="#ejercicio-para-entregar" title="Permanent link">¶</a></h2>
+<p>Vamos a entregar el ejercicio 4 con algunas modificaciones. Crearemos un contenedor demonio a partir de la imagen <code>nginx</code>, el contenedor se debe llamar <code>servidor_web</code> y se debe acceder a él utilizando el puerto 8181 del ordenador donde tengas instalado docker.</p>
+<p>Entrega un fichero comprimido o un documento pdf con los siguientes pantallazos:</p>
+<ol>
+<li>Pantallazo donde se vea la creación del contenedor y podamos comprobar que el contenedor está funcionando.</li>
+<li>Pantallazo donde se vea el acceso al servidor web utilizando un navegador web (recuerda que tienes que acceder a la ip del ordenador donde tengas instalado docker)</li>
+<li>Pantallazo donde se vean las imágenes que tienes en tu registro local.</li>
+<li>Pantallazo donde se vea como se elimina el contenedor (recuerda que antes debe estar parado el contenedor).</li>
+</ol>
 </article>
 </div>
 </div>
