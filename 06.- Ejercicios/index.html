@@ -323,8 +323,18 @@
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../04.-Manos%20a%20la%20obra/08.-Practica%20con%20Docker%20Playground/">
-        08.-Practica con Docker Playground
+<a class="md-nav__link" href="../04.-Manos%20a%20la%20obra/09.-Practica%20con%20Docker%20Playground/">
+        09.-Practica con Docker Playground
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../04.-Manos%20a%20la%20obra/09.-Variables%20de%20entorno/">
+        09.-Variables de entorno
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../04.-Manos%20a%20la%20obra/10.-Limpi%C3%A1ndolo%20todo/">
+        10.-Limpiándolo todo
       </a>
 </li>
 </ul>
@@ -446,26 +456,32 @@ $ apt install nano
 $ docker ps -a
 $ docker run -it --name mi_nuevo_contenedor debian
 </code></pre>
-<p>¿Tiene el <code>nano</code> instalado?</p>
+<p>¿Tiene <code>nano</code> instalado?</p>
 <pre><code>«No»
 </code></pre>
 <ul>
-<li>Crea un contenedor demonio con un servidor <code>nginx</code>, usando la imagen oficial de nginx.</li>
+<li>Crea un contenedor demonio con un servidor <code>nginx</code> usando la imagen oficial de nginx.</li>
 </ul>
-<pre><code>docker run -dit --name servidor_nginx -p 80:80 nginx
+<pre><code class="language-shell">$ docker run -d -p 8080:80 --name servidor_nginx nginx
 </code></pre>
-<p>Al crear el contenedor, ¿has tenido que indicar algún comando para que lo ejecute?
- <code>«No»</code>
- Accede al navegador web y comprueba que el servidor esta funcionando. 
- <code>firefox localhost</code>
+<p>Al crear el contenedor, ¿has tenido que indicar algún comando para que lo ejecute?</p>
+<pre><code>«No»
+</code></pre>
+<p>Accede al navegador web y comprueba que el servidor está funcionando. 
+ <code>$ firefox localhost</code>
  Muestra los logs del contenedor.
- <code>docker logs servidor_nginx</code></p>
+ <code>shell
+ $ docker logs servidor_nginx</code></p>
 <ul>
 <li>Crea un contenedor con la aplicación Nextcloud, mirando la <a href="https://hub.docker.com/_/nextcloud">documentación en docker Hub</a>, para personalizar el nombre de la base de datos sqlite que va a utilizar.</li>
 </ul>
-<h2 id="ejercicio-para-entregar"><a href="https://iesgn.github.io/curso_docker_2021/sesion1/ejercicios.html#ejercicio-para-entregar"></a>Ejercicio para entregar<a class="headerlink" href="#ejercicio-para-entregar" title="Permanent link">¶</a></h2>
-<p>Vamos a entregar el ejercicio 4 con algunas modificaciones. Crearemos un contenedor demonio a partir de la imagen <code>nginx</code>, el contenedor se debe llamar <code>servidor_web</code> y se debe acceder a él utilizando el puerto 8181 del ordenador donde tengas instalado docker.</p>
-<p>Entrega un fichero comprimido o un documento pdf con los siguientes pantallazos:</p>
+<pre><code>$ docker run -d -p 8080:80 -v nextcloud:/var/www/html --name nextcloud-db -e SQLITE_DATABASE=BD nextcloud
+</code></pre>
+<pre><code>Este comando creará un contenedor de Nextcloud con una base de datos SQLite llamada "BD". El contenedor se ejecutará en segundo plano (-d), expondrá el puerto 8080 (-p) y se vinculará a un volumen llamado "nextcloud" (-v). También se asignará un nombre al contenedor (--name) para facilitar su referencia y se especificará la variable de entorno SQLITE_DATABASE para nombrar la base de datos.
+</code></pre>
+<h2 id="ejercicio-para-entregar">Ejercicio para entregar<a class="headerlink" href="#ejercicio-para-entregar" title="Permanent link">¶</a></h2>
+<p>Crearemos un contenedor demonio a partir de la imagen <code>nginx</code>, el contenedor se debe llamar <code>servidor_web</code> y se debe acceder a él utilizando el puerto 8181 del ordenador donde tengas instalado docker.</p>
+<p>Entrega un fichero comprimido o un documento markdown con los siguientes pantallazos:</p>
 <ol>
 <li>Pantallazo donde se vea la creación del contenedor y podamos comprobar que el contenedor está funcionando.</li>
 <li>Pantallazo donde se vea el acceso al servidor web utilizando un navegador web (recuerda que tienes que acceder a la ip del ordenador donde tengas instalado docker)</li>

@@ -5,11 +5,11 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="../07.-Guardar%20im%C3%A1genes%20de%20docker%20en%20un%20repositorio%20de%20docker/" rel="prev"/>
-<link href="../../05.-Gesti%C3%B3n%20de%20im%C3%A1genes/" rel="next"/>
+<link href="../09.-Practica%20con%20Docker%20Playground/" rel="prev"/>
+<link href="../10.-Limpi%C3%A1ndolo%20todo/" rel="next"/>
 <link href="../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.4.2, mkdocs-material-9.1.1" name="generator"/>
-<title>08.-Practica con Docker Playground - Sistemas Informáticos</title>
+<title>09.-Variables de entorno - Sistemas Informáticos</title>
 <link href="../../assets/stylesheets/main.402914a4.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.a0c5b2b5.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -44,7 +44,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              08.-Practica con Docker Playground
+              09.-Variables de entorno
             
           </span>
 </div>
@@ -320,10 +320,20 @@
         07.-Guardar imágenes de docker en un repositorio de docker
       </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../09.-Practica%20con%20Docker%20Playground/">
+        09.-Practica con Docker Playground
+      </a>
+</li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
 <a class="md-nav__link md-nav__link--active" href="./">
-        08.-Practica con Docker Playground
+        09.-Variables de entorno
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../10.-Limpi%C3%A1ndolo%20todo/">
+        10.-Limpiándolo todo
       </a>
 </li>
 </ul>
@@ -354,27 +364,12 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1>08.-Practica con Docker Playground</h1>
-<p>Podemos practicar gratuitamente Docker desde la siguiente página <a href="https://labs.play-with-docker.com/">https://labs.play-with-docker.com/</a></p>
-<p>Hacemos clic sobre Añadir nueva instancia y ya podemos comenzar a practicar con Docker.</p>
-<p>Comprobamos la versión de Docker que viene instalada.</p>
-<p>Ejercicio: Utiliza Docker Playground para instalar un servidor web Apache.</p>
-<p>Solución:</p>
-<p>En primer lugar, buscamos una imagen de apache en los repositorios de Docker Hub.</p>
-<pre><code>$ docker search apache
+<h1>09.-Variables de entorno</h1>
+<p>Las variables de entorno en Docker son una forma de proporcionar configuración dinámica a los contenedores. Podemos establecer variables de entorno en las instancias de contenedor para proporcionar configuración dinámica a la aplicación o el script que se ejecuta en el contenedor.</p>
+<p>Para establecer una variable de entorno en un contenedor, puede utilizar el argumento <code>--env</code> o <code>-e</code> con el comando <code>docker run</code>. Por ejemplo, para establecer la variable de entorno <code>MI_VAR</code> en el valor <code>mi_valor</code>, puede ejecutar lo siguiente:</p>
+<pre><code>docker run --env MY_VAR=my_value my_image
 </code></pre>
-<p>Descargamos la imagen oficial de apache httpd.</p>
-<pre><code>$ docker pull httpd
-</code></pre>
-<p>Creamos el contenedor de apache.</p>
-<pre><code>$ docker run -dit --name servidor_web -p 80:80 httpd
-</code></pre>
-<p>Parámetros docker run:</p>
-<p><code>-d</code> = permite ejecutar el contenedor en segundo plano</p>
-<p><code>-i</code> = permite que el contenedor sea interactivo</p>
-<p><code>–t</code> = proporciona al contenedor una terminal</p>
-<p><code>--name</code> = nombre del contenedor</p>
-<p><code>-p</code> = permite mapear puertos desde el interior del contenedor 80:80 al exterior del contenedor 80:80. El puerto que utilizamos ha sido el 80 porque es el puerto por defecto que utiliza apache para conexiones no seguras.</p>
+<p>También puede establecer variables de entorno en un archivo <code>.env</code> y utilizar el comando <code>docker-compose</code> para ejecutar los contenedores.</p>
 </article>
 </div>
 </div>
