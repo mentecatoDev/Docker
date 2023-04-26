@@ -438,32 +438,33 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1>01.-Imagen a partir de un contenedor</h1>
-<p>La primera forma para personalizar las imágenes es partiendo de un contenedor que hayamos modificado.</p>
-<ol>
+<p>La primera forma para personalizar imágenes es partiendo de un contenedor que hayamos modificado.</p>
+<ul>
 <li>Arranca un contenedor a partir de una imagen base.</li>
-</ol>
-<p><code>$ docker  run -it --name contenedor debian bash</code></p>
-<ol>
-<li>Realizar modificaciones en el contenedor (instalaciones, modificación de archivos,…).</li>
-</ol>
-<p><code>root@2df2bf1488c5:/# apt update &amp;&amp; apt install apache2 -y
-    root@75f87f84a091:/# echo "&lt;h1&gt;Curso Docker&lt;/h1&gt;" &gt; /var/www/html/index.html
-    root@75f87f84a091:/# exit</code></p>
-<ol>
+</ul>
+<pre><code>$ docker run -it --name contenedor debian bash
+</code></pre>
+<ul>
+<li>Realiza las modificaciones pertinentes en el contenedor (instalaciones, modificación de archivos,…).</li>
+</ul>
+<pre><code>root@«contenedor»:/# apt update &amp;&amp; apt install apache2 -y
+root@«contenedor»:/# echo "&lt;h1&gt;Curso Docker&lt;/h1&gt;" &gt; /var/www/html/index.html
+root@«contenedor»:/# exit
+</code></pre>
+<ul>
 <li>Crear una nueva imagen partiendo de ese contenedor usando <code>docker commit</code>. Con esta instrucción se creará una nueva imagen con las capas de la  imagen base más la capa propia del contenedor. Si no indico etiqueta en  el nombre, se pondrá la etiqueta <code>latest</code>.</li>
-</ol>
-<p>```
-    $ docker commit contenedor josedom24/myapache2:v1
-    sha256:017a4489735f91f68366f505e4976c111129699785e1ef609aefb51615f98fc4</p>
-<pre><code>$ docker images
+</ul>
+<pre><code>$ docker commit contenedor josedom24/myapache2:v1
+sha256:017a4489735f91f68366f505e4976c111129699785e1ef609aefb51615f98fc4
+
+$ docker images
 REPOSITORY                TAG                 IMAGE ID            CREATED             SIZE
 josedom24/myapache2       v1              017a4489735f        44 seconds ago      243MB
 ...
 </code></pre>
-<p>```</p>
-<ol>
+<ul>
 <li>Podríamos crear un nuevo contenedor a partir de esta nueva imagen, pero al crear una imagen con este método <strong>no podemos configurar el proceso que se va a ejecutar por defecto al crear el contenedor</strong> (el proceso por defecto que se ejecuta sería el de la imagen base). Por lo tanto en la creación del nuevo contenedor tendríamos que indicar el  proceso que queremos ejecutar. En este caso para ejecutar el servidor  web apache2 tendremos que ejecutar el comando <code>apache2ctl -D FOREGROUND</code>:</li>
-</ol>
+</ul>
 <pre><code>$ docker run -d -p 8080:80 \
              --name servidor_web \
              josedom24/myapache2:v1 \

@@ -441,12 +441,13 @@
 <article class="md-content__inner md-typeset">
 <p>Una imagen docker es un paquete autocontenido que contiene todo lo necesario para ejecutar una aplicación o servicio en un contenedor docker. Hay dos formas principales de crear una imagen docker:</p>
 <ul>
-<li><a href="01.-Imagen%20a%20partir%20de%20un%20contenedor/">A partir de un contenedor</a></li>
-<li>A partir de un <code>dockerfile</code></li>
+<li>
+<p><a href="01.-Imagen%20a%20partir%20de%20un%20contenedor/">A partir de un contenedor</a>: Consiste en crear un contenedor a partir de una imagen base, modificarlo según las necesidades y luego guardar los cambios como una nueva imagen. Esta forma es útil para hacer pruebas rápidas o personalizar una imagen existente.</p>
+</li>
+<li>
+<p><a href="02.-Creaci%C3%B3n%20de%20im%C3%A1genes%20a%20partir%20de%20un%20fichero%20Dockerfile/">A partir de un <code>dockerfile</code></a>: La segunda forma consiste en escribir un dockerfile con las instrucciones para construir la imagen desde cero. Esta forma es más recomendable para automatizar el proceso de creación de imágenes, documentar los pasos y facilitar la reproducción y el mantenimiento de la imagen.</p>
+</li>
 </ul>
-<p>La primera forma consiste en crear un contenedor a partir de una imagen base, modificarlo según las necesidades y luego guardar los cambios como una nueva imagen. Esta forma es útil para hacer pruebas rápidas o personalizar una imagen existente.</p>
-<p>La segunda forma consiste en escribir un dockerfile con las instrucciones para construir la imagen desde cero. Esta forma es más recomendable para automatizar el proceso de creación de imágenes, documentar los pasos y facilitar la reproducción y el mantenimiento de la imagen.
-<a href="01.-Imagen%20a%20partir%20de%20un%20contenedor/">01.-Image a partir de un contenedor</a></p>
 <h1 id="gestion-de-imagenes">Gestión de imágenes<a class="headerlink" href="#gestion-de-imagenes" title="Permanent link">¶</a></h1>
 <p>Para crear una imagen de Docker, se sigue el siguiente proceso básico:</p>
 <ol>
