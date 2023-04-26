@@ -9,7 +9,7 @@
 <link href="../02.-Instalaci%C3%B3n/" rel="next"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.4.2, mkdocs-material-9.1.4" name="generator"/>
-<title>01.-Introducción - Sistemas Informáticos</title>
+<title>Index - Sistemas Informáticos</title>
 <link href="../assets/stylesheets/main.240905d7.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.a0c5b2b5.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -47,7 +47,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              01.-Introducción
+              Index
             
           </span>
 </div>
@@ -106,8 +106,8 @@
 </li>
 <li class="md-tabs__item">
 <a class="md-tabs__link md-tabs__link--active" href="./">
-      01.-Introducción
-    </a>
+        01.-Introducción
+      </a>
 </li>
 <li class="md-tabs__item">
 <a class="md-tabs__link" href="../02.-Instalaci%C3%B3n/">
@@ -130,9 +130,9 @@
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../06.-Ejercicios/">
-      06.-Ejercicios
-    </a>
+<a class="md-tabs__link" href="../06.-Ejercicios/01.-Ejercicios%20creaci%C3%B3n%20de%20contenedores%20b%C3%A1sicos/">
+        06.-Ejercicios
+      </a>
 </li>
 </ul>
 </div>
@@ -155,31 +155,17 @@
         docker
       </a>
 </li>
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-          01.-Introducción
-          <span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./">
-        01.-Introducción
-      </a>
-<nav aria-label="Tabla de contenidos" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index md-nav__link--active">
+<a href="./">01.-Introducción</a>
+</div>
+<nav aria-expanded="true" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
 <span class="md-nav__icon md-icon"></span>
-      Tabla de contenidos
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#que-es-docker">
-    ¿Qué es Docker?
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#contenedores-vs-entornos-virtuales">
-    Contenedores vs. Entornos Virtuales
-  </a>
-</li>
+          01.-Introducción
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
 </ul>
 </nav>
 </li>
@@ -416,10 +402,25 @@
 </ul>
 </nav>
 </li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+          06.-Ejercicios
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_7_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_7">
+<span class="md-nav__icon md-icon"></span>
+          06.-Ejercicios
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../06.-Ejercicios/">
-        06.-Ejercicios
+<a class="md-nav__link" href="../06.-Ejercicios/01.-Ejercicios%20creaci%C3%B3n%20de%20contenedores%20b%C3%A1sicos/">
+        01.-Ejercicios creación de contenedores básicos
       </a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -452,7 +453,7 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1>01.-Introducción</h1>
+<h1>Index</h1>
 <p>La <strong>configuración adecuada de un entorno de desarrollo local</strong> sigue siendo un gran reto a pesar de todos los otros avances de la programación moderna. Simplemente hay demasiadas variables: diferentes ordenadores, sistemas operativos, versiones de lenguajes y frameworks, opciones de entornos virtuales,  y así sucesivamente. Cuando se añade el reto de <strong>trabajar en equipo</strong> en un entorno en el que todos necesitan tener la misma configuración, el problema se magnifica.</p>
 <p>En los últimos años ha surgido una solución: <a href="https://www.docker.com/">Docker</a>. Aunque sólo tiene unos pocos años, Docker se ha convertido rápidamente en la <strong>opción por defecto</strong> para muchos desarrolladores que trabajan en proyectos a nivel de producción.</p>
 <p>Docker es un proyecto <a href="https://github.com/docker/docker"><em>open source</em></a> que ha revolucionado la manera de desarrollar software gracias a la sencillez con la que permite gestionar contenedores. Los contenedores LXC (LinuX Containers) son un concepto relativamente antiguo y utilizado desde hace tiempo por grandes empresas como Amazon o Google, pero cuyo gestión era complicada. Sin embargo, Docker define APIs y herramientas de línea de comandos que hacen casi trivial la creación, distribución y ejecución de contenedores. De ahí que el lema de Docker sea: “<em>Build, Ship and Run. Any application, Anywhere</em>” y se haya convertido en una herramienta fundamental tanto para desarrolladores como para administradores de sistemas.</p>
@@ -462,7 +463,7 @@
 <p>Docker no es una tecnología perfecta. Todavía es relativamente nueva y compleja en sus entrañas; aún está en desarrollo activo. Pero aspira a la promesa de una política coherente y a un entorno de desarrollo compartible, que pueda ejecutarse localmente en cualquier ordenador o desplegado en cualquier servidor, lo que lo convierte en una opción sólida.</p>
 <h2 id="que-es-docker">¿Qué es Docker?<a class="headerlink" href="#que-es-docker" title="Permanent link">¶</a></h2>
 <p>Docker es una forma de aislar todo un sistema operativo a través de <strong>contenedores Linux</strong> que son un tipo de <strong>virtualización</strong>.</p>
-<p>La virtualización tiene sus raíces en los inicios de la informática cuando las computadoras grandes y caras eran la norma. ¿Cómo podrían varios programadores utilizar la misma máquina?. La respuesta fue la virtualización y específicamente las <strong>máquinas virtuales</strong> que son copias completas de un sistema informático desde el sistema operativo en adelante. <img alt="" src="../img/img00.png"/></p>
+<p>La virtualización tiene sus raíces en los inicios de la informática cuando las computadoras grandes y caras eran la norma. ¿Cómo podrían varios programadores utilizar la misma máquina?. La respuesta fue la virtualización y específicamente las <strong>máquinas virtuales</strong> que son copias completas de un sistema informático desde el sistema operativo en adelante. <img alt="" src="img/img00.png"/></p>
 <p>Cuando se alquila un espacio en un proveedor de cloud computing como <em>Amazon Web Services (AWS)</em> normalmente no se proporciona una pieza de hardware dedicada. En lugar de eso, <strong>se comparte un servidor físico con otros clientes</strong>. Pero como cada cliente tiene su propio sistema virtual que se ejecuta en el servidor, l<strong>e parece que tiene el suyo propio</strong>.</p>
 <p>Esta tecnología es la que hace posible añadir o eliminar servidores de un <em>servicio de cloud</em> de forma rápida y sencilla. Se trata en gran medida de software entre bastidores, no de hardware real.</p>
 <p><strong>¿Cuál es el inconveniente de una máquina virtual?</strong> <u>Tamaño y velocidad</u>. Un sistema operativo huésped típico (<em>guest</em>) puede ocupar fácilmente hasta 700MB de tamaño. Así que si un servidor físico soporta tres máquinas virtuales, eso es al menos 2,1 GB de espacio en disco ocupado junto con el resto de necesidades para otros recursos como CPU y memoria.</p>
