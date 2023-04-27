@@ -5,11 +5,11 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="../" rel="prev"/>
-<link href="../01.-Imagen%20a%20partir%20de%20un%20contenedor/" rel="next"/>
+<link href="../05.-Subir%20im%C3%A1genes/" rel="prev"/>
+<link href="../../06.-Ejercicios/" rel="next"/>
 <link href="../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.4.2, mkdocs-material-9.1.4" name="generator"/>
-<title>01.-Dockerfile - Sistemas Informáticos</title>
+<title>06.-Buenas prácticas en creación de dockerfile - Sistemas Informáticos</title>
 <link href="../../assets/stylesheets/main.240905d7.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.a0c5b2b5.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -44,7 +44,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              01.-Dockerfile
+              06.-Buenas prácticas en creación de dockerfile
             
           </span>
 </div>
@@ -361,30 +361,19 @@
           05.-Gestión de imágenes
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
-<a class="md-nav__link md-nav__link--active" href="./">
-        01.-Dockerfile
-      </a>
-</li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../01.-Imagen%20a%20partir%20de%20un%20contenedor/">
         01.-Imagen a partir de un contenedor
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../02.-Creaci%C3%B3n%20de%20im%C3%A1genes%20a%20partir%20de%20un%20fichero%20Dockerfile/">
-        02.-Creación de imágenes a partir de un fichero Dockerfile
+<a class="md-nav__link" href="../02.-Creaci%C3%B3n%20de%20im%C3%A1genes%20a%20partir%20de%20un%20fichero%20dockerfile/">
+        02.-Creación de imágenes a partir de un fichero dockerfile
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../02.-Instrucciones%20de%20dockerfile/">
-        02.-Instrucciones de dockerfile
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../03.-Construcci%C3%B3n%20de%20una%20imagen/">
-        03.-Construcción de una imagen
+<a class="md-nav__link" href="../03.-Construyendo%20im%C3%A1genes%20con%20docker%20build/">
+        03.-Construyendo imágenes con docker build
       </a>
 </li>
 <li class="md-nav__item">
@@ -395,6 +384,12 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="../05.-Subir%20im%C3%A1genes/">
         05.-Subir imágenes
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<a class="md-nav__link md-nav__link--active" href="./">
+        06.-Buenas prácticas en creación de dockerfile
       </a>
 </li>
 </ul>
@@ -437,7 +432,20 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1>01.-Dockerfile</h1>
+<h1>06.-Buenas prácticas en creación de dockerfile</h1>
+<ul>
+<li><strong>Los contenedores deber ser “efímeros”</strong>: Cuando decimos “efímeros” queremos decir que la creación, parada, despliegue de los contenedores creados a partir de la imagen que vamos a generar con nuestro <code>dockerfile</code> debe tener una mínima configuración.</li>
+<li><strong>Uso de ficheros <code>.dockerignore</code></strong>: Como hemos indicado anteriormente, todos los ficheros del contexto se envían al docker engine, es recomendable usar un directorio vacío donde vamos creando los ficheros que vamos a enviar. Además, para aumentar el rendimiento, y no enviar al <em>daemon</em> ficheros innecesarios podemos hacer uso de un fichero <code>.dockerignore</code>, para excluir ficheros y directorios.</li>
+<li><strong>No instalar paquetes innecesarios:</strong> Para reducir la complejidad, dependencias, tiempo de creación y tamaño de la imagen resultante, se debe evitar instalar paquetes extras o innecesarios. Si algún paquete no es necesario durante la creación de la imagen, lo mejor es desinstalarlo durante el proceso.</li>
+<li><strong>Minimizar el número de capas:</strong> Debemos encontrar el balance entre la legibilidad del <code>Dockerfile</code> y minimizar el número de capas que utiliza.</li>
+<li><strong>Indicar las instrucciones a ejecutar en múltiples líneas</strong>: Cada vez que sea posible y para hacer más fácil futuros cambios, hay que organizar los argumentos de las instrucciones que contengan múltiples líneas, esto evitará la duplicación de paquetes y hará que el archivo sea más fácil de leer. Por ejemplo:</li>
+</ul>
+<pre><code>   RUN apt-get update &amp;&amp; apt-get install -y \
+   git \
+   wget \
+   apache2 \
+   php5
+</code></pre>
 </article>
 </div>
 </div>

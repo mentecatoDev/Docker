@@ -5,11 +5,11 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="../02.-Creaci%C3%B3n%20de%20im%C3%A1genes%20a%20partir%20de%20un%20fichero%20Dockerfile/" rel="prev"/>
-<link href="../03.-Construcci%C3%B3n%20de%20una%20imagen/" rel="next"/>
+<link href="../01.-Imagen%20a%20partir%20de%20un%20contenedor/" rel="prev"/>
+<link href="../03.-Construyendo%20im%C3%A1genes%20con%20docker%20build/" rel="next"/>
 <link href="../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.4.2, mkdocs-material-9.1.4" name="generator"/>
-<title>02.-Instrucciones de dockerfile - Sistemas Informáticos</title>
+<title>02.-Creación de imágenes a partir de un fichero dockerfile - Sistemas Informáticos</title>
 <link href="../../assets/stylesheets/main.240905d7.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.a0c5b2b5.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -23,6 +23,9 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
+<a class="md-skip" href="#gestion-de-imagenes">
+          Saltar a contenido
+        </a>
 </div>
 <div data-md-component="announce">
 </div>
@@ -44,7 +47,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              02.-Instrucciones de dockerfile
+              02.-Creación de imágenes a partir de un fichero dockerfile
             
           </span>
 </div>
@@ -362,29 +365,50 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../01.-Dockerfile/">
-        01.-Dockerfile
-      </a>
-</li>
-<li class="md-nav__item">
 <a class="md-nav__link" href="../01.-Imagen%20a%20partir%20de%20un%20contenedor/">
         01.-Imagen a partir de un contenedor
       </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../02.-Creaci%C3%B3n%20de%20im%C3%A1genes%20a%20partir%20de%20un%20fichero%20Dockerfile/">
-        02.-Creación de imágenes a partir de un fichero Dockerfile
-      </a>
-</li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          02.-Creación de imágenes a partir de un fichero dockerfile
+          <span class="md-nav__icon md-icon"></span>
+</label>
 <a class="md-nav__link md-nav__link--active" href="./">
-        02.-Instrucciones de dockerfile
+        02.-Creación de imágenes a partir de un fichero dockerfile
       </a>
+<nav aria-label="Tabla de contenidos" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#el-fichero-dockerfile">
+    El fichero dockerfile
+  </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../03.-Construcci%C3%B3n%20de%20una%20imagen/">
-        03.-Construcción de una imagen
+<a class="md-nav__link" href="#formato-de-un-dockerfile">
+    Formato de un dockerfile
+  </a>
+<nav aria-label="Formato de un dockerfile" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ejecutar-un-comando">
+    Ejecutar un comando
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../03.-Construyendo%20im%C3%A1genes%20con%20docker%20build/">
+        03.-Construyendo imágenes con docker build
       </a>
 </li>
 <li class="md-nav__item">
@@ -395,6 +419,11 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="../05.-Subir%20im%C3%A1genes/">
         05.-Subir imágenes
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../06.-Buenas%20pr%C3%A1cticas%20en%20creaci%C3%B3n%20de%20dockerfile/">
+        06.-Buenas prácticas en creación de dockerfile
       </a>
 </li>
 </ul>
@@ -431,14 +460,189 @@
 <div class="md-sidebar__scrollwrap">
 <div class="md-sidebar__inner">
 <nav aria-label="Tabla de contenidos" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#el-fichero-dockerfile">
+    El fichero dockerfile
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#formato-de-un-dockerfile">
+    Formato de un dockerfile
+  </a>
+<nav aria-label="Formato de un dockerfile" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ejecutar-un-comando">
+    Ejecutar un comando
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
 </nav>
 </div>
 </div>
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1>02.-Instrucciones de dockerfile</h1>
-<p>En el archivo <code>dockerfile</code>, se incluyen las instrucciones para construir la imagen. Por ejemplo, se pueden utilizar las instrucciones <code>FROM</code> para especificar el sistema operativo base, <code>RUN</code> para instalar dependencias y bibliotecas, y <code>COPY</code> para copiar archivos de la aplicación.</p>
+<p>El método anterior tiene algunos inconvenientes:</p>
+<ul>
+<li>
+<p><strong>No se puede reproducir la imagen</strong>. Si la perdemos tenemos que recordar toda la secuencia de órdenes que habíamos ejecutado desde que arrancamos el contenedor hasta que teníamos una versión definitiva e hicimos <code>docker commit</code>.</p>
+</li>
+<li>
+<p><strong>No podemos configurar el proceso que se ejecutará en el contenedor creado desde la imagen</strong>. Los contenedores creados a partir de la nueva imagen ejecutaran por defecto el proceso que estaba configurado en la imagen base.</p>
+</li>
+<li>
+<p><strong>No podemos cambiar la imagen de base</strong>. Si ha habido alguna actualización, problemas de seguridad, etc. con la imagen de base tenemos que descargar la nueva versión, volver a crear un nuevo contenedor basado en ella y ejecutar de nuevo toda la secuencia de órdenes.</p>
+</li>
+</ul>
+<p>Por todas estas razones, <strong>el método preferido para la creación de imágenes es el uso de ficheros <code>dockerfile</code> y el comando <code>docker build</code></strong>. Con este método vamos a tener las siguientes ventajas:</p>
+<ul>
+<li>
+<p>Podremos reproducir la imagen fácilmente ya que en el fichero <code>dockerfile</code> tenemos todas y cada una de las órdenes necesarias para la construcción de la imagen. Si además ese Dockerfile está guardado en un sistema de control de versiones como git podremos, no sólo reproducir la imagen si no asociar los cambios en el Dockerfile a los cambios en las versiones de las imágenes creadas.</p>
+</li>
+<li>
+<p>Podremos configurar el proceso que se ejecutará por defecto en los contenedores creados a partir de la nueva imagen.</p>
+</li>
+<li>
+<p>Si queremos cambiar la imagen de base esto es extremadamente sencillo con un Dockerfile, únicamente tendremos que modificar la primera línea de ese fichero tal y como explicaremos posteriormente.</p>
+</li>
+</ul>
+<h1 id="gestion-de-imagenes">Gestión de imágenes<a class="headerlink" href="#gestion-de-imagenes" title="Permanent link">¶</a></h1>
+<p>Para crear una imagen de Docker, se sigue el siguiente proceso básico:</p>
+<ol>
+<li><strong>Crear un archivo <a href="01.-Dockerfile.md"><code>dockerfile</code></a></strong></li>
+<li><strong>Escribir las <a href="02.-Instrucciones%20de%20dockerfile.md">instrucciones de dockerfile</a></strong></li>
+<li><a href="03.-Construcción%20de%20una%20imagen.md"><strong>Construir la imagen</strong></a></li>
+<li><a href="../04.-Etiquetado%20de%20im%C3%A1genes/"><strong>Etiquetar la imagen</strong></a></li>
+<li><strong><a href="../05.-Subir%20im%C3%A1genes/">Subir la imagen</a> a un repositorio de imágenes</strong></li>
+</ol>
+<p>Aquí un ejemplo de archivo <code>dockerfile</code> para construir una imagen de una aplicación de Python:</p>
+<pre><code class="language-dockerfile"># Imagen base
+FROM python:3.9-alpine
+
+# Variables de entorno para configurar el entorno de la aplicación
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
+
+# Directorio de trabajo
+WORKDIR /app
+
+# Copiar los archivos de la aplicación
+COPY requirements.txt .
+COPY . .
+
+# Instalar las dependencias
+RUN pip install --upgrade pip &amp;&amp; \
+    pip install -r requirements.txt
+
+# Exponer el puerto 8000
+EXPOSE 8000
+
+# Comando para iniciar la aplicación
+CMD ["python", "app.py"]
+</code></pre>
+<p>Este archivo <code>dockerfile</code> se basa en la imagen de Python 3.9 Alpine y configura el entorno de la aplicación. A continuación, copia los archivos de la aplicación y los requisitos en el directorio de trabajo y los instala. Finalmente, expone el puerto 8000 y utiliza el comando <code>python app.py</code> para iniciar la aplicación.</p>
+<p>Para construir la imagen, se debe ejecutar el siguiente comando en la terminal, asegurándote de estar en la misma ubicación que el archivo <code>dockerfile</code>:</p>
+<pre><code>docker build -t nombre-de-la-imagen:version .
+</code></pre>
+<p>Después de construir y etiquetar la imagen, se puede subir a un registro de imágenes de Docker utilizando el comando <code>docker push</code>. Por ejemplo:</p>
+<pre><code>docker push nombre-de-la-imagen:version
+</code></pre>
+<p>Una vez subida la imagen, se puede descargar y ejecutar en cualquier sistema que admita Docker utilizando el comando <code>docker run</code>.</p>
+<h2 id="el-fichero-dockerfile">El fichero <code>dockerfile</code><a class="headerlink" href="#el-fichero-dockerfile" title="Permanent link">¶</a></h2>
+<p>El archivo <code>dockerfile</code> es un archivo de texto que contiene las instrucciones para construir una imagen de Docker. En él se especifican <strong>el sistema operativo base</strong>, las <strong>dependencias</strong>, las <strong>bibliotecas</strong> y las <strong>configuraciones</strong> necesarias para la aplicación. Contiene un conjunto de instrucciones que serán ejecutadas de forma secuencial para construir una nueva imagen docker. Cada una de estas instrucciones crea una nueva capa en la imagen que estamos creando y debe empezar por una palabra clave en mayúsculas, como FROM, RUN, COPY, etc. <code>dockerfile</code> también puede especificar <strong>variables de entorno</strong>, <strong>puertos expuestos</strong>, <strong>comandos de entrada y salida</strong> y <a href="https://docs.docker.com/engine/reference/builder/"><strong>otros metadatos</strong></a></p>
+<p>En definitiva, <code>dockerfile</code> es un fichero de texto que contiene una serie de instrucciones para construir una imagen docker. Cada instrucción añade una capa a la imagen.</p>
+<h2 id="formato-de-un-dockerfile">Formato de un <code>dockerfile</code><a class="headerlink" href="#formato-de-un-dockerfile" title="Permanent link">¶</a></h2>
+<p>El fichero <code>Dockerfile</code> se creará dentro de la carpeta donde tengamos el proyecto</p>
+<pre><code>FROM ubuntu:14.04
+ENTRYPOINT ["/bin/echo"]
+</code></pre>
+<h3 id="ejecutar-un-comando">Ejecutar un comando<a class="headerlink" href="#ejecutar-un-comando" title="Permanent link">¶</a></h3>
+<p>Si en lugar de utilizar entrypoints queremos pasar parámetros, podemos utilizar CMD</p>
+<pre><code>CMD ["/bin/echo" , "Hi Docker !"]
+</code></pre>
+<p>Hay varias instrucciones que podemos usar en la construcción de un Dockerfile, pero la estructura fundamental del fichero es:</p>
+<ul>
+<li>Indicamos imagen base: <code>FROM</code></li>
+<li>Metadatos: <code>LABEL</code></li>
+<li>Instrucciones de construcción: <code>RUN, COPY, ADD, WORKDIR</code></li>
+<li>Configuración: Variable de entornos, usuarios, puertos: <code>USER, EXPOSE, ENV</code></li>
+<li>Instrucciones de arranque: <code>CMD, ENTRYPOINT</code></li>
+</ul>
+<p>Veamos las principales instrucciones que podemos usar:</p>
+<ul>
+<li>
+<p><code>FROM</code>: Sirve para especificar la imagen sobre la que voy a construir la mía. Ejemplo: <code>FROM php:7.4-apache</code></p>
+</li>
+<li>
+<p><code>LABEL</code> : Sirve para añadir metadatos a la imagen mediante <code>«clave»=«valor»</code>. Ejemplo: <code>LABEL company=iesromerovargas</code> </p>
+</li>
+<li>
+<p><code>COPY</code>: Para copiar ficheros desde mi equipo a la imagen. Esos ficheros deben estar en el mismo contexto (carpeta o repositorio). Su sintaxis es <code>COPY [--chown=&lt;usuario&gt;:&lt;grupo&gt;] src dest</code>. Por ejemplo: <code>COPY --chown=www-data:www-data myapp /var/www/html</code></p>
+</li>
+<li>
+<p><code>ADD</code>: Es similar a <code>COPY</code> pero tiene funcionalidades adicionales como especificar URLs y tratar archivos comprimidos.</p>
+</li>
+<li>
+<p><code>RUN</code>: Ejecuta una orden creando una nueva capa. El comando <code>RUN</code> puede escribirse en formato SHELL (<code>RUN «orden»</code>) o bajo la opción de escritura EXEC(<code>RUN [«orden»,«parámetro1»,«parámetro2»]</code>):</p>
+<ul>
+<li>Ejemplo: 
+    <code>RUN apt update &amp;&amp; apt install -y git</code>
+    En este caso es muy importante que pongamos la opción -y porque en el proceso de construcción no puede haber interacción con el usuario.</li>
+</ul>
+</li>
+<li>
+<p><code>WORKDIR</code>: Establece el directorio de trabajo dentro de la imagen que estamos creando para posteriormente usar las órdenes <code>RUN</code>,<code>COPY</code>,<code>ADD</code>,<code>CMD</code> o <code>ENTRYPOINT</code>.</p>
+<ul>
+<li>Ejemplo:
+    `WORKDIR /usr/local/apache/htdocs</li>
+</ul>
+</li>
+<li>
+<p><code>EXPOSE</code>: Nos da información acerca de qué puertos tendrá abiertos el contenedor cuando se cree uno en base a la imagen que estamos creando. Es meramente informativo.</p>
+<ul>
+<li>Ejemplo:
+    <code>EXPOSE 80</code></li>
+</ul>
+</li>
+<li><code>USER</code>: Para especificar (por nombre o <code>UID/GID</code>) el usuario de trabajo para todas las órdenes <code>RUN</code>,<code>CMD</code> y <code>ENTRYPOINT</code> posteriores.<ul>
+<li>Ejemplos:
+    <code>USER jenkins / USER 1001:10001</code></li>
+</ul>
+</li>
+<li><code>ARG</code>: Para definir variables para las cuales los usuarios pueden especificar valores a la hora de hacer el proceso de <code>build</code> mediante el <code>flag --build-arg</code>. Su sintaxis es <code>ARG «nombre_variable»</code> o <code>ARG nombre_variable=valor_por_defecto</code>. Posteriormente esa variable se puede usar en el resto de la órdenes de la siguiente manera $nombre_variable.<ul>
+<li>Ejemplo:
+     <code>ARG usuario=www-data</code>.
+No se puede usar con <code>ENTRYPOINT</code> y <code>CMD</code>.</li>
+</ul>
+</li>
+<li><code>ENV</code>: Para establecer variables de entorno dentro del contenedor. Puede ser usado posteriormente en las órdenes <code>RUN</code> añadiendo <code>$</code> delante de el nombre de la variable de entorno.<ul>
+<li>Ejemplo:
+     <code>ENV WEB_DOCUMENT_ROOT=/var/www/html</code>
+No se puede usar con <code>ENTRYPOINT</code> y <code>CMD</code>.</li>
+</ul>
+</li>
+<li><code>ENTRYPOINT</code>: Para establecer el ejecutable que se lanza siempre cuando se crea el contenedor con <code>docker run</code>, salvo que se especifique expresamente algo diferente con el flag <code>--entrypoint</code>. Su sintaxis es la siguiente: <code>ENTRYPOINT «command»</code> ó <code>ENTRYPOINT ["executable","param1","param2"]</code>.<ul>
+<li>Ejemplo:
+    <code>ENTRYPOINT ["/usr/sbin/apache2ctl","-D","FOREGROUND"]</code></li>
+</ul>
+</li>
+<li><code>CMD</code>: Para establecer el ejecutable por defecto (salvo que se sobreescriba desde la orden <code>docker run</code>) o para especificar parámetros para un <code>ENTRYPOINT</code>. Si tenemos varios sólo se ejecuta el último. Su sintaxis es: <code>CMD param1 param2</code> ó <code>CMD ["param1","param2"]</code> ó <code>CMD["command","param1"]</code>.<ul>
+<li>Ejemplo:
+    <code>CMD [“-c” “/etc/nginx.conf”] / ENTRYPOINT [“nginx”]</code></li>
+</ul>
+</li>
+</ul>
+<p>Para una descripción completa sobre el fichero Dockerfile, puedes acceder a la documentación oficial.</p>
+<p><a href="../03.-Construyendo%20im%C3%A1genes%20con%20docker%20build/">03.-Construyendo imágenes con docker build</a></p>
 </article>
 </div>
 </div>
