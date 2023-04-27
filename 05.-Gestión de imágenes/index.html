@@ -23,9 +23,6 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#gestion-de-imagenes">
-          Saltar a contenido
-        </a>
 </div>
 <div data-md-component="announce">
 </div>
@@ -439,6 +436,7 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
+<h1>Index</h1>
 <p>Una imagen docker es un paquete autocontenido que contiene todo lo necesario para ejecutar una aplicación o servicio en un contenedor docker. Hay dos formas principales de crear una imagen docker:</p>
 <ul>
 <li>
@@ -448,48 +446,6 @@
 <p><a href="02.-Creaci%C3%B3n%20de%20im%C3%A1genes%20a%20partir%20de%20un%20fichero%20Dockerfile/">A partir de un <code>dockerfile</code></a>: La segunda forma consiste en escribir un dockerfile con las instrucciones para construir la imagen desde cero. Esta forma es más recomendable para automatizar el proceso de creación de imágenes, documentar los pasos y facilitar la reproducción y el mantenimiento de la imagen.</p>
 </li>
 </ul>
-<h1 id="gestion-de-imagenes">Gestión de imágenes<a class="headerlink" href="#gestion-de-imagenes" title="Permanent link">¶</a></h1>
-<p>Para crear una imagen de Docker, se sigue el siguiente proceso básico:</p>
-<ol>
-<li><strong>Crear un archivo <a href="01.-Dockerfile/"><code>dockerfile</code></a></strong></li>
-<li><strong>Escribir las <a href="02.-Instrucciones%20de%20dockerfile/">instrucciones de dockerfile</a></strong></li>
-<li><a href="03.-Construcci%C3%B3n%20de%20una%20imagen/"><strong>Construir la imagen</strong></a></li>
-<li><a href="04.-Etiquetado%20de%20im%C3%A1genes/"><strong>Etiquetar la imagen</strong></a></li>
-<li><strong><a href="05.-Subir%20im%C3%A1genes/">Subir la imagen</a> a un repositorio de imágenes</strong></li>
-</ol>
-<p>Aquí un ejemplo de archivo <code>dockerfile</code> para construir una imagen de una aplicación de Python:</p>
-<pre><code class="language-dockerfile"># Imagen base
-FROM python:3.9-alpine
-
-# Variables de entorno para configurar el entorno de la aplicación
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONUNBUFFERED 1
-
-# Directorio de trabajo
-WORKDIR /app
-
-# Copiar los archivos de la aplicación
-COPY requirements.txt .
-COPY . .
-
-# Instalar las dependencias
-RUN pip install --upgrade pip &amp;&amp; \
-    pip install -r requirements.txt
-
-# Exponer el puerto 8000
-EXPOSE 8000
-
-# Comando para iniciar la aplicación
-CMD ["python", "app.py"]
-</code></pre>
-<p>Este archivo <code>dockerfile</code> se basa en la imagen de Python 3.9 Alpine y configura el entorno de la aplicación. A continuación, copia los archivos de la aplicación y los requisitos en el directorio de trabajo y los instala. Finalmente, expone el puerto 8000 y utiliza el comando <code>python app.py</code> para iniciar la aplicación.</p>
-<p>Para construir la imagen, se debe ejecutar el siguiente comando en la terminal, asegurándote de estar en la misma ubicación que el archivo <code>dockerfile</code>:</p>
-<pre><code>docker build -t nombre-de-la-imagen:version .
-</code></pre>
-<p>Después de construir y etiquetar la imagen, se puede subir a un registro de imágenes de Docker utilizando el comando <code>docker push</code>. Por ejemplo:</p>
-<pre><code>docker push nombre-de-la-imagen:version
-</code></pre>
-<p>Una vez subida la imagen, se puede descargar y ejecutar en cualquier sistema que admita Docker utilizando el comando <code>docker run</code>.</p>
 </article>
 </div>
 </div>

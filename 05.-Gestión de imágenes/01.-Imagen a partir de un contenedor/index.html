@@ -442,7 +442,7 @@
 <ul>
 <li>Arranca un contenedor a partir de una imagen base.</li>
 </ul>
-<pre><code>$ docker run -it --name contenedor debian bash
+<pre><code>$ docker run -it --name «nombre_contenedor» debian bash
 </code></pre>
 <ul>
 <li>Realiza las modificaciones pertinentes en el contenedor (instalaciones, modificación de archivos,…).</li>
@@ -451,8 +451,12 @@
 root@«contenedor»:/# echo "&lt;h1&gt;Curso Docker&lt;/h1&gt;" &gt; /var/www/html/index.html
 root@«contenedor»:/# exit
 </code></pre>
+<blockquote>
+<p>El primer comando actualiza la lista de paquetes disponibles e instala el servidor web <code>apache2</code> en el contenedor. El operador <code>&amp;&amp;</code> indica que el segundo comando solo se ejecuta si el primero tiene éxito. El indicador <code>-y</code> permite instalar el paquete sin confirmación.</p>
+<p>El segundo comando crea un fichero llamado <code>index.html</code> en el directorio <code>/var/www/html</code> del contenedor, que es el directorio raíz por defecto del servidor web <code>apache1</code>. El fichero contiene una etiqueta HTML que muestra el texto <code>Curso Docker</code> como un encabezado de nivel 1. El operador <code>&gt;</code> redirige la salida del comando <code>echo</code> al fichero indicado.</p>
+</blockquote>
 <ul>
-<li>Crear una nueva imagen partiendo de ese contenedor usando <code>docker commit</code>. Con esta instrucción se creará una nueva imagen con las capas de la  imagen base más la capa propia del contenedor. Si no indico etiqueta en  el nombre, se pondrá la etiqueta <code>latest</code>.</li>
+<li>Crear una nueva imagen partiendo de ese contenedor usando <code>docker commit</code>. Con esta instrucción se creará una nueva imagen con las capas de la  imagen base más la capa propia del contenedor. Si no indicamos etiqueta en el nombre, se pondrá la etiqueta <code>latest</code>.</li>
 </ul>
 <pre><code>$ docker commit contenedor josedom24/myapache2:v1
 sha256:017a4489735f91f68366f505e4976c111129699785e1ef609aefb51615f98fc4
@@ -470,6 +474,54 @@ josedom24/myapache2       v1              017a4489735f        44 seconds ago    
              josedom24/myapache2:v1 \
              bash -c "apache2ctl -D FOREGROUND"
 </code></pre>
+<table>
+<thead>
+<tr>
+<th>Generador</th>
+<th>Estrellas en GitHub</th>
+<th>Puesto en StaticGen</th>
+<th>Lenguaje</th>
+<th>Características</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Gatsby</td>
+<td>52.7K</td>
+<td>1</td>
+<td>JavaScript</td>
+<td>Basado en React y GraphQL. Permite crear sitios web dinámicos e interactivos con un alto rendimiento y una gran variedad de plugins y temas.</td>
+</tr>
+<tr>
+<td>Hugo</td>
+<td>54.4K</td>
+<td>2</td>
+<td>Go</td>
+<td>El más rápido y potente. Permite crear sitios web en segundos con un sistema de plantillas flexible y soporte para múltiples formatos de contenido.</td>
+</tr>
+<tr>
+<td>Jekyll</td>
+<td>42.8K</td>
+<td>3</td>
+<td>Ruby</td>
+<td>Uno de los primeros y más conocidos. Permite crear sitios web sencillos y elegantes con Markdown y YAML. Se integra muy bien con GitHub Pages.</td>
+</tr>
+<tr>
+<td>MkDocs</td>
+<td>12.6K</td>
+<td>9</td>
+<td>Python</td>
+<td>Enfocado en crear documentación de proyectos. Permite crear sitios web infoormativos y educativos con Markdown y YAML.</td>
+</tr>
+<tr>
+<td>exit</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 </article>
 </div>
 </div>

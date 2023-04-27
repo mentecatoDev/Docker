@@ -23,7 +23,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#el-fichero-dockerfile">
+<a class="md-skip" href="#gestion-de-imagenes">
           Saltar a contenido
         </a>
 </div>
@@ -391,13 +391,22 @@
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#el-fichero-dockerfile">
-    El fichero Dockerfile
+    El fichero dockerfile
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#-add-es-similar-a-copy-pero-tiene-funcionalidades-adicionales-como-especificar-urls-y-tratar-archivos-comprimidos">
-    - ADD: Es similar a COPY pero tiene funcionalidades adicionales como especificar URLs y tratar archivos comprimidos.
+<a class="md-nav__link" href="#formato-de-un-dockerfile">
+    Formato de un dockerfile
   </a>
+<nav aria-label="Formato de un dockerfile" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ejecutar-un-comando">
+    Ejecutar un comando
+  </a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -463,13 +472,22 @@
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#el-fichero-dockerfile">
-    El fichero Dockerfile
+    El fichero dockerfile
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#-add-es-similar-a-copy-pero-tiene-funcionalidades-adicionales-como-especificar-urls-y-tratar-archivos-comprimidos">
-    - ADD: Es similar a COPY pero tiene funcionalidades adicionales como especificar URLs y tratar archivos comprimidos.
+<a class="md-nav__link" href="#formato-de-un-dockerfile">
+    Formato de un dockerfile
   </a>
+<nav aria-label="Formato de un dockerfile" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ejecutar-un-comando">
+    Ejecutar un comando
+  </a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -478,7 +496,6 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1>02.-Creación de imágenes a partir de un fichero Dockerfile</h1>
 <p>El método anterior tiene algunos inconvenientes:</p>
 <ul>
 <li>
@@ -503,33 +520,110 @@
 <p>Si queremos cambiar la imagen de base esto es extremadamente sencillo con un Dockerfile, únicamente tendremos que modificar la primera línea de ese fichero tal y como explicaremos posteriormente.</p>
 </li>
 </ul>
-<h2 id="el-fichero-dockerfile">El fichero Dockerfile<a class="headerlink" href="#el-fichero-dockerfile" title="Permanent link">¶</a></h2>
-<p>Un fichero Dockerfile es un conjunto de instrucciones que serán ejecutadas de forma secuencial para construir una nueva imagen docker. Cada una de estas instrucciones crea una nueva capa en la imagen que estamos creando.</p>
-<p>Hay varias instrucciones que podemos usar en la construcción de un Dockerfile, pero la estructura fundamental del fichero es:
-- Indicamos imagen base: FROM
-- Metadatos: LABEL
-- Instrucciones de construcción: RUN, COPY, ADD, WORKDIR
-- Configuración: Variable de entornos, usuarios, puertos: USER, EXPOSE, ENV
-- Instrucciones de arranque: CMD, ENTRYPOINT</p>
+<h1 id="gestion-de-imagenes">Gestión de imágenes<a class="headerlink" href="#gestion-de-imagenes" title="Permanent link">¶</a></h1>
+<p>Para crear una imagen de Docker, se sigue el siguiente proceso básico:</p>
+<ol>
+<li><strong>Crear un archivo <a href="../01.-Dockerfile/"><code>dockerfile</code></a></strong></li>
+<li><strong>Escribir las <a href="../02.-Instrucciones%20de%20dockerfile/">instrucciones de dockerfile</a></strong></li>
+<li><a href="../03.-Construcci%C3%B3n%20de%20una%20imagen/"><strong>Construir la imagen</strong></a></li>
+<li><a href="../04.-Etiquetado%20de%20im%C3%A1genes/"><strong>Etiquetar la imagen</strong></a></li>
+<li><strong><a href="../05.-Subir%20im%C3%A1genes/">Subir la imagen</a> a un repositorio de imágenes</strong></li>
+</ol>
+<p>Aquí un ejemplo de archivo <code>dockerfile</code> para construir una imagen de una aplicación de Python:</p>
+<pre><code class="language-dockerfile"># Imagen base
+FROM python:3.9-alpine
+
+# Variables de entorno para configurar el entorno de la aplicación
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
+
+# Directorio de trabajo
+WORKDIR /app
+
+# Copiar los archivos de la aplicación
+COPY requirements.txt .
+COPY . .
+
+# Instalar las dependencias
+RUN pip install --upgrade pip &amp;&amp; \
+    pip install -r requirements.txt
+
+# Exponer el puerto 8000
+EXPOSE 8000
+
+# Comando para iniciar la aplicación
+CMD ["python", "app.py"]
+</code></pre>
+<p>Este archivo <code>dockerfile</code> se basa en la imagen de Python 3.9 Alpine y configura el entorno de la aplicación. A continuación, copia los archivos de la aplicación y los requisitos en el directorio de trabajo y los instala. Finalmente, expone el puerto 8000 y utiliza el comando <code>python app.py</code> para iniciar la aplicación.</p>
+<p>Para construir la imagen, se debe ejecutar el siguiente comando en la terminal, asegurándote de estar en la misma ubicación que el archivo <code>dockerfile</code>:</p>
+<pre><code>docker build -t nombre-de-la-imagen:version .
+</code></pre>
+<p>Después de construir y etiquetar la imagen, se puede subir a un registro de imágenes de Docker utilizando el comando <code>docker push</code>. Por ejemplo:</p>
+<pre><code>docker push nombre-de-la-imagen:version
+</code></pre>
+<p>Una vez subida la imagen, se puede descargar y ejecutar en cualquier sistema que admita Docker utilizando el comando <code>docker run</code>.</p>
+<h2 id="el-fichero-dockerfile">El fichero <code>dockerfile</code><a class="headerlink" href="#el-fichero-dockerfile" title="Permanent link">¶</a></h2>
+<p>El archivo <code>dockerfile</code> es un archivo de texto que contiene las instrucciones para construir una imagen de Docker. En él se especifican <strong>el sistema operativo base</strong>, las <strong>dependencias</strong>, las <strong>bibliotecas</strong> y las <strong>configuraciones</strong> necesarias para la aplicación. Contiene un conjunto de instrucciones que serán ejecutadas de forma secuencial para construir una nueva imagen docker. Cada una de estas instrucciones crea una nueva capa en la imagen que estamos creando y debe empezar por una palabra clave en mayúsculas, como FROM, RUN, COPY, etc. <code>dockerfile</code> también puede especificar <strong>variables de entorno</strong>, <strong>puertos expuestos</strong>, <strong>comandos de entrada y salida</strong> y <a href="https://docs.docker.com/engine/reference/builder/"><strong>otros metadatos</strong></a></p>
+<p>En definitiva, <code>dockerfile</code> es un fichero de texto que contiene una serie de instrucciones para construir una imagen docker. Cada instrucción añade una capa a la imagen.</p>
+<h2 id="formato-de-un-dockerfile">Formato de un <code>dockerfile</code><a class="headerlink" href="#formato-de-un-dockerfile" title="Permanent link">¶</a></h2>
+<p>El fichero <code>Dockerfile</code> se creará dentro de la carpeta donde tengamos el proyecto</p>
+<pre><code>FROM ubuntu:14.04
+ENTRYPOINT ["/bin/echo"]
+</code></pre>
+<h3 id="ejecutar-un-comando">Ejecutar un comando<a class="headerlink" href="#ejecutar-un-comando" title="Permanent link">¶</a></h3>
+<p>Si en lugar de utilizar entrypoints queremos pasar parámetros, podemos utilizar CMD</p>
+<pre><code>CMD ["/bin/echo" , "Hi Docker !"]
+</code></pre>
+<p>Hay varias instrucciones que podemos usar en la construcción de un Dockerfile, pero la estructura fundamental del fichero es:</p>
+<ul>
+<li>Indicamos imagen base: <code>FROM</code></li>
+<li>Metadatos: <code>LABEL</code></li>
+<li>Instrucciones de construcción: <code>RUN, COPY, ADD, WORKDIR</code></li>
+<li>Configuración: Variable de entornos, usuarios, puertos: <code>USER, EXPOSE, ENV</code></li>
+<li>Instrucciones de arranque: <code>CMD, ENTRYPOINT</code></li>
+</ul>
 <p>Veamos las principales instrucciones que podemos usar:</p>
 <ul>
 <li>
-<p>FROM: Sirve para especificar la imagen sobre la que voy a construir la mía. Ejemplo: FROM php:7.4-apache.</p>
+<p><code>FROM</code>: Sirve para especificar la imagen sobre la que voy a construir la mía. Ejemplo: <code>FROM php:7.4-apache</code></p>
 </li>
 <li>
-<p>LABEL: Sirve para añadir metadatos a la imagen mediante clave=valor. Ejemplo: LABEL company=iesalixar.</p>
+<p><code>LABEL</code> : Sirve para añadir metadatos a la imagen mediante <code>«clave»=«valor»</code>. Ejemplo: <code>LABEL company=iesromerovargas</code> </p>
 </li>
 <li>
-<p>COPY: Para copiar ficheros desde mi equipo a la imagen. Esos ficheros deben estar en el mismo contexto (carpeta o repositorio). Su sintaxis es <code>COPY [--chown=&lt;usuario&gt;:&lt;grupo&gt;] src dest</code>. Por ejemplo: <code>COPY --chown=www-data:www-data myapp /var/www/html</code>.</p>
+<p><code>COPY</code>: Para copiar ficheros desde mi equipo a la imagen. Esos ficheros deben estar en el mismo contexto (carpeta o repositorio). Su sintaxis es <code>COPY [--chown=&lt;usuario&gt;:&lt;grupo&gt;] src dest</code>. Por ejemplo: <code>COPY --chown=www-data:www-data myapp /var/www/html</code></p>
 </li>
-</ul>
-<h2 id="-add-es-similar-a-copy-pero-tiene-funcionalidades-adicionales-como-especificar-urls-y-tratar-archivos-comprimidos">- ADD: Es similar a COPY pero tiene funcionalidades adicionales como especificar URLs y tratar archivos comprimidos.<a class="headerlink" href="#-add-es-similar-a-copy-pero-tiene-funcionalidades-adicionales-como-especificar-urls-y-tratar-archivos-comprimidos" title="Permanent link">¶</a></h2>
+<li>
+<p><code>ADD</code>: Es similar a <code>COPY</code> pero tiene funcionalidades adicionales como especificar URLs y tratar archivos comprimidos.</p>
+</li>
+<li>
+<p><code>RUN</code>: Ejecuta una orden creando una nueva capa. El comando <code>RUN</code> puede escribirse en formato SHELL (<code>RUN «orden»</code>) o bajo la opción de escritura EXEC(<code>RUN [«orden»,«parámetro1»,«parámetro2»]</code>):</p>
 <ul>
-<li>RUN: Ejecuta una orden creando una nueva capa. Su sintaxis es RUN orden / RUN ["orden","param1","param2"]. Ejemplo: RUN apt update &amp;&amp; apt install -y git. En este caso es muy importante que pongamos la opción -y porque en el proceso de construcción no puede haber interacción con el usuario.
-    WORKDIR: Establece el directorio de trabajo dentro de la imagen que estoy creando para posteriormente usar las órdenes RUN,COPY,ADD,CMD o ENTRYPOINT. Ejemplo: WORKDIR /usr/local/apache/htdocs.
-    EXPOSE: Nos da información acerca de qué puertos tendrá abiertos el contenedor cuando se cree uno en base a la imagen que estamos creando. Es meramente informativo. Ejemplo: EXPOSE 80.
-    USER: Para especificar (por nombre o UID/GID) el usuario de trabajo para todas las órdenes RUN,CMD Y ENTRYPOINT posteriores. Ejemplos: USER jenkins / USER 1001:10001.
-    ARG: Para definir variables para las cuales los usuarios pueden especificar valores a la hora de hacer el proceso de build mediante el flag --build-arg. Su sintaxis es ARG nombre_variable o ARG nombre_variable=valor_por_defecto. Posteriormente esa variable se puede usar en el resto de la órdenes de la siguiente manera $nombre_variable. Ejemplo: ARG usuario=www-data. No se puede usar con ENTRYPOINT Y CMD.
+<li>Ejemplo: 
+    <code>RUN apt update &amp;&amp; apt install -y git</code>
+    En este caso es muy importante que pongamos la opción -y porque en el proceso de construcción no puede haber interacción con el usuario.</li>
+</ul>
+</li>
+<li>
+<p><code>WORKDIR</code>: Establece el directorio de trabajo dentro de la imagen que estamos creando para posteriormente usar las órdenes <code>RUN</code>,<code>COPY</code>,<code>ADD</code>,<code>CMD</code> o <code>ENTRYPOINT</code>.</p>
+<ul>
+<li>Ejemplo:
+    `WORKDIR /usr/local/apache/htdocs</li>
+</ul>
+</li>
+<li>
+<p><code>EXPOSE</code>: Nos da información acerca de qué puertos tendrá abiertos el contenedor cuando se cree uno en base a la imagen que estamos creando. Es meramente informativo.</p>
+<ul>
+<li>Ejemplo:
+    <code>EXPOSE 80</code></li>
+</ul>
+</li>
+<li><code>USER</code>: Para especificar (por nombre o <code>UID/GID</code>) el usuario de trabajo para todas las órdenes <code>RUN</code>,<code>CMD</code> y <code>ENTRYPOINT</code> posteriores.<ul>
+<li>Ejemplos:
+    <code>USER jenkins / USER 1001:10001</code></li>
+</ul>
+</li>
+<li><code>ARG</code>: Para definir variables para las cuales los usuarios pueden especificar valores a la hora de hacer el proceso de build mediante el flag --build-arg. Su sintaxis es ARG nombre_variable o ARG nombre_variable=valor_por_defecto. Posteriormente esa variable se puede usar en el resto de la órdenes de la siguiente manera $nombre_variable. Ejemplo: ARG usuario=www-data. No se puede usar con ENTRYPOINT Y CMD.
     ENV: Para establecer variables de entorno dentro del contenedor. Puede ser usado posteriormente en las órdenes RUN añadiendo $ delante de el nombre de la variable de entorno. Ejemplo: ENV WEB_DOCUMENT_ROOT=/var/www/html. No se puede usar con ENTRYPOINT Y CMD.
     ENTRYPOINT: Para establecer el ejecutable que se lanza siempre cuando se crea el contenedor con docker run, salvo que se especifique expresamente algo diferente con el flag --entrypoint. Su síntaxis es la siguiente: ENTRYPOINT <command/> / ENTRYPOINT ["executable","param1","param2"]. Ejemplo: ENTRYPOINT ["/usr/sbin/apache2ctl","-D","FOREGROUND"].
     CMD: Para establecer el ejecutable por defecto (salvo que se sobreescriba desde la orden docker run) o para especificar parámetros para un ENTRYPOINT. Si tengo varios sólo se ejecuta el último. Su sintaxis es CMD param1 param2 / CMD ["param1","param2"] / CMD["command","param1"]. Ejemplo: CMD [“-c” “/etc/nginx.conf”] / ENTRYPOINT [“nginx”].</li>

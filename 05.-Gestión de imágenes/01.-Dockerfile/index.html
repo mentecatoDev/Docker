@@ -438,17 +438,6 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1>01.-Dockerfile</h1>
-<p>El archivo <code>dockerfile</code> es un archivo de texto que contiene las instrucciones para construir una imagen de Docker. En el archivo <code>dockerfile</code>, se especifican <strong>el sistema operativo base</strong>, las <strong>dependencias</strong>, las <strong>bibliotecas</strong> y las <strong>configuraciones</strong> necesarias para la aplicación.</p>
-<p>Un dockerfile es un fichero de texto que contiene una serie de instrucciones para construir una imagen docker. Cada instrucción añade una capa a la imagen y debe empezar por una palabra clave en mayúsculas, como FROM, RUN, COPY, etc. El dockerfile también puede especificar variables de entorno, puertos expuestos, comandos de entrada y salida y otros metadatos 1.
-https://docs.docker.com/engine/reference/builder/</p>
-<p>Un informe completo sobre el dockerfile se puede encontrar en la documentación oficial de docker 1.</p>
-<p>Formato de un dockerfile</p>
-<p>Formato del Dockerfile, que se creará dentro de la carpeta donde tengamos el proyecto</p>
-<p>FROM ubuntu:14.04
-ENTRYPOINT ["/bin/echo"]</p>
-<p>Ejecutar un comando</p>
-<p>Si en lugar de utilizar entrypoints queremos pasar parámetros, podemos utilizar CMD</p>
-<p>CMD ["/bin/echo" , "Hi Docker !"]</p>
 </article>
 </div>
 </div>
