@@ -5,7 +5,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="../02.-Creaci%C3%B3n%20de%20im%C3%A1genes%20a%20partir%20de%20un%20fichero%20dockerfile/" rel="prev"/>
+<link href="../02.-Creaci%C3%B3n%20de%20im%C3%A1genes%20a%20partir%20de%20un%20fichero%20Dockerfile/" rel="prev"/>
 <link href="../04.-Etiquetado%20de%20im%C3%A1genes/" rel="next"/>
 <link href="../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.4.2, mkdocs-material-9.1.4" name="generator"/>
@@ -23,7 +23,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#construyendo-imagenes-con-docker-build">
+<a class="md-skip" href="#03-construyendo-imagenes-con-docker-build">
           Saltar a contenido
         </a>
 </div>
@@ -370,8 +370,8 @@
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../02.-Creaci%C3%B3n%20de%20im%C3%A1genes%20a%20partir%20de%20un%20fichero%20dockerfile/">
-        02.-Creación de imágenes a partir de un fichero dockerfile
+<a class="md-nav__link" href="../02.-Creaci%C3%B3n%20de%20im%C3%A1genes%20a%20partir%20de%20un%20fichero%20Dockerfile/">
+        02.-Creación de imágenes a partir de un fichero Dockerfile
       </a>
 </li>
 <li class="md-nav__item md-nav__item--active">
@@ -408,8 +408,8 @@
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../06.-Buenas%20pr%C3%A1cticas%20en%20creaci%C3%B3n%20de%20dockerfile/">
-        06.-Buenas prácticas en creación de dockerfile
+<a class="md-nav__link" href="../06.-Buenas%20pr%C3%A1cticas%20en%20creaci%C3%B3n%20de%20Dockerfile/">
+        06.-Buenas prácticas en creación de Dockerfile
       </a>
 </li>
 </ul>
@@ -463,17 +463,17 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="construyendo-imagenes-con-docker-build">Construyendo imágenes con <code>docker build</code><a class="headerlink" href="#construyendo-imagenes-con-docker-build" title="Permanent link">¶</a></h1>
-<p>El comando <code>docker build</code> construye la nueva imagen leyendo las instrucciones del fichero <code>dockerfile</code> y la información de un entorno, que para nosotros va a ser un directorio (aunque también podemos guardar información, por ejemplo, en un repositorio git).</p>
-<p>La creación de la imagen es ejecutada por el docker engine, que recibe toda la información del entorno, por lo tanto es recomendable guardar el <code>dockerfile</code> en un directorio vacío y añadir los ficheros necesarios para la creación de la imagen. El comando <code>docker build</code> ejecuta las instrucciones de un <code>dockerfile</code> línea por línea y va mostrando los resultados en pantalla.</p>
+<h1 id="03-construyendo-imagenes-con-docker-build">03.-Construyendo imágenes con <code>docker build</code><a class="headerlink" href="#03-construyendo-imagenes-con-docker-build" title="Permanent link">¶</a></h1>
+<p>El comando <code>docker build</code> construye la nueva imagen leyendo las instrucciones del fichero <code>Dockerfile</code> y la información de un entorno, que para nosotros va a ser un directorio (aunque también podemos guardar información, por ejemplo, en un repositorio git).</p>
+<p>La creación de la imagen es ejecutada por el docker engine, que recibe toda la información del entorno, por lo tanto es recomendable guardar el <code>Dockerfile</code> en un directorio vacío y añadir los ficheros necesarios para la creación de la imagen. El comando <code>docker build</code> ejecuta las instrucciones de un <code>Dockerfile</code> línea por línea y va mostrando los resultados en pantalla.</p>
 <p>Tenemos que tener en cuenta que cada instrucción ejecutada crea una imagen intermedia. Una vez finalizada la construcción de la imagen nos devuelve su id. Algunas imágenes intermedias se guardan en caché, otras se borran. Por lo tanto, si por ejemplo, en un comando ejecutamos <code>cd /scripts/</code> y en otra línea le mandamos a ejecutar un script <code>./install.sh</code> no va a funcionar, ya que ha lanzado otra imagen intermedia. Teniendo esto en cuenta, la manera correcta de hacerlo sería:</p>
 <p><code>cd /scripts/;./install.sh</code></p>
-<p>Para terminar indicar que la creación de imágenes intermedias generadas por la ejecución de cada instrucción del <code>dockerfile</code>, es un mecanismo de caché, es decir, si en algún momento falla la creación de la imagen, al corregir el <code>dockerfile</code> y volver a construir la imagen, los pasos que habían funcionado anteriormente no se repiten ya que tenemos a nuestra disposición las imágenes intermedias, y el proceso continúa por la instrucción que causó el fallo.</p>
+<p>Para terminar indicar que la creación de imágenes intermedias generadas por la ejecución de cada instrucción del <code>Dockerfile</code>, es un mecanismo de caché, es decir, si en algún momento falla la creación de la imagen, al corregir el <code>Dockerfile</code> y volver a construir la imagen, los pasos que habían funcionado anteriormente no se repiten ya que tenemos a nuestra disposición las imágenes intermedias, y el proceso continúa por la instrucción que causó el fallo.</p>
 <h2 id="ejemplo-de-dockerfile">Ejemplo de Dockerfile<a class="headerlink" href="#ejemplo-de-dockerfile" title="Permanent link">¶</a></h2>
-<p>Vamos a crear un directorio (nuestro entorno) donde vamos a crear un <code>dockerfile</code> y un fichero <code>index.html</code>:</p>
+<p>Vamos a crear un directorio (nuestro entorno) donde vamos a crear un <code>Dockerfile</code> y un fichero <code>index.html</code>:</p>
 <pre><code>cd build
 ~/build$ ls
-dockerfile  index.html
+Dockerfile  index.html
 </code></pre>
 <p>El contenido de Dockerfile es:</p>
 <pre><code>FROM debian:buster-slim
@@ -486,7 +486,7 @@ CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
 <pre><code>$ docker build -t iesromerovargas/myapache2:v2 .
 </code></pre>
 <blockquote>
-<p>Nota: Ponemos como directorio el <code>.</code> porque estamos ejecutando esta instrucción desde el directorio donde está el <code>dockerfile</code>.</p>
+<p>Nota: Ponemos como directorio el <code>.</code> porque estamos ejecutando esta instrucción desde el directorio donde está el <code>Dockerfile</code>.</p>
 </blockquote>
 <p>Una vez terminado, podríamos ver que hemos generado una nueva imagen:</p>
 <pre><code>$ docker images
@@ -495,10 +495,10 @@ CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
 ...
 </code></pre>
 <p>Si usamos el parámetro <code>--no-cache</code> en <code>docker build</code> haríamos la construcción de una imagen sin usar las capas cacheadas por haber realizado anteriormente imágenes con capas similares.</p>
-<p>En este caso al crear el contenedor a partir de esta imagen no hay que indicar el proceso que se va a ejecutar, porque ya se ha indicando en el fichero <code>dockerfile</code>:</p>
+<p>En este caso al crear el contenedor a partir de esta imagen no hay que indicar el proceso que se va a ejecutar, porque ya se ha indicando en el fichero <code>Dockerfile</code>:</p>
 <pre><code>$ docker run -d -p 8080:80 --name servidor_web iesromerovargas/myapache2:v2 
 </code></pre>
-<p><a href="../06.-Buenas%20pr%C3%A1cticas%20en%20creaci%C3%B3n%20de%20dockerfile/">06.-Buenas prácticas en creación de dockerfile</a></p>
+<p><a href="../06.-Buenas%20pr%C3%A1cticas%20en%20creaci%C3%B3n%20de%20Dockerfile/">06.-Buenas prácticas en creación de Dockerfile</a></p>
 </article>
 </div>
 </div>
