@@ -5,11 +5,10 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href=".." rel="prev"/>
-<link href="../02.-Instalaci%C3%B3n/" rel="next"/>
+<link href="../06.-Ejercicios/01.-Ejercicios%20creaci%C3%B3n%20de%20contenedores%20b%C3%A1sicos/" rel="prev"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.4.2, mkdocs-material-9.1.1" name="generator"/>
-<title>01.-Introducción - Sistemas Informáticos</title>
+<title>07.-Cheatsheet - Sistemas Informáticos</title>
 <link href="../assets/stylesheets/main.402914a4.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.a0c5b2b5.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -23,7 +22,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#01-introduccion">
+<a class="md-skip" href="#07-cheatsheet">
           Saltar a contenido
         </a>
 </div>
@@ -47,7 +46,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              01.-Introducción
+              07.-Cheatsheet
             
           </span>
 </div>
@@ -105,7 +104,7 @@
     </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link md-tabs__link--active" href="./">
+<a class="md-tabs__link" href="../01.-Introducci%C3%B3n/">
         01.-Introducción
       </a>
 </li>
@@ -135,7 +134,7 @@
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../07.-Cheatsheet/">
+<a class="md-tabs__link md-tabs__link--active" href="./">
         07.-Cheatsheet
       </a>
 </li>
@@ -160,12 +159,12 @@
         docker
       </a>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
-<div class="md-nav__link md-nav__link--index md-nav__link--active">
-<a href="./">01.-Introducción</a>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../01.-Introducci%C3%B3n/">01.-Introducción</a>
 </div>
-<nav aria-expanded="true" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<nav aria-expanded="false" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_2">
 <span class="md-nav__icon md-icon"></span>
           01.-Introducción
@@ -424,12 +423,12 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_8" type="checkbox"/>
-<div class="md-nav__link md-nav__link--index">
-<a href="../07.-Cheatsheet/">07.-Cheatsheet</a>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_8" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index md-nav__link--active">
+<a href="./">07.-Cheatsheet</a>
 </div>
-<nav aria-expanded="false" aria-labelledby="__nav_8_label" class="md-nav" data-md-level="1">
+<nav aria-expanded="true" aria-labelledby="__nav_8_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_8">
 <span class="md-nav__icon md-icon"></span>
           07.-Cheatsheet
@@ -453,13 +452,93 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#que-es-docker">
-    ¿Qué es Docker?
+<a class="md-nav__link" href="#docker-run">
+    Docker Run
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#contenedores-vs-entornos-virtuales">
-    Contenedores vs. Entornos Virtuales
+<a class="md-nav__link" href="#docker-ps">
+    Docker ps
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#docker-startstoprestart">
+    Docker Start/Stop/Restart
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#docker-exec">
+    Docker Exec
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#docker-attach">
+    Docker attach
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#docker-logs">
+    Docker logs
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#docker-cp">
+    Docker cp
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#gestion-de-imagenes">
+    Gestión de imágenes
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#creacion-de-imagenes-a-partir-de-contenedores">
+    Creación de imágenes a partir de contenedores
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#docker-hub">
+    Docker Hub
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ejemplo-de-dockerfile">
+    Ejemplo de Dockerfile
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#gestion-de-redes">
+    Gestión de redes
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#volumenes">
+    Volúmenes
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ejemplo-basico-de-fichero-docker-composeyml">
+    Ejemplo básico de fichero “docker-compose.yml”
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#principales-comandos-de-docker-compose">
+    Principales comandos de “Docker Compose”
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#principales-comandos-de-kubernetes">
+    Principales comandos de “Kubernetes”
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#principales-comandos-de-mnikube">
+    Principales comandos de “MniKube”
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ejemplo-de-fichero-yaml-despliegueserviciopersistencia-con-kubernetes">
+    Ejemplo de fichero YAML despliegue/servicio/persistencia con Kubernetes
   </a>
 </li>
 </ul>
@@ -469,30 +548,435 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="01-introduccion">01.-Introducción<a class="headerlink" href="#01-introduccion" title="Permanent link">¶</a></h1>
-<p>La <strong>configuración adecuada de un entorno de desarrollo local</strong> sigue siendo un gran reto a pesar de todos los otros avances de la programación moderna. Simplemente hay demasiadas variables: diferentes ordenadores, sistemas operativos, versiones de lenguajes y frameworks, opciones de entornos virtuales,  y así sucesivamente. Cuando se añade el reto de <strong>trabajar en equipo</strong> en un entorno en el que todos necesitan tener la misma configuración, el problema se magnifica.</p>
-<p>En los últimos años ha surgido una solución: <a href="https://www.docker.com/">Docker</a>. Aunque sólo tiene unos pocos años, Docker se ha convertido rápidamente en la <strong>opción por defecto</strong> para muchos desarrolladores que trabajan en proyectos a nivel de producción.</p>
-<p>Docker es un proyecto <a href="https://github.com/docker/docker"><em>open source</em></a> que ha revolucionado la manera de desarrollar software gracias a la sencillez con la que permite gestionar contenedores. Los contenedores LXC (LinuX Containers) son un concepto relativamente antiguo y utilizado desde hace tiempo por grandes empresas como Amazon o Google, pero cuyo gestión era complicada. Sin embargo, Docker define APIs y herramientas de línea de comandos que hacen casi trivial la creación, distribución y ejecución de contenedores. De ahí que el lema de Docker sea: “<em>Build, Ship and Run. Any application, Anywhere</em>” y se haya convertido en una herramienta fundamental tanto para desarrolladores como para administradores de sistemas.</p>
-<p>Con Docker finalmente es posible <strong>reproducir un entorno de producción</strong> de forma fiel y fiable <strong>localmente</strong>, desde la versión adecuada del lenguaje hasta la instalación de las librerías necesarias, a la par de ejecutar servicios adicionales como una base de datos a nivel de producción. Esto significa que ya no es importante si se desarrolla en un equipo Linux, Mac o Windows. Todo funciona dentro del mismo Docker.</p>
-<p>Docker también <strong>facilita</strong> exponencialmente <strong>la colaboración en equipo</strong>. Atrás quedaron los días de compartir archivos README largos y obsoletos para añadir un nuevo desarrollador a un proyecto de grupo.</p>
-<p>En lugar de eso, con Docker <strong>sólo se tienen que compartir dos archivos</strong>: <code>Dockerfile</code> y  <code>docker-compose.yml</code> y el desarrollador puede tener la confianza de que su entorno de desarrollo local es <strong>exactamente igual</strong> que el del resto del equipo.</p>
-<p>Docker no es una tecnología perfecta. Todavía es relativamente nueva y compleja en sus entrañas; aún está en desarrollo activo. Pero aspira a la promesa de una política coherente y a un entorno de desarrollo compartible, que pueda ejecutarse localmente en cualquier ordenador o desplegado en cualquier servidor, lo que lo convierte en una opción sólida.</p>
-<h2 id="que-es-docker">¿Qué es Docker?<a class="headerlink" href="#que-es-docker" title="Permanent link">¶</a></h2>
-<p>Docker es una forma de aislar todo un sistema operativo a través de <strong>contenedores Linux</strong> que son un tipo de <strong>virtualización</strong>.</p>
-<p>La virtualización tiene sus raíces en los inicios de la informática cuando las computadoras grandes y caras eran la norma. ¿Cómo podrían varios programadores utilizar la misma máquina?. La respuesta fue la virtualización y específicamente las <strong>máquinas virtuales</strong> que son copias completas de un sistema informático desde el sistema operativo en adelante. <img alt="" src="img/img00.png"/></p>
-<p>Cuando se alquila un espacio en un proveedor de cloud computing como <em>Amazon Web Services (AWS)</em> normalmente no se proporciona una pieza de hardware dedicada. En lugar de eso, <strong>se comparte un servidor físico con otros clientes</strong>. Pero como cada cliente tiene su propio sistema virtual que se ejecuta en el servidor, l<strong>e parece que tiene el suyo propio</strong>.</p>
-<p>Esta tecnología es la que hace posible añadir o eliminar servidores de un <em>servicio de cloud</em> de forma rápida y sencilla. Se trata en gran medida de software entre bastidores, no de hardware real.</p>
-<p><strong>¿Cuál es el inconveniente de una máquina virtual?</strong> <u>Tamaño y velocidad</u>. Un sistema operativo huésped típico (<em>guest</em>) puede ocupar fácilmente hasta 700MB de tamaño. Así que si un servidor físico soporta tres máquinas virtuales, eso es al menos 2,1 GB de espacio en disco ocupado junto con el resto de necesidades para otros recursos como CPU y memoria.</p>
-<p>Al entrar en Docker, la idea clave es que la mayoría de los ordenadores dependen del mismo sistema operativo <a href="https://es.wikipedia.org/wiki/GNU/Linux">Linux</a>. <strong>¿Y si virtualizamos desde la capa de Linux hacia arriba?</strong> ¿No proporcionaría eso una forma más rápida y ligera de duplicar gran parte de la misma funcionalidad? La respuesta es sí. Y en los últimos años los <a href="https://en.wikipedia.org/wiki/List_of_Linux_containers">contenedores Linux</a> se han vuelto muy populares. Para la mayoría de las aplicaciones, especialmente las aplicaciones web, una máquina virtual proporciona mucho más recursos de los que se necesitan y un contenedor es más que suficiente.</p>
-<blockquote>
-<p>Esto, fundamentalmente, es Docker: ¡una forma de implementar contenedores Linux!</p>
-</blockquote>
-<p>Una analogía que podemos usar es la de los edificios y los apartamentos. Las máquinas virtuales son como viviendas: edificios independientes con su propia infraestructura, incluida la fontanería y calefacción, así como cocina, baños, dormitorios, etc. Los contenedores Docker son como los apartamentos: comparten una infraestructura común como la fontanería y la calefacción, pero vienen en varios tamaños que se ajustan a las necesidades exactas de un propietario.</p>
-<h2 id="contenedores-vs-entornos-virtuales">Contenedores vs. Entornos Virtuales<a class="headerlink" href="#contenedores-vs-entornos-virtuales" title="Permanent link">¶</a></h2>
-<p>Como programador de Python, por ejemplo, se debe estar familiarizado con el concepto de <strong>entornos virtuales</strong> que son una forma de aislar los paquetes Python. Gracias al entorno virtual, una computadora puede ejecutar múltiples proyectos localmente. Por ejemplo, el Proyecto A podría usar Python 3.10 y Django 4.1 entre otras dependencias; mientras que el Proyecto B usa Python 3.8 y Django 2.2. Configurando un entorno virtual dedicado en cada proyecto se puede gestionar estos diferentes paquetes de software sin contaminar nuestro entorno global.</p>
-<p>Hay una pequeña confusión derivada de que hay múltiples herramientas en este momento para implementar un entorno virtual: desde <code>virtualenv</code>, <code>venv</code> a <code>pipenv</code> o <code>poetry</code>, pero fundamentalmente todas hacen lo mismo.</p>
-<p>La mayor distinción entre los entornos virtuales y Docker es que los entornos virtuales sólo pueden aislar paquetes Python. <strong>No pueden aislar a los no-Python como una base de datos</strong> <em>PostgreSQL</em> o <em>MySQL</em>. Y siguen dependiendo del sistema global; de la instalación de Python a nivel de sistema (en otras palabras, de <strong>su</strong> ordenador). <strong>Los entornos virtuales apuntan a una instalación Python existente; no contienen Python en sí mismos</strong>.</p>
-<p>Los contenedores Linux van un paso más allá y <strong>aíslan todo el sistema operativo</strong>, no sólo las partes de Python. En otras palabras, instalaremos el propio Python dentro de Docker, así como se instalará y ejecutará en él la base de datos a nivel de producción.</p>
+<h1 id="07-cheatsheet">07.-Cheatsheet<a class="headerlink" href="#07-cheatsheet" title="Permanent link">¶</a></h1>
+<h2 id="docker-run">Docker Run<a class="headerlink" href="#docker-run" title="Permanent link">¶</a></h2>
+<pre><code>docker run -it --name=cont1 ubuntu /bin/bash
+</code></pre>
+<ul>
+<li>Crea un contenedor con la imagen “ubuntu” (al no especificar, toma versión “latest”), le establece un nombre “cont1” y lanza en modo interactivo una shell “bash”.</li>
+</ul>
+<pre><code>docker run -d -p 1200:80 nginx
+</code></pre>
+<ul>
+<li>Crea un contenedor con la versión “latest” de la imagen “nginx” y lo lanza en “background”, exponiendo el puerto 80 del contenedor en el puerto 1200 de la máquina anfitrión.</li>
+</ul>
+<pre><code>docker run -it -e MENSAJE=HOLA ubuntu:14.04 bash
+</code></pre>
+<ul>
+<li>Crea un contenedor con la imagen “ubuntu”, versión “14.04” y establece la variable de entorno “MENSAJE”.</li>
+</ul>
+<h2 id="docker-ps">Docker ps<a class="headerlink" href="#docker-ps" title="Permanent link">¶</a></h2>
+<pre><code>docker ps
+</code></pre>
+<ul>
+<li>Muestra información de los contenedores en ejecución.</li>
+</ul>
+<pre><code>docker ps -a
+</code></pre>
+<ul>
+<li>Muestra información de todos los contenedores, tanto parados como en ejecución.</li>
+</ul>
+<h2 id="docker-startstoprestart">Docker Start/Stop/Restart<a class="headerlink" href="#docker-startstoprestart" title="Permanent link">¶</a></h2>
+<pre><code>docker start micontenedor
+</code></pre>
+<ul>
+<li>Arranca el contenedor con nombre “mi contenedor”.</li>
+</ul>
+<pre><code>docker start -ai micontenedor
+</code></pre>
+<ul>
+<li>Arranca el contenedor con nombre “mi contenedor”, enlazando el comando ejecutado al arranque a la entrada
+y salida estándar de la terminal del anfitrión.</li>
+</ul>
+<h2 id="docker-exec">Docker Exec<a class="headerlink" href="#docker-exec" title="Permanent link">¶</a></h2>
+<pre><code>docker exec -it -e FICHERO=prueba cont bash
+</code></pre>
+<ul>
+<li>Lanza en el contenedor “cont” (que debe estar arrancado) el comando “bash”, estableciendo la variable de
+entorno “FICHERO” y enlazando la ejecución de forma interactiva a la entrada y salida estándar del anfitrión.</li>
+</ul>
+<pre><code>docker exec -d cont touch /tmp/prueba
+</code></pre>
+<ul>
+<li>Lanza en el contenedor “cont” (que debe estar arrancado) el comando “touch /tmp/prueba”. Este comando se ejecuta en segundo plano, generando el fichero “/tmp/prueba”.</li>
+</ul>
+<h2 id="docker-attach">Docker attach<a class="headerlink" href="#docker-attach" title="Permanent link">¶</a></h2>
+<pre><code>docker attach idcontainer
+</code></pre>
+<ul>
+<li>Enlaza nuestra terminal la entrada/salida de nuestra al proceso en segundo plano del contenedor “idcontainer”.</li>
+</ul>
+<h2 id="docker-logs">Docker logs<a class="headerlink" href="#docker-logs" title="Permanent link">¶</a></h2>
+<pre><code>docker logs -n 10 idcontainer
+</code></pre>
+<ul>
+<li>Muestra las 10 últimas líneas de la salida estandar producida por el proceso en ejecución en el contendor.</li>
+</ul>
+<h2 id="docker-cp">Docker cp<a class="headerlink" href="#docker-cp" title="Permanent link">¶</a></h2>
+<pre><code>docker cp idcontainer:/tmp/prueba ./
+</code></pre>
+<ul>
+<li>Copia el fichero “/tmp/prueba” del contenedor “idcontainer” al directorio actual del anfitrión.</li>
+</ul>
+<pre><code>docker cp ./miFichero idcontainer:/tmp
+</code></pre>
+<ul>
+<li>Copia el fichero “miFichero” del directorio actual del anfitrión a la carpeta “/tmp” del contenedor.</li>
+</ul>
+<h2 id="gestion-de-imagenes">Gestión de imágenes<a class="headerlink" href="#gestion-de-imagenes" title="Permanent link">¶</a></h2>
+<pre><code>docker images
+</code></pre>
+<ul>
+<li>Información de imágenes locales disponibles.</li>
+</ul>
+<pre><code>docker search ubuntu
+</code></pre>
+<ul>
+<li>Busca la imagen “ubuntu” en el repositorio remoto (por defecto Docker Hub).</li>
+</ul>
+<pre><code>docker pull alpine
+</code></pre>
+<ul>
+<li>Descarga localmente imagen “alpine”.</li>
+</ul>
+<pre><code>docker history alpine
+</code></pre>
+<ul>
+<li>Muestra la historia de creación de la imagen “alpine”.</li>
+</ul>
+<pre><code>docker rmi ubuntu:14.04
+</code></pre>
+<ul>
+<li>Elimina localmente la imagen “ubuntu” con tag “14.04”.</li>
+</ul>
+<pre><code>docker rmi $(docker images -q)
+</code></pre>
+<ul>
+<li>Borra toda imagen local que no esté siendo usada por un contenedor.</li>
+</ul>
+<pre><code>docker rm IDCONTENEDOR
+</code></pre>
+<ul>
+<li>Borra un contenedor con IDCONTENEDOR.</li>
+</ul>
+<pre><code>docker stop $(docker ps -a -q)
+</code></pre>
+<ul>
+<li>Para todos los contenedores del sistema.</li>
+</ul>
+<pre><code>docker rm $(docker ps -a -q)
+</code></pre>
+<ul>
+<li>Borra todos los contenedores parados del sistema.</li>
+</ul>
+<pre><code>docker system prune -a
+</code></pre>
+<ul>
+<li>Borra todas las imágenes y contenedores parados del sistema.</li>
+</ul>
+<h2 id="creacion-de-imagenes-a-partir-de-contenedores">Creación de imágenes a partir de contenedores<a class="headerlink" href="#creacion-de-imagenes-a-partir-de-contenedores" title="Permanent link">¶</a></h2>
+<pre><code>docker commit -m “comentario” IDCONTENEDOR usuario/imagen:version
+</code></pre>
+<ul>
+<li>Hace commit de un contenedor existente a una imagen local.</li>
+</ul>
+<pre><code>docker save -o copiaSeguridad.tar imagenA
+</code></pre>
+<ul>
+<li>Guarda una copia de seguridad de una imagen en fichero “.tar”.</li>
+</ul>
+<pre><code>docker load -i copiaSeguridad.tar
+</code></pre>
+<ul>
+<li>Restaura una copia de seguridad de una imagen en fichero “.tar”.</li>
+</ul>
+<h2 id="docker-hub">Docker Hub<a class="headerlink" href="#docker-hub" title="Permanent link">¶</a></h2>
+<pre><code>docker login
+</code></pre>
+<ul>
+<li>Permite introducir credenciales del registro (por defecto “Docker Hub”).</li>
+</ul>
+<pre><code>docker push usuario/imagen:version
+</code></pre>
+<ul>
+<li>Permite subir al repositorio una imagen mediante “push”.</li>
+</ul>
+<h2 id="ejemplo-de-dockerfile">Ejemplo de Dockerfile<a class="headerlink" href="#ejemplo-de-dockerfile" title="Permanent link">¶</a></h2>
+<pre><code>FROM alpine
+LABEL maintainer="email@gmail.com"
+#Actualizamos e instalamos paquetes con APK para Alpine
+RUN apk update &amp;&amp; apk add apache2 php php-apache2 openrc tar
+#Copiamos script para lanzar Apache 2
+ADD ./start.sh /start.sh
+#Descargamos un ejemplo de &lt;?php phpinfo(); ?&gt; por enseñar como bajar algo de Internet
+#Podría haber sido simplemente
+#RUN echo "&lt;?php phpinfo(); ?&gt;" &gt; /var/www/localhost/htdocs/index.php
+ADD https://gist.githubusercontent.com/SyntaxC4/5648247/raw/94277156638f9c309f2e36e19bff378ba7364907/info.php
+/var/www/localhost/htdocs/index.php
+# Si quisiéramos algo como Wordpress haríamos
+#ADD http://wordpress.org/latest.tar.gz /var/www/localhost/htdocs/wordpress.tar.gz
+#RUN tar xvzf /var/www/localhost/htdocs/wordpress.tar.gz &amp;&amp; rm -rf /var/www/localhost/htdocs/wordpress.tar.gz
+# Usamos usuario y grupo www-data. El grupo lo crea Apache, pero si quisiéramos crear grupo
+# Grupo www-data RUN set -x &amp;&amp; addgroup -g 82 -S www-data
+# Creamos usuario www-data y lo añadimos a ese grupo
+Cheatsheet Docker
+Completa - Autor: Sergi García Barea
+RUN adduser -u 82 -D -S -G www-data www-data
+# Hacemos todos los ficheros de /var/www propiedad de www-data
+# Y damos permisos a esos ficheros y a start.sh
+RUN chown -R www-data:www-data /var/www/ &amp;&amp; chmod -R 775 /var/www/ &amp;&amp; chmod 755 /start.sh
+#Indicamos puerto a exponer (para otros contenedores) 80
+EXPOSE 80
+#Comando lanzado por defecto al instalar el contendor
+CMD /start.sh
+</code></pre>
+<ul>
+<li>Ejemplo de fichero “Dockerfile”.</li>
+</ul>
+<h2 id="gestion-de-redes">Gestión de redes<a class="headerlink" href="#gestion-de-redes" title="Permanent link">¶</a></h2>
+<pre><code>docker network create redtest
+</code></pre>
+<ul>
+<li>Creamos la red “redtest”</li>
+</ul>
+<pre><code>docker network ls
+</code></pre>
+<ul>
+<li>Nos permite ver el listado de redes existentes.</li>
+</ul>
+<pre><code>docker network rm redtest
+</code></pre>
+<ul>
+<li>Borramos la red “redtest”.</li>
+</ul>
+<pre><code>docker run -it --network redtest ubuntu /bin/bash
+</code></pre>
+<ul>
+<li>Conectamos el contenedor que creamos a la red “redtest”.</li>
+</ul>
+<pre><code>docker network connect IDRED IDCONTENEDOR
+</code></pre>
+<ul>
+<li>Conectamos un contenedor a una red.</li>
+</ul>
+<pre><code>docker network disconnect IDRED IDCONTENEDOR
+</code></pre>
+<ul>
+<li>Desconectamos un contenedor de una red</li>
+</ul>
+<h2 id="volumenes">Volúmenes<a class="headerlink" href="#volumenes" title="Permanent link">¶</a></h2>
+<pre><code>docker run -d -it --name appcontainer -v /home/sergi/target:/app nginx:latest
+</code></pre>
+<ul>
+<li>Creamos un contenedor y asignamos un volumen con “binding mount”.</li>
+</ul>
+<pre><code>docker run -d -it --name appcontainer -v micontenedor:/app nginx:latest
+</code></pre>
+<ul>
+<li>Creamos un contenedor y asignamos un volumen Docker llamado “micontenedor”.</li>
+</ul>
+<pre><code>docker volume create/ls/rm mivolumen
+</code></pre>
+<ul>
+<li>Permite crear, listar o eliminar volúmenes Docker.</li>
+</ul>
+<pre><code>docker run -d -it --tmpfs /app nginx
+</code></pre>
+<ul>
+<li>Permite crear un contenedor y asociar un volumen “tmpfs”.</li>
+</ul>
+<pre><code>docker run --rm --volumes-from contenedor1 -v /home/sergi/backup:/backup ubuntu bash -c "cd
+/datos &amp;&amp; tar cvf /backup/copiaseguridad.tar ."
+</code></pre>
+<ul>
+<li>Permite realizar una copia de seguridad de un volumen asociado a “contenedor1” y que se monta en “/datos”. Dicha copia finalmente acabará en “/home/sergi/backup” de la máquina anfitrión.</li>
+</ul>
+<pre><code>docker volume rm $(docker volume ls -q)
+</code></pre>
+<ul>
+<li>Permite eliminar todos los lúmenes de tu máquina.</li>
+</ul>
+<h2 id="ejemplo-basico-de-fichero-docker-composeyml">Ejemplo básico de fichero “docker-compose.yml”<a class="headerlink" href="#ejemplo-basico-de-fichero-docker-composeyml" title="Permanent link">¶</a></h2>
+<pre><code>version: "3.9"
+services:
+db:
+image: mariadb:10.11.2
+volumes:
+- db_data:/var/lib/mysql
+environment:
+MARIADB_ROOT_PASSWORD: somewordpress
+MARIADB_DATABASE: wordpress
+MARIADB_USER: wordpress
+MARIADB_PASSWORD: wordpress
+wordpress:
+image: wordpress:latest
+ports:
+- "8000:80"
+environment:
+WORDPRESS_DB_HOST: db:3306
+WORDPRESS_DB_USER: wordpress
+WORDPRESS_DB_PASSWORD: wordpress
+WORDPRESS_DB_NAME: wordpress
+volumes:
+db_data:
+</code></pre>
+<h2 id="principales-comandos-de-docker-compose">Principales comandos de “Docker Compose”<a class="headerlink" href="#principales-comandos-de-docker-compose" title="Permanent link">¶</a></h2>
+<pre><code>docker compose up -d
+</code></pre>
+<ul>
+<li>Inicia el sistema definido en “docker-compose.yml” en segundo plano. Genera y descarga imágenes requeridas.</li>
+</ul>
+<pre><code>docker compose down
+</code></pre>
+<ul>
+<li>Detiene y elimina los contenedores según la configuración de “docker-compose.yml”.</li>
+</ul>
+<pre><code>docker compose build/pull
+</code></pre>
+<ul>
+<li>Construye/descarga las imágenes de contenedores según la configuración de “docker-compose.yml”.</li>
+</ul>
+<pre><code>docker compose ps
+</code></pre>
+<ul>
+<li>Muestra información de los contenedores según la configuración de “docker-compose.yml”.</li>
+</ul>
+<pre><code>docker compose up -d --scale web=3
+</code></pre>
+<ul>
+<li>Similar a “docker compose up -d” solo que además, el servicio definido como “web” en el fichero
+“docker-compose.yml” lo escala creando 3 copias y realizando balanceo automático si se realiza una petición al
+host llamado como el servicio “web”.</li>
+</ul>
+<h2 id="principales-comandos-de-kubernetes">Principales comandos de “Kubernetes”<a class="headerlink" href="#principales-comandos-de-kubernetes" title="Permanent link">¶</a></h2>
+<pre><code>kubectl apply -f “fichero.yaml”
+</code></pre>
+<ul>
+<li>Aplica en Kubernetes la configuración especificada en “fichero.yaml”.</li>
+</ul>
+<pre><code>kubectl create deployment midespliegue --image=sergarb1/flaskparakubernetes --port=5000
+</code></pre>
+<ul>
+<li>Crea un despliegue basado en una imagen dada y en el puerto 5000.</li>
+</ul>
+<pre><code>kubectl expose deployment midespliegue --type=LoadBalancer --name=midespliegue-http
+</code></pre>
+<ul>
+<li>Crea un servicio de tipo “LoadBalancer” exponeniendo “midespliegue”.</li>
+</ul>
+<pre><code>kubectl get pods; kubectl get services; kubectl get deployments
+</code></pre>
+<ul>
+<li>Muestra información de pods, servicios o despliegues.</li>
+</ul>
+<pre><code>kubectl scale deployment midespliegue --replicas=3
+</code></pre>
+<ul>
+<li>Escala horizontalmente un despliegue a 3 réplicas.</li>
+</ul>
+<pre><code>kubectl autoscale deployment midespliegue --min=5 --max=10
+</code></pre>
+<ul>
+<li>Configura autoescalado horizontal, aceptando entre 5 y 10 réplicas.</li>
+</ul>
+<pre><code>kubectl delete pod/deployment/service/autoscale nombre
+</code></pre>
+<ul>
+<li>Permite eliminar un pod, despliegue, servicio o autoescalado.</li>
+</ul>
+<h2 id="principales-comandos-de-mnikube">Principales comandos de “MniKube”<a class="headerlink" href="#principales-comandos-de-mnikube" title="Permanent link">¶</a></h2>
+<pre><code>minikube start
+</code></pre>
+<ul>
+<li>Inicia la máquina virtual que contiene MiniKube y pone el cluster Kubernetes en marcha</li>
+</ul>
+<pre><code>minikube service miservicio
+</code></pre>
+<ul>
+<li>Nos permite acceder a un servicio dentro de MiniKube desde la máquina local.</li>
+</ul>
+<pre><code>minikube tunnel
+</code></pre>
+<ul>
+<li>Mientras esté en ejecución, expone un servicio dentro de MiniKube a la máquina local</li>
+</ul>
+<h2 id="ejemplo-de-fichero-yaml-despliegueserviciopersistencia-con-kubernetes">Ejemplo de fichero YAML despliegue/servicio/persistencia con Kubernetes<a class="headerlink" href="#ejemplo-de-fichero-yaml-despliegueserviciopersistencia-con-kubernetes" title="Permanent link">¶</a></h2>
+<pre><code>#Definimos la información del servicio
+apiVersion: v1
+kind: Service
+metadata:
+name: wordpress
+labels:
+app: wordpress
+spec:
+ports:
+#El servicio se expone en el puerto 80
+- port: 80
+selector:
+app: wordpress
+tier: frontend
+#Aplicamos balanceo de carga para facilitar su escalado horizontal
+type: LoadBalancer
+---
+#Definimos un volumen persistente
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+name: wp-pv-claim
+labels:
+app: wordpress
+spec:
+#Indica que solo puede ser montado para lectura/escritura por un nodo. Para el resto lectura.
+#En este caso, se usa para modificar un fichero de configuración.
+accessModes:
+- ReadWriteOnce
+resources:
+requests:
+storage: 20Gi
+---
+#definimos el despliegue
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+name: wordpress
+labels:
+app: wordpress
+spec:
+selector:
+matchLabels:
+app: wordpress
+tier: frontend
+strategy:
+type: Recreate
+template:
+metadata:
+labels:
+app: wordpress
+tier: frontend
+spec:
+Cheatsheet Docker
+Completa - Autor: Sergi García Barea
+#Imagen
+containers:
+- image: wordpress:4.8-apache
+name: wordpress
+#Indicamos variables de entorno
+env:
+- name: WORDPRESS_DB_HOST
+value: wordpress-mysql
+- name: WORDPRESS_DB_PASSWORD
+value: CEFIREdocker
+ports:
+- containerPort: 80
+name: wordpress
+volumeMounts:
+- name: wordpress-persistent-storage
+mountPath: /var/www/html
+volumes:
+- name: wordpress-persistent-storage
+persistentVolumeClaim:
+claimName: wp-pv-claim
+</code></pre>
 </article>
 </div>
 </div>
