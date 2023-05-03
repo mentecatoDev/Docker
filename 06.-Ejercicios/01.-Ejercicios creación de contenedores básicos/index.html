@@ -565,7 +565,7 @@ $ docker run -it --name mi_nuevo_contenedor debian
 </ul>
 <pre><code>$ docker run -d -p 8080:80 -v nextcloud:/var/www/html --name nextcloud-db -e SQLITE_DATABASE=BD nextcloud
 </code></pre>
-<p>Este comando creará un contenedor de Nextcloud con una base de datos SQLite llamada "BD". El contenedor se ejecutará en segundo plano (-d), expondrá el puerto 8080 (-p) y se vinculará a un volumen llamado "nextcloud" (-v). También se asignará un nombre al contenedor (--name) para facilitar su referencia y se especificará la variable de entorno SQLITE_DATABASE para nombrar la base de datos.</p>
+<p>Este comando creará un contenedor de Nextcloud con una base de datos SQLite llamada <code>BD</code>. El contenedor se ejecutará en segundo plano (<code>-d</code>), expondrá el puerto <code>8080</code> (<code>-p</code>) y se vinculará a un volumen llamado <code>nextcloud</code> (<code>-v</code>). También se asignará un nombre al contenedor (<code>--name</code>) para facilitar su referencia y se especificará la variable de entorno <code>SQLITE_DATABASE</code> para nombrar la base de datos.</p>
 <h2 id="ejercicio-para-entregar">Ejercicio para entregar<a class="headerlink" href="#ejercicio-para-entregar" title="Permanent link">¶</a></h2>
 <p>Crearemos un contenedor demonio a partir de la imagen <code>nginx</code>, el contenedor se debe llamar <code>servidor_web</code> y se debe acceder a él utilizando el puerto 8181 del ordenador donde tengas instalado docker.</p>
 <p>Entrega un fichero comprimido o un documento markdown con los siguientes pantallazos:</p>
