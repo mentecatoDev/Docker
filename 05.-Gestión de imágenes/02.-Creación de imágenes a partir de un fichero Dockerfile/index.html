@@ -8,7 +8,7 @@
 <link href="../01.-Imagen%20a%20partir%20de%20un%20contenedor/" rel="prev"/>
 <link href="../03.-Construyendo%20im%C3%A1genes%20con%20docker%20build/" rel="next"/>
 <link href="../../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.4.2, mkdocs-material-9.1.4" name="generator"/>
+<meta content="mkdocs-1.4.3, mkdocs-material-9.1.4" name="generator"/>
 <title>02.-Creación de imágenes a partir de un fichero Dockerfile - Sistemas Informáticos</title>
 <link href="../../assets/stylesheets/main.240905d7.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.a0c5b2b5.min.css" rel="stylesheet"/>
@@ -516,7 +516,7 @@
 <p><strong>No se puede reproducir la imagen</strong>. Si la perdemos tenemos que recordar toda la secuencia de órdenes que habíamos ejecutado desde que arrancamos el contenedor hasta que teníamos una versión definitiva e hicimos <code>docker commit</code>.</p>
 </li>
 <li>
-<p><strong>No podemos configurar el proceso que se ejecutará en el contenedor creado desde la imagen</strong>. Los contenedores creados a partir de la nueva imagen ejecutaran por defecto el proceso que estaba configurado en la imagen base.</p>
+<p><strong>No podemos configurar el proceso que se ejecutará en el contenedor que hemos creado desde la imagen</strong>. Los contenedores creados a partir de la nueva imagen ejecutaran por defecto el proceso que estaba configurado en la imagen base.</p>
 </li>
 <li>
 <p><strong>No podemos cambiar la imagen de base</strong>. Si ha habido alguna actualización, problemas de seguridad, etc. con la imagen de base tenemos que descargar la nueva versión, volver a crear un nuevo contenedor basado en ella y ejecutar de nuevo toda la secuencia de órdenes.</p>
@@ -525,17 +525,17 @@
 <p>Por todas estas razones, <strong>el método preferido para la creación de imágenes es el uso de ficheros <code>Dockerfile</code> y el comando <code>docker build</code></strong>. Con este método vamos a tener las siguientes ventajas:</p>
 <ul>
 <li>
-<p>Podremos reproducir la imagen fácilmente ya que en el fichero <code>Dockerfile</code> tenemos todas y cada una de las órdenes necesarias para la construcción de la imagen. Si además ese Dockerfile está guardado en un sistema de control de versiones como git podremos, no sólo reproducir la imagen si no asociar los cambios en el Dockerfile a los cambios en las versiones de las imágenes creadas.</p>
+<p>Podremos reproducir la imagen fácilmente ya que en el fichero <code>Dockerfile</code> tenemos todas y cada una de las órdenes necesarias para la construcción de la imagen. Si además ese Dockerfile está guardado en un sistema de control de versiones como git podremos, no sólo reproducir la imagen sino asociar los cambios en el <code>Dockerfile</code> a los cambios en las versiones de las imágenes creadas.</p>
 </li>
 <li>
 <p>Podremos configurar el proceso que se ejecutará por defecto en los contenedores creados a partir de la nueva imagen.</p>
 </li>
 <li>
-<p>Si queremos cambiar la imagen de base esto es extremadamente sencillo con un Dockerfile, únicamente tendremos que modificar la primera línea de ese fichero tal y como explicaremos posteriormente.</p>
+<p>Si queremos cambiar la imagen de base esto es extremadamente sencillo con un <code>Dockerfile</code>; únicamente tendremos que modificar la primera línea de ese fichero tal y como explicaremos más adelante.</p>
 </li>
 </ul>
 <h1 id="gestion-de-imagenes">Gestión de imágenes<a class="headerlink" href="#gestion-de-imagenes" title="Permanent link">¶</a></h1>
-<p>Para crear una imagen de Docker, se sigue el siguiente proceso básico:</p>
+<p>Para crear una imagen de docker, se sigue el siguiente proceso básico:</p>
 <ol>
 <li><strong>Crear un archivo <a href="01.-Dockerfile.md"><code>Dockerfile</code></a></strong></li>
 <li><strong>Escribir las <a href="02.-Instrucciones%20de%20Dockerfile.md">instrucciones de Dockerfile</a></strong></li>
@@ -543,7 +543,34 @@
 <li><a href="../04.-Etiquetado%20de%20im%C3%A1genes/"><strong>Etiquetar la imagen</strong></a></li>
 <li><strong><a href="../05.-Subir%20im%C3%A1genes/">Subir la imagen</a> a un repositorio de imágenes</strong></li>
 </ol>
-<p>Aquí un ejemplo de archivo <code>Dockerfile</code> para construir una imagen de una aplicación de Python:</p>
+<pre><code># Usar una imagen base de python
+FROM python:3.10
+
+# Instalar poetry con pip
+ENV POETRY_VERSION=1.4.2
+RUN pip install "poetry==$POETRY_VERSION"
+
+# Copiar los archivos de configuración de poetry
+WORKDIR /app
+COPY pyproject.toml poetry.lock ./
+
+# Desactivar la creación de virtualenvs
+RUN poetry config virtualenvs.create false
+
+# Instalar las dependencias con poetry
+RUN poetry install
+
+# Copiar el archivo python
+COPY hola_mundo.py ./
+
+# Ejecutar el archivo con poetry run python
+CMD ["poetry", "run", "python", "hola_mundo.py"]
+</code></pre>
+<p>La línea:</p>
+<pre><code>RUN poetry config virtualenvs.create false
+</code></pre>
+<p>sirve para desactivar la creación de entornos virtuales por parte de poetry. Un entorno virtual es una forma de aislar las dependencias de un proyecto de las del sistema o de otros proyectos. Poetry crea por defecto un entorno virtual para cada proyecto que gestiona, pero en el caso de docker, esto no es necesario ni deseable, ya que la imagen de docker ya es un entorno aislado. Por eso, se usa ese comando para indicarle a poetry que instale las dependencias directamente en el intérprete de python de la imagen, sin crear un entorno virtual adicional.</p>
+<p>Aquí tenemos un ejemplo de archivo <code>Dockerfile</code> para construir una imagen de una aplicación de Python:</p>
 <pre><code class="language-Dockerfile"># Imagen base
 FROM python:3.9-alpine
 
