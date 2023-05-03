@@ -7,9 +7,9 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="../06.-Ejercicios/01.-Ejercicios%20creaci%C3%B3n%20de%20contenedores%20b%C3%A1sicos/" rel="prev"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.4.2, mkdocs-material-9.1.1" name="generator"/>
+<meta content="mkdocs-1.4.2, mkdocs-material-9.1.4" name="generator"/>
 <title>07.-Cheatsheet - Sistemas Informáticos</title>
-<link href="../assets/stylesheets/main.402914a4.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/main.240905d7.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.a0c5b2b5.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
@@ -704,29 +704,35 @@ entorno “FICHERO” y enlazando la ejecución de forma interactiva a la entrad
 <h2 id="ejemplo-de-dockerfile">Ejemplo de Dockerfile<a class="headerlink" href="#ejemplo-de-dockerfile" title="Permanent link">¶</a></h2>
 <pre><code>FROM alpine
 LABEL maintainer="email@gmail.com"
+
 #Actualizamos e instalamos paquetes con APK para Alpine
 RUN apk update &amp;&amp; apk add apache2 php php-apache2 openrc tar
+
 #Copiamos script para lanzar Apache 2
 ADD ./start.sh /start.sh
+
 #Descargamos un ejemplo de &lt;?php phpinfo(); ?&gt; por enseñar como bajar algo de Internet
 #Podría haber sido simplemente
 #RUN echo "&lt;?php phpinfo(); ?&gt;" &gt; /var/www/localhost/htdocs/index.php
 ADD https://gist.githubusercontent.com/SyntaxC4/5648247/raw/94277156638f9c309f2e36e19bff378ba7364907/info.php
 /var/www/localhost/htdocs/index.php
+
 # Si quisiéramos algo como Wordpress haríamos
 #ADD http://wordpress.org/latest.tar.gz /var/www/localhost/htdocs/wordpress.tar.gz
 #RUN tar xvzf /var/www/localhost/htdocs/wordpress.tar.gz &amp;&amp; rm -rf /var/www/localhost/htdocs/wordpress.tar.gz
+
 # Usamos usuario y grupo www-data. El grupo lo crea Apache, pero si quisiéramos crear grupo
 # Grupo www-data RUN set -x &amp;&amp; addgroup -g 82 -S www-data
 # Creamos usuario www-data y lo añadimos a ese grupo
-Cheatsheet Docker
-Completa - Autor: Sergi García Barea
 RUN adduser -u 82 -D -S -G www-data www-data
+
 # Hacemos todos los ficheros de /var/www propiedad de www-data
 # Y damos permisos a esos ficheros y a start.sh
 RUN chown -R www-data:www-data /var/www/ &amp;&amp; chmod -R 775 /var/www/ &amp;&amp; chmod 755 /start.sh
+
 #Indicamos puerto a exponer (para otros contenedores) 80
 EXPOSE 80
+
 #Comando lanzado por defecto al instalar el contendor
 CMD /start.sh
 </code></pre>
@@ -799,26 +805,26 @@ CMD /start.sh
 <h2 id="ejemplo-basico-de-fichero-docker-composeyml">Ejemplo básico de fichero “docker-compose.yml”<a class="headerlink" href="#ejemplo-basico-de-fichero-docker-composeyml" title="Permanent link">¶</a></h2>
 <pre><code>version: "3.9"
 services:
-db:
-image: mariadb:10.11.2
+    db:
+        image: mariadb:10.11.2
+        volumes:
+        - db_data:/var/lib/mysql
+        environment:
+            MARIADB_ROOT_PASSWORD: somewordpress
+            MARIADB_DATABASE: wordpress
+            MARIADB_USER: wordpress
+            MARIADB_PASSWORD: wordpress
+    wordpress:
+            image: wordpress:latest
+            ports:
+            - "8000:80"
+            environment:
+                WORDPRESS_DB_HOST: db:3306
+                WORDPRESS_DB_USER: wordpress
+                WORDPRESS_DB_PASSWORD: wordpress
+                WORDPRESS_DB_NAME: wordpress
 volumes:
-- db_data:/var/lib/mysql
-environment:
-MARIADB_ROOT_PASSWORD: somewordpress
-MARIADB_DATABASE: wordpress
-MARIADB_USER: wordpress
-MARIADB_PASSWORD: wordpress
-wordpress:
-image: wordpress:latest
-ports:
-- "8000:80"
-environment:
-WORDPRESS_DB_HOST: db:3306
-WORDPRESS_DB_USER: wordpress
-WORDPRESS_DB_PASSWORD: wordpress
-WORDPRESS_DB_NAME: wordpress
-volumes:
-db_data:
+    db_data:
 </code></pre>
 <h2 id="principales-comandos-de-docker-compose">Principales comandos de “Docker Compose”<a class="headerlink" href="#principales-comandos-de-docker-compose" title="Permanent link">¶</a></h2>
 <pre><code>docker compose up -d
@@ -905,85 +911,87 @@ host llamado como el servicio “web”.</li>
 apiVersion: v1
 kind: Service
 metadata:
-name: wordpress
-labels:
-app: wordpress
+  name: wordpress
+  labels:
+    app: wordpress
 spec:
-ports:
-#El servicio se expone en el puerto 80
-- port: 80
-selector:
-app: wordpress
-tier: frontend
-#Aplicamos balanceo de carga para facilitar su escalado horizontal
-type: LoadBalancer
+  ports:
+    #El servicio se expone en el puerto 80
+    - port: 80
+  selector:
+    app: wordpress
+    tier: frontend
+  #Aplicamos balanceo de carga para facilitar su escalado horizontal
+  type: LoadBalancer
+
 ---
 #Definimos un volumen persistente
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-name: wp-pv-claim
-labels:
-app: wordpress
+  name: wp-pv-claim
+  labels:
+    app: wordpress
 spec:
-#Indica que solo puede ser montado para lectura/escritura por un nodo. Para el resto lectura.
-#En este caso, se usa para modificar un fichero de configuración.
-accessModes:
-- ReadWriteOnce
-resources:
-requests:
-storage: 20Gi
+  #Indica que solo puede ser montado para lectura/escritura por un nodo. Para el resto lectura.
+  #En este caso, se usa para modificar un fichero de configuración.
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+    storage: 20Gi
+
 ---
 #definimos el despliegue
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-name: wordpress
-labels:
-app: wordpress
+  name: wordpress
+  labels:
+    app: wordpress
 spec:
-selector:
-matchLabels:
-app: wordpress
-tier: frontend
-strategy:
-type: Recreate
-template:
-metadata:
-labels:
-app: wordpress
-tier: frontend
-spec:
-Cheatsheet Docker
-Completa - Autor: Sergi García Barea
-#Imagen
-containers:
-- image: wordpress:4.8-apache
-name: wordpress
-#Indicamos variables de entorno
-env:
-- name: WORDPRESS_DB_HOST
-value: wordpress-mysql
-- name: WORDPRESS_DB_PASSWORD
-value: CEFIREdocker
-ports:
-- containerPort: 80
-name: wordpress
-volumeMounts:
-- name: wordpress-persistent-storage
-mountPath: /var/www/html
-volumes:
-- name: wordpress-persistent-storage
-persistentVolumeClaim:
-claimName: wp-pv-claim
+  selector:
+    matchLabels:
+    app: wordpress
+    tier: frontend
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+    labels:
+    app: wordpress
+    tier: frontend
+    spec:
+      #Imagen
+    containers:
+      - image: wordpress:4.8-apache
+    name: wordpress
+
+    #Indicamos variables de entorno
+    env:
+    - name: WORDPRESS_DB_HOST
+    value: wordpress-mysql
+    - name: WORDPRESS_DB_PASSWORD
+    value: CEFIREdocker
+    ports:
+    - containerPort: 80
+    name: wordpress
+    volumeMounts:
+    - name: wordpress-persistent-storage
+    mountPath: /var/www/html
+    volumes:
+    - name: wordpress-persistent-storage
+    persistentVolumeClaim:
+    claimName: wp-pv-claim
+
 </code></pre>
 </article>
 </div>
 </div>
-<a class="md-top md-icon" data-md-component="top" hidden="" href="#">
+<button class="md-top md-icon" data-md-component="top" hidden="" type="button">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"></path></svg>
             Volver al principio
-          </a>
+          </button>
 </main>
 <footer class="md-footer">
 <div class="md-footer-meta md-typeset">
@@ -1004,7 +1012,7 @@ claimName: wp-pv-claim
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <script id="__config" type="application/json">{"base": "..", "features": ["navigation.top", "navigation.top.sticky", "navigation.tabs", "navigation.indexes"], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}}</script>
-<script src="../assets/javascripts/bundle.b78d2936.min.js"></script>
+<script src="../assets/javascripts/bundle.19047be9.min.js"></script>
 <script src="../javascripts/mathjax.js"></script>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
