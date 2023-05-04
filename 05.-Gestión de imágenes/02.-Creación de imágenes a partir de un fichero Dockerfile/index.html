@@ -376,40 +376,9 @@
 </li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-          02.-Creación de imágenes a partir de un fichero Dockerfile
-          <span class="md-nav__icon md-icon"></span>
-</label>
 <a class="md-nav__link md-nav__link--active" href="./">
         02.-Creación de imágenes a partir de un fichero Dockerfile
       </a>
-<nav aria-label="Tabla de contenidos" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      Tabla de contenidos
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#el-fichero-dockerfile">
-    El fichero Dockerfile
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#formato-de-un-dockerfile">
-    Formato de un Dockerfile
-  </a>
-<nav aria-label="Formato de un Dockerfile" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#ejecutar-un-comando">
-    Ejecutar un comando
-  </a>
-</li>
-</ul>
-</nav>
-</li>
-</ul>
-</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../03.-Construyendo%20im%C3%A1genes%20con%20docker%20build/">
@@ -479,31 +448,6 @@
 <div class="md-sidebar__scrollwrap">
 <div class="md-sidebar__inner">
 <nav aria-label="Tabla de contenidos" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      Tabla de contenidos
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#el-fichero-dockerfile">
-    El fichero Dockerfile
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#formato-de-un-dockerfile">
-    Formato de un Dockerfile
-  </a>
-<nav aria-label="Formato de un Dockerfile" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#ejecutar-un-comando">
-    Ejecutar un comando
-  </a>
-</li>
-</ul>
-</nav>
-</li>
-</ul>
 </nav>
 </div>
 </div>
@@ -543,6 +487,37 @@
 <li><a href="../04.-Etiquetado%20de%20im%C3%A1genes/"><strong>Etiquetar la imagen</strong></a></li>
 <li><strong><a href="../05.-Subir%20im%C3%A1genes/">Subir la imagen</a> a un repositorio de imágenes</strong></li>
 </ol>
+<h1 id="ejemplo-de-dockerfile">Ejemplo de <code>Dockerfile</code><a class="headerlink" href="#ejemplo-de-dockerfile" title="Permanent link">¶</a></h1>
+<p>Para simplificar el proceso de crear una <a href="../01.-Imagen%20a%20partir%20de%20un%20contenedor/">imagen a partir de un contenedor</a> podemos utilizar un <code>Dockerfile</code> y un volumen local con nuestra página web como se detalla a continuación:</p>
+<ul>
+<li>Creamos un directorio en el sistema local que contendrá el archivo <code>index.html</code>. Por ejemplo, podemos crear un directorio llamado <code>html</code> y dentro de él colocar el archivo <code>index.html</code> con el contenido deseado.</li>
+<li>Creamos un archivo llamado <code>Dockerfile</code> en el mismo directorio donde está el directorio <code>html</code> en el que colocaremos el siguiente contenido:</li>
+</ul>
+<pre><code>FROM debian
+
+RUN apt-get update &amp;&amp; apt-get install -y apache2
+
+COPY ./html /var/www/html
+
+EXPOSE 80
+
+CMD ["apache2ctl", "-D", "FOREGROUND"]
+</code></pre>
+<p>Este <code>Dockerfile</code> utiliza la imagen base <code>debian</code>, actualiza los repositorios, instala el servidor Apache y copia el contenido del directorio <code>html</code> local al directorio <code>/var/www/html</code> dentro del contenedor. Luego expone el puerto 80 y ejecuta el comando <code>apache2ctl -D FOREGROUND</code> para iniciar el servidor Apache.</p>
+<ul>
+<li>Ahora podemos construir la imagen de Docker ejecutando el siguiente comando en el directorio donde se encuentra el <code>Dockerfile</code>:</li>
+</ul>
+<pre><code>docker build -t mi_nuevo_apache:v1 .
+</code></pre>
+<p>Este comando construirá la imagen de Docker utilizando el <code>Dockerfile</code> y la etiquetará como <code>mi_nuevo_apache:v1</code>.</p>
+<ul>
+<li>Una vez que la imagen se haya construido correctamente, puedes ejecutar el siguiente comando para iniciar un contenedor basado en esa imagen y utilizar un volumen local para el archivo <code>index.html</code>:</li>
+</ul>
+<pre><code>less
+docker run -d -p 8080:80 --name servidor_web -v /ruta/al/directorio/html:/var/www/html mi_nuevo_apache:v1
+</code></pre>
+<p>Nos tenemos que asegurar de reemplazar <code>/ruta/al/directorio/html</code> con la ruta absoluta al directorio que contiene el archivo <code>index.html</code> en nuestro sistema local.</p>
+<p>Con estos pasos, tendremos un contenedor en ejecución que utiliza el archivo <code>index.html</code> desde el volumen local y expone el puerto 8080 en tu máquina host.</p>
 <pre><code># Usar una imagen base de python
 FROM python:3.10
 
