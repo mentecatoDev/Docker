@@ -539,8 +539,26 @@ $ docker pull php:7.4-apache
 </code></pre>
 <ol>
 <li>Muestras las imágenes que tienes descargadas.</li>
+</ol>
+<pre><code>$ docker images
+REPOSITORY        TAG                          IMAGE ID       CREATED        SIZE
+tomcat            9.0.74-jdk17-temurin-jammy   3f55087df9b4   18 hours ago   476MB
+httpd             latest                       28505717e3ae   37 hours ago   145MB
+jenkins/jenkins   lts                          976459dc87b0   45 hours ago   472MB
+ubuntu            18.04                        3941d3b032a8   8 weeks ago    63.1MB
+php               7.4-apache                   20a3732f422b   5 months ago   453MB
+</code></pre>
+<ol>
 <li>Crea un contenedor demonio con la imagen <code>php:7.4-apache</code>.</li>
+</ol>
+<pre><code>docker run -d --name -p 8080:80 php php:7.4-apache
+</code></pre>
+<ol>
 <li>Comprueba el tamaño del contenedor en el disco duro.</li>
+</ol>
+<pre><code>docker ps --sa
+</code></pre>
+<ol>
 <li>
 <p>Con la instrucción <code>docker cp</code> podemos copiar ficheros a o desde un contenedor. Puedes encontrar información es esta <a href="https://docs.docker.com/engine/reference/commandline/cp/">página</a>. Crea un fichero en tu ordenador, con el siguiente contenido:</p>
 <p><code>&lt;?php
@@ -549,8 +567,14 @@ $ docker pull php:7.4-apache
 </li>
 </ol>
 <p>Copia un fichero <code>info.php</code> al directorio <code>/var/www/html</code> del contenedor con <code>docker cp</code>.</p>
+<pre><code>$ docker cp ./info.php php:/var/www/html
+</code></pre>
 <ol>
 <li>Vuelve a comprobar el espacio ocupado por el contenedor.</li>
+</ol>
+<pre><code>docker ps --sa
+</code></pre>
+<ol>
 <li>Accede al fichero <code>info.php</code> desde un navegador web.</li>
 </ol>
 <h2 id="ejercicio-para-entregar">Ejercicio para entregar<a class="headerlink" href="#ejercicio-para-entregar" title="Permanent link">¶</a></h2>
