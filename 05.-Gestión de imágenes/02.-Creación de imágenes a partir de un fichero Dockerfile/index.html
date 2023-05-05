@@ -418,8 +418,13 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../06.-Ejercicios/01.-Ejercicios%20creaci%C3%B3n%20de%20contenedores%20b%C3%A1sicos/">
-        01.-Ejercicios creación de contenedores básicos
+<a class="md-nav__link" href="../../06.-Ejercicios/01.-Ejercicios%20creaci%C3%B3n%20de%20contenedores%20b%C3%A1sicos%20I/">
+        01.-Ejercicios creación de contenedores básicos I
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../06.-Ejercicios/02.-%20Ejercicios%20de%20creaci%C3%B3n%20de%20contenedores%20b%C3%A1sicos%20II/">
+        02.- Ejercicios de creación de contenedores básicos II
       </a>
 </li>
 </ul>
@@ -487,7 +492,7 @@
 <li><a href="../04.-Etiquetado%20de%20im%C3%A1genes/"><strong>Etiquetar la imagen</strong></a></li>
 <li><strong><a href="../05.-Subir%20im%C3%A1genes/">Subir la imagen</a> a un repositorio de imágenes</strong></li>
 </ol>
-<h1 id="ejemplo-de-dockerfile">Ejemplo de <code>Dockerfile</code><a class="headerlink" href="#ejemplo-de-dockerfile" title="Permanent link">¶</a></h1>
+<h1 id="ejemplo-de-dockerfile-servidor-apache">Ejemplo de <code>Dockerfile</code>: Servidor Apache<a class="headerlink" href="#ejemplo-de-dockerfile-servidor-apache" title="Permanent link">¶</a></h1>
 <p>Para simplificar el proceso de crear una <a href="../01.-Imagen%20a%20partir%20de%20un%20contenedor/">imagen a partir de un contenedor</a> podemos utilizar un <code>Dockerfile</code> y un volumen local con nuestra página web como se detalla a continuación:</p>
 <ul>
 <li>Creamos un directorio en el sistema local que contendrá el archivo <code>index.html</code>. Por ejemplo, podemos crear un directorio llamado <code>html</code> y dentro de él colocar el archivo <code>index.html</code> con el contenido deseado.</li>
@@ -526,7 +531,8 @@ CMD ["apache2ctl", "-D", "FOREGROUND"]
 <blockquote>
 <p><strong>Nota Aclaratoria sobre sincronización de directorios</strong>:</p>
 <p><em>¿Los directorios <code>./hml</code> y <code>/var/www/html</code> se sincronizan automáticamente?</em></p>
-<p>En principio, <strong>no</strong>. En el <code>Dockerfile</code> proporcionado no se establece una sincronización en tiempo real entre los directorios <code>./html</code> en nuestro sistema local y <code>/var/www/html</code> dentro del contenedor. La instrucción <code>COPY</code> en el <code>Dockerfile</code> simplemente <strong>copia</strong> el contenido del directorio local <code>html</code> al directorio <code>/var/www/html</code> dentro del contenedor durante el proceso de construcción de la imagen.</p>
+<pre><code>  En principio, **no**. En fichero `dockerfile` proporcionado no se establece una sincronización en tiempo real entre los directorios `./html` en nuestro sistema local y `/var/www/html` dentro del contenedor. La instrucción `COPY` en el `Dockerfile` simplemente **copia** el contenido del directorio local `html` al directorio `/var/www/html` dentro del contenedor durante el proceso de construcción de la imagen.
+</code></pre>
 <p>Una vez que se ha construido y se está ejecutando un contenedor a partir de la imagen, los cambios realizados en el directorio local <code>html</code> no se reflejarán automáticamente en el directorio <code>/var/www/html</code> del contenedor. Esto significa que si realizamos modificaciones en los archivos en el directorio <code>html</code> de tu sistema local después de iniciar el contenedor, los cambios no se sincronizarán automáticamente en el contenedor.</p>
 <p><strong>Sin embargo</strong>, hay formas de lograr la sincronización en tiempo real entre el sistema local y el contenedor. Una de las formas más comunes es utilizando volúmenes de Docker.</p>
 <p>Al ejecutar el contenedor, podemos usar la opción <code>-v</code> o <code>--volume</code> para montar un volumen y establecer una <strong>sincronización bidireccional</strong> entre un directorio en tu sistema local y un directorio dentro del contenedor. Por ejemplo:</p>
@@ -535,66 +541,6 @@ CMD ["apache2ctl", "-D", "FOREGROUND"]
 <p>Esta sincronización en tiempo real nos permite realizar cambios en los archivos del directorio <code>html</code> en nuestro sistema local y ver los resultados reflejados inmediatamente en el contenedor sin necesidad de reconstruir la imagen o reiniciar el contenedor.</p>
 <p>Es importante tener en cuenta que la sincronización de directorios utilizando volúmenes <strong>solo se produce mientras el contenedor está en ejecución</strong>. Si se elimina el contenedor, los datos del volumen no persistirán a menos que se utilicen volúmenes de Docker persistentes o se realice una configuración adicional.</p>
 </blockquote>
-<pre><code># Usar una imagen base de python
-FROM python:3.10
-
-# Instalar poetry con pip
-ENV POETRY_VERSION=1.4.2
-RUN pip install "poetry==$POETRY_VERSION"
-
-# Copiar los archivos de configuración de poetry
-WORKDIR /app
-COPY pyproject.toml poetry.lock ./
-
-# Desactivar la creación de virtualenvs
-RUN poetry config virtualenvs.create false
-
-# Instalar las dependencias con poetry
-RUN poetry install
-
-# Copiar el archivo python
-COPY hola_mundo.py ./
-
-# Ejecutar el archivo con poetry run python
-CMD ["poetry", "run", "python", "hola_mundo.py"]
-</code></pre>
-<p>La línea:</p>
-<pre><code>RUN poetry config virtualenvs.create false
-</code></pre>
-<p>sirve para desactivar la creación de entornos virtuales por parte de poetry. Un entorno virtual es una forma de aislar las dependencias de un proyecto de las del sistema o de otros proyectos. Poetry crea por defecto un entorno virtual para cada proyecto que gestiona, pero en el caso de docker, esto no es necesario ni deseable, ya que la imagen de docker ya es un entorno aislado. Por eso, se usa ese comando para indicarle a poetry que instale las dependencias directamente en el intérprete de python de la imagen, sin crear un entorno virtual adicional.</p>
-<p>Aquí tenemos un ejemplo de archivo <code>Dockerfile</code> para construir una imagen de una aplicación de Python:</p>
-<pre><code class="language-Dockerfile"># Imagen base
-FROM python:3.9-alpine
-
-# Variables de entorno para configurar el entorno de la aplicación
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONUNBUFFERED 1
-
-# Directorio de trabajo
-WORKDIR /app
-
-# Copiar los archivos de la aplicación
-COPY requirements.txt .
-COPY . .
-
-# Instalar las dependencias
-RUN pip install --upgrade pip &amp;&amp; \
-    pip install -r requirements.txt
-
-# Exponer el puerto 8000
-EXPOSE 8000
-
-# Comando para iniciar la aplicación
-CMD ["python", "app.py"]
-</code></pre>
-<p>Este archivo <code>Dockerfile</code> se basa en la imagen de Python 3.9 Alpine y configura el entorno de la aplicación. A continuación, copia los archivos de la aplicación y los requisitos en el directorio de trabajo y los instala. Finalmente, expone el puerto 8000 y utiliza el comando <code>python app.py</code> para iniciar la aplicación.</p>
-<p>Para construir la imagen, se debe ejecutar el siguiente comando en la terminal, asegurándote de estar en la misma ubicación que el archivo <code>Dockerfile</code>:</p>
-<pre><code>docker build -t nombre-de-la-imagen:version .
-</code></pre>
-<p>Después de construir y etiquetar la imagen, se puede subir a un registro de imágenes de Docker utilizando el comando <code>docker push</code>. Por ejemplo:</p>
-<pre><code>docker push nombre-de-la-imagen:version
-</code></pre>
-<p>Una vez subida la imagen, se puede descargar y ejecutar en cualquier sistema que admita Docker utilizando el comando <code>docker run</code>.</p>
 <h2 id="el-fichero-dockerfile">El fichero <code>Dockerfile</code><a class="headerlink" href="#el-fichero-dockerfile" title="Permanent link">¶</a></h2>
 <p>El archivo <code>Dockerfile</code> es un archivo de texto que contiene las instrucciones para construir una imagen de Docker. En él se especifican <strong>el sistema operativo base</strong>, las <strong>dependencias</strong>, las <strong>bibliotecas</strong> y las <strong>configuraciones</strong> necesarias para la aplicación. Contiene un conjunto de instrucciones que serán ejecutadas de forma secuencial para construir una nueva imagen docker. Cada una de estas instrucciones crea una nueva capa en la imagen que estamos creando y debe empezar por una palabra clave en mayúsculas, como FROM, RUN, COPY, etc. <code>Dockerfile</code> también puede especificar <strong>variables de entorno</strong>, <strong>puertos expuestos</strong>, <strong>comandos de entrada y salida</strong> y <a href="https://docs.docker.com/engine/reference/builder/"><strong>otros metadatos</strong></a></p>
 <p>En definitiva, <code>Dockerfile</code> es un fichero de texto que contiene una serie de instrucciones para construir una imagen docker. Cada instrucción añade una capa a la imagen.</p>
@@ -651,12 +597,16 @@ ENTRYPOINT ["/bin/echo"]
     <code>EXPOSE 80</code></li>
 </ul>
 </li>
-<li><code>USER</code>: Para especificar (por nombre o <code>UID/GID</code>) el usuario de trabajo para todas las órdenes <code>RUN</code>,<code>CMD</code> y <code>ENTRYPOINT</code> posteriores.<ul>
+<li>
+<p><code>USER</code>: Para especificar (por nombre o <code>UID/GID</code>) el usuario de trabajo para todas las órdenes <code>RUN</code>, <code>CMD</code> y <code>ENTRYPOINT</code> posteriores.</p>
+<ul>
 <li>Ejemplos:
     <code>USER jenkins / USER 1001:10001</code></li>
 </ul>
 </li>
-<li><code>ARG</code>: Para definir variables para las cuales los usuarios pueden especificar valores a la hora de hacer el proceso de <code>build</code> mediante el <code>flag --build-arg</code>. Su sintaxis es <code>ARG «nombre_variable»</code> o <code>ARG nombre_variable=valor_por_defecto</code>. Posteriormente esa variable se puede usar en el resto de la órdenes de la siguiente manera $nombre_variable.<ul>
+<li>
+<p><code>ARG</code>: Para definir variables para las cuales los usuarios pueden especificar valores a la hora de hacer el proceso de <code>build</code> mediante el <code>flag --build-arg</code>. Su sintaxis es <code>ARG «nombre_variable»</code> o <code>ARG nombre_variable=valor_por_defecto</code>. Posteriormente esa variable se puede usar en el resto de la órdenes de la siguiente manera <code>$nombre_variable</code>.</p>
+<ul>
 <li>Ejemplo:
      <code>ARG usuario=www-data</code>.
 No se puede usar con <code>ENTRYPOINT</code> y <code>CMD</code>.</li>
@@ -681,6 +631,69 @@ No se puede usar con <code>ENTRYPOINT</code> y <code>CMD</code>.</li>
 </ul>
 <p>Para una descripción completa sobre el fichero Dockerfile, puedes acceder a la documentación oficial.</p>
 <p><a href="../03.-Construyendo%20im%C3%A1genes%20con%20docker%20build/">03.-Construyendo imágenes con docker build</a></p>
+<h1 id="ejemplo-de-dockerfile-aplicacion-python">Ejemplo de <code>Dockerfile</code>: Aplicación Python<a class="headerlink" href="#ejemplo-de-dockerfile-aplicacion-python" title="Permanent link">¶</a></h1>
+<pre><code># Usar una imagen base de python
+FROM python:3.10
+
+# Instalar poetry con pip
+ENV POETRY_VERSION=1.4.2
+RUN pip install "poetry==$POETRY_VERSION"
+
+# Copiar los archivos de configuración de poetry
+WORKDIR /app
+COPY pyproject.toml poetry.lock ./
+
+# Desactivar la creación de virtualenvs
+RUN poetry config virtualenvs.create false
+
+# Instalar las dependencias con poetry
+RUN poetry install
+
+# Copiar el archivo python
+COPY hola_mundo.py ./
+
+# Ejecutar el archivo con poetry run python
+CMD ["poetry", "run", "python", "hola_mundo.py"]
+</code></pre>
+<p>En este caso, el fichero <code>Dockerfile</code> se utiliza para construir una imagen de Docker que ejecuta un script de Python llamado <code>hola_mundo.py</code> utilizando Poetry como gestor de dependencias.</p>
+<p><code>Poetry</code> es una herramienta de gestión de dependencias y empaquetado para aplicaciones y proyectos de Python. Está diseñada para simplificar y agilizar el manejo de las dependencias de Python, así como la gestión del <strong>entorno virtual</strong> y la <strong>construcción de paquetes</strong>.</p>
+<p>Aquí se explica el contenido y las acciones realizadas en cada instrucción de nuestro <code>Dockerfile</code>:</p>
+<ul>
+<li>
+<p><code>FROM python:3.10</code>: Esta línea establece la imagen base para el contenedor, en este caso, se utiliza la imagen oficial de Python versión 3.10.</p>
+</li>
+<li>
+<p><code>ENV POETRY_VERSION=1.4.2</code>: Se establece la variable de entorno <code>POETRY_VERSION</code> con el valor "1.4.2", que indica la versión específica de Poetry a instalar.</p>
+</li>
+<li>
+<p><code>RUN pip install "poetry==$POETRY_VERSION"</code>: Se utiliza el comando <code>pip</code> para instalar Poetry en el contenedor, utilizando la versión especificada en la variable de entorno.</p>
+</li>
+<li>
+<p><code>WORKDIR /app</code>: Establece el directorio de trabajo dentro del contenedor como "/app". Los comandos posteriores se ejecutarán en este directorio.</p>
+</li>
+<li>
+<p><code>COPY pyproject.toml poetry.lock ./</code>: Copia los archivos de configuración de Poetry (<code>pyproject.toml</code> y <code>poetry.lock</code>) desde el directorio local al directorio de trabajo dentro del contenedor. Poetry crea por defecto un entorno virtual para cada proyecto que gestiona, pero en el caso de docker, esto no es necesario ni deseable, ya que la imagen de docker ya es un entorno aislado. Por eso, se usa ese comando para indicarle a poetry que instale las dependencias directamente en el intérprete de python de la imagen, sin crear un entorno virtual adicional.</p>
+</li>
+<li>
+<p><code>RUN poetry config virtualenvs.create false</code>: Configura Poetry para que no cree entornos virtuales. Esto significa que las dependencias se instalarán a nivel de sistema en lugar de en un entorno virtual separado.</p>
+</li>
+<li>
+<p><code>RUN poetry install</code>: Instala las dependencias del proyecto utilizando Poetry. Las dependencias se obtienen del archivo <code>pyproject.toml</code> y se instalan en el contenedor.</p>
+</li>
+<li>
+<p><code>COPY hola_mundo.py ./</code>: Copia el archivo <code>hola_mundo.py</code> desde el directorio local al directorio de trabajo dentro del contenedor.</p>
+</li>
+<li>
+<p><code>CMD ["poetry", "run", "python", "hola_mundo.py"]</code>: Define el comando predeterminado que se ejecutará cuando se inicie el contenedor. En este caso, se utiliza Poetry para ejecutar el script Python <code>hola_mundo.py</code>.</p>
+</li>
+</ul>
+<p>Para construir la imagen, se debe ejecutar el siguiente comando en la terminal, asegurándote de estar en la misma ubicación que el archivo <code>Dockerfile</code>:</p>
+<pre><code>docker build -t «nombre-de-la-imagen:version» .
+</code></pre>
+<p>Después de construir y etiquetar la imagen, se puede subir a un registro de imágenes de Docker utilizando el comando <code>docker push</code>. Por ejemplo:</p>
+<pre><code>docker push «nombre-de-la-imagen:version»
+</code></pre>
+<p>Una vez subida la imagen, se puede descargar y ejecutar en cualquier sistema que admita Docker utilizando el comando <code>docker run</code>.</p>
 </article>
 </div>
 </div>

@@ -5,11 +5,11 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="../" rel="prev"/>
+<link href="../01.-Ejercicios%20creaci%C3%B3n%20de%20contenedores%20b%C3%A1sicos%20I/" rel="prev"/>
 <link href="../../07.-Cheatsheet/" rel="next"/>
 <link href="../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.4.3, mkdocs-material-9.1.4" name="generator"/>
-<title>01.-Ejercicios creación de contenedores básicos - Sistemas Informáticos</title>
+<title>02.- Ejercicios de creación de contenedores básicos II - Sistemas Informáticos</title>
 <link href="../../assets/stylesheets/main.240905d7.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.a0c5b2b5.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -47,7 +47,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              01.-Ejercicios creación de contenedores básicos
+              02.- Ejercicios de creación de contenedores básicos II
             
           </span>
 </div>
@@ -416,14 +416,19 @@
           06.-Ejercicios
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../01.-Ejercicios%20creaci%C3%B3n%20de%20contenedores%20b%C3%A1sicos%20I/">
+        01.-Ejercicios creación de contenedores básicos I
+      </a>
+</li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
 <label class="md-nav__link md-nav__link--active" for="__toc">
-          01.-Ejercicios creación de contenedores básicos
+          02.- Ejercicios de creación de contenedores básicos II
           <span class="md-nav__icon md-icon"></span>
 </label>
 <a class="md-nav__link md-nav__link--active" href="./">
-        01.-Ejercicios creación de contenedores básicos
+        02.- Ejercicios de creación de contenedores básicos II
       </a>
 <nav aria-label="Tabla de contenidos" class="md-nav md-nav--secondary">
 <label class="md-nav__title" for="__toc">
@@ -440,6 +445,20 @@
 <a class="md-nav__link" href="#ejercicio-para-entregar">
     Ejercicio para entregar
   </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#servidor-web">
+    Servidor web
+  </a>
+<nav aria-label="Servidor web" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#servidor-de-base-de-datos">
+    Servidor de base de datos
+  </a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -485,6 +504,20 @@
     Ejercicio para entregar
   </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#servidor-web">
+    Servidor web
+  </a>
+<nav aria-label="Servidor web" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#servidor-de-base-de-datos">
+    Servidor de base de datos
+  </a>
+</li>
+</ul>
+</nav>
+</li>
 </ul>
 </nav>
 </div>
@@ -492,89 +525,68 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1>01.-Ejercicios creación de contenedores básicos</h1>
+<h1>02.- Ejercicios de creación de contenedores básicos II</h1>
 <h2 id="ejercicios-para-repasar">Ejercicios para repasar<a class="headerlink" href="#ejercicios-para-repasar" title="Permanent link">¶</a></h2>
-<ul>
-<li>Instala docker en una máquina y configúralo para que se pueda usar con un usuario sin privilegios.</li>
-</ul>
-<pre><code>$ sudo pacman -Syy
-$ sudo pacman -S docker docker-compose
-$ sudo systemctl enable docker
-$ sudo systemctl start docker
-$ sudo usermod -aG docker $USER
-$ reboot
-</code></pre>
-<ul>
-<li>Ejecuta un contenedor a partir de la imagen <code>hello-word</code>. Comprueba que nos devuelve la salida adecuada. Comprueba que no se está ejecutando. Lista los contenedores que están parados. Borra el contenedor.</li>
-</ul>
-<pre><code>$ docker run --name mi_contenedor hello-world
-</code></pre>
-<pre><code>$ docker ps
-</code></pre>
-<pre><code>$ docker ps -a
-</code></pre>
-<pre><code>$ docker rm mi_contenedor
-</code></pre>
-<pre><code>$ docker image rm hello-world
-</code></pre>
-<ul>
-<li>Crea un contenedor interactivo desde una imagen <code>debian</code>. Instala un paquete (por ejemplo <code>nano</code>).  Vuelve a iniciar el contenedor y accede de nuevo a él de forma interactiva. ¿Sigue instalado el <code>nano</code>?. Sal del contenedor, y bórralo. Crea un nuevo contenedor interactivo desde la misma imagen. ¿Tiene el <code>nano</code> instalado?</li>
-</ul>
-<pre><code>$ docker search debian
-$ docker run -it --name mi_contenedor debian
-$ apt update
-$ apt upgrade
-$ apt install nano
-</code></pre>
-<p>Sal de la terminal, ¿sigue el contenedor corriendo?</p>
-<pre><code>$ docker ps
-«No»
-</code></pre>
-<p>¿Por qué?</p>
-<pre><code>«El contenedor se detiene porque el proceso principal que se ejecuta en el contenedor, bash en este caso, termina su ejecución»
-</code></pre>
-<p>Vuelve a iniciar el contenedor y accede de nuevo a él de forma interactiva. </p>
-<pre><code>$ docker start -i mi_contenedor
-</code></pre>
-<p>¿Sigue instalado  <code>nano</code>?.</p>
-<pre><code>«Sí»
-</code></pre>
-<p>Sal del contenedor, y bórralo. Crea un nuevo contenedor interactivo desde la misma imagen.</p>
-<pre><code>$ docker rm debian
-$ docker ps -a
-$ docker run -it --name mi_nuevo_contenedor debian
-</code></pre>
-<p>¿Tiene <code>nano</code> instalado?</p>
-<pre><code>«No»
-</code></pre>
-<ul>
-<li>Crea un contenedor demonio con un servidor <code>nginx</code> usando la imagen oficial de nginx.</li>
-</ul>
-<pre><code>$ docker run -d -p 8080:80 --name servidor_nginx nginx
-</code></pre>
-<p>Al crear el contenedor, ¿has tenido que indicar algún comando para que lo ejecute?</p>
-<pre><code>«No»
-</code></pre>
-<p>Accede al navegador web y comprueba que el servidor está funcionando. 
- <code>$ firefox localhost</code>
- Muestra los logs del contenedor.
- <code>shell
- $ docker logs servidor_nginx</code></p>
-<ul>
-<li>Crea un contenedor con la aplicación Nextcloud, mirando la <a href="https://hub.docker.com/_/nextcloud">documentación en docker Hub</a>, para personalizar el nombre de la base de datos sqlite que va a utilizar.</li>
-</ul>
-<pre><code>$ docker run -d -p 8080:80 -v nextcloud:/var/www/html --name nextcloud-db -e SQLITE_DATABASE=BD nextcloud
-</code></pre>
-<p>Este comando creará un contenedor de Nextcloud con una base de datos SQLite llamada <code>BD</code>. El contenedor se ejecutará en segundo plano (<code>-d</code>), expondrá el puerto <code>8080</code> (<code>-p</code>) y se vinculará a un volumen llamado <code>nextcloud</code> (<code>-v</code>). También se asignará un nombre al contenedor (<code>--name</code>) para facilitar su referencia y se especificará la variable de entorno <code>SQLITE_DATABASE</code> para nombrar la base de datos.</p>
-<h2 id="ejercicio-para-entregar">Ejercicio para entregar<a class="headerlink" href="#ejercicio-para-entregar" title="Permanent link">¶</a></h2>
-<p>Crearemos un contenedor demonio a partir de la imagen <code>nginx</code>, el contenedor se debe llamar <code>servidor_web</code> y se debe acceder a él utilizando el puerto 8181 del ordenador donde tengas instalado docker.</p>
-<p>Entrega un fichero comprimido o un documento markdown con los siguientes pantallazos:</p>
 <ol>
-<li>Pantallazo donde se vea la creación del contenedor y podamos comprobar que el contenedor está funcionando.</li>
-<li>Pantallazo donde se vea el acceso al servidor web utilizando un navegador web (recuerda que tienes que acceder a la ip del ordenador donde tengas instalado docker)</li>
-<li>Pantallazo donde se vean las imágenes que tienes en tu registro local.</li>
-<li>Pantallazo donde se vea como se elimina el contenedor (recuerda que antes debe estar parado el contenedor).</li>
+<li>Descarga las siguientes imágenes: <code>ubuntu:18.04</code>, <code>httpd</code>, <code>tomcat:9.0.39-jdk11</code>, <code>jenkins/jenkins:lts</code>, <code>php:7.4-apache</code>.</li>
+<li>Muestras las imágenes que tienes descargadas.</li>
+<li>Crea un contenedor demonio con la imagen <code>php:7.4-apache</code>.</li>
+<li>Comprueba el tamaño del contenedor en el disco duro.</li>
+<li>
+<p>Con la instrucción <code>docker cp</code> podemos copiar ficheros a o desde un contenedor. Puedes encontrar información es esta <a href="https://docs.docker.com/engine/reference/commandline/cp/">página</a>. Crea un fichero en tu ordenador, con el siguiente contenido:</p>
+<p><code>&lt;?php
+ echo phpinfo();
+ ?&gt;</code></p>
+</li>
 </ol>
+<p>Copia un fichero <code>info.php</code> al directorio <code>/var/www/html</code> del contenedor con <code>docker cp</code>.</p>
+<ol>
+<li>Vuelve a comprobar el espacio ocupado por el contenedor.</li>
+<li>Accede al fichero <code>info.php</code> desde un navegador web.</li>
+</ol>
+<h2 id="ejercicio-para-entregar">Ejercicio para entregar<a class="headerlink" href="#ejercicio-para-entregar" title="Permanent link">¶</a></h2>
+<h2 id="servidor-web">Servidor web<a class="headerlink" href="#servidor-web" title="Permanent link">¶</a></h2>
+<ul>
+<li>Arranca un contenedor que ejecute una instancia de la imagen <code>php:7.4-apache</code>, que se llame <code>web</code> y que sea accesible desde tu equipo en el puerto 8000.</li>
+<li>Colocar en el directorio raíz del servicio web (<code>/var/www/html</code>) de dicho contenedor un fichero llamado <code>index.html</code> con el siguiente contenido:</li>
+</ul>
+<pre><code>&lt;h1&gt;HOLA SOY XXXXXXXXXXXXXXX&lt;/h1&gt;
+</code></pre>
+<p>Deberás sustituir XXXXXXXXXXX por tu nombre y tus apellidos.</p>
+<ul>
+<li>
+<p>Colocar en ese mismo directorio raíz un archivo llamado <code>index.php</code> con el siguiente contenido:</p>
+<p><code>&lt;?php echo phpinfo(); ?&gt;</code></p>
+</li>
+<li>
+<p>Para crear los ficheros tienes tres alternativas:</p>
+<ul>
+<li>Ejecutando bash de forma interactiva en el contenedor y creando los ficheros.</li>
+<li>Ejecutando un comando <code>echo</code> en el contenedor con <code>docker exec</code>.</li>
+<li>Usando <code>docker cp</code> como hemos visto en el ejercicio 5.</li>
+</ul>
+</li>
+</ul>
+<h3 id="servidor-de-base-de-datos">Servidor de base de datos<a class="headerlink" href="#servidor-de-base-de-datos" title="Permanent link">¶</a></h3>
+<ul>
+<li>Arrancar un contenedor que se llame <code>bbdd</code> y que ejecute una instancia de la imagen mariadb para que sea accesible desde el puerto 3336.</li>
+<li>
+<p>Antes de arrancarlo visitar la página del contenedor en <a href="https://hub.docker.com/_/mariadb">Docker Hub</a> y establecer las variables de entorno necesarias para que:</p>
+<ul>
+<li>La contraseña de root sea <code>root</code>.</li>
+<li>Crear una base de datos automáticamente al arrancar que se llame <code>prueba</code>.</li>
+<li>Crear el usuario <code>invitado</code> con las contraseña <code>invitado</code>.</li>
+</ul>
+</li>
+</ul>
+<p>Deberás entregar los siguientes pantallazos comprimidos en un zip o en un documento pdf:</p>
+<ul>
+<li>Pantallazo que desde el navegador muestre el fichero <code>index.html</code>.</li>
+<li>Pantallazo que desde el navegador muestre el fichero <code>index.php</code>.</li>
+<li>Pantallazo donde se vea el tamaño del contenedor <code>web</code> después de crear los dos ficheros.</li>
+<li>Pantallazo donde desde un cliente de base de datos (instalado en tu ordenador) se pueda observar que hemos podido conectarnos al servidor de base de datos con el usuario creado y que se ha creado la base de datos prueba (<code>show databases</code>). El acceso se debe realizar desde el ordenador que tenéis instalado docker, no hay que acceder desde dentro del contenedor, es decir, no usar <code>docker exec</code>.</li>
+<li>Pantallazo donde se comprueba que no se puede borrar la imagen <code>mariadb</code> mientras el contenedor <code>bbdd</code> está creado.</li>
+</ul>
 </article>
 </div>
 </div>
