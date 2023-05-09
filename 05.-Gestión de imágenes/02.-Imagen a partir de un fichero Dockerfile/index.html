@@ -488,12 +488,12 @@
 <ol>
 <li><a href="#el-fichero-dockerfile">Crear un archivo <code>Dockerfile</code></a></li>
 <li><a href="#instrucciones-en-un-dockerfile">Escribir las instrucciones del <code>Dockerfile</code></a></li>
-<li>Construir la imagen</li>
-<li>Etiquetar la imagen</li>
+<li><a href="../03.-Construyendo%20im%C3%A1genes%20con%20docker%20build/">Construir la imagen</a></li>
+<li><a href="../04.-Etiquetado%20de%20im%C3%A1genes/">Etiquetar la imagen</a></li>
 <li>Subir la imagen a un repositorio de imágenes</li>
 </ol>
 <h1 id="ejemplo-de-dockerfile-servidor-apache">Ejemplo de <code>Dockerfile</code>: Servidor Apache<a class="headerlink" href="#ejemplo-de-dockerfile-servidor-apache" title="Permanent link">¶</a></h1>
-<p>Para simplificar el proceso de crear una <a href="../01.-Imagen%20a%20partir%20de%20un%20contenedor/">imagen a partir de un contenedor</a> podemos utilizar un <code>Dockerfile</code> y un volumen local con nuestra página web como se detalla a continuación:</p>
+<p>Para simplificar el proceso de crear una <a href="../01.-Imagen%20a%20partir%20de%20un%20contenedor/">imagen a partir de un contenedor</a> podemos utilizar un <code>Dockerfile</code> y un volumen local con nuestra página web en este ejemplo particular para obtener una idea de nuestros objetivos.</p>
 <ul>
 <li>Creamos un directorio en el sistema local que contendrá el archivo <code>index.html</code>. Por ejemplo, podemos crear un directorio llamado <code>html</code> y dentro de él colocar el archivo <code>index.html</code> con el contenido deseado.</li>
 </ul>
@@ -526,18 +526,18 @@ CMD ["apache2ctl", "-D", "FOREGROUND"]
 </ul>
 <pre><code>docker run -d -p 8080:80 --name servidor_web -v ./html:/var/www/html mi_nuevo_apache:v1
 </code></pre>
-<p>Con estos pasos, tendremos un contenedor en ejecución que utiliza el archivo <code>index.html</code> desde el volumen local y expone el puerto 8080 en tu máquina host.</p>
+<p>Con estos pasos, tendremos un contenedor en ejecución que utiliza el archivo <code>index.html</code> desde el volumen local y expone el puerto 8080 en nuestra máquina host.</p>
 <p>Finalmente accederemos con nuestro navegador a la dirección: http://localhost:8080</p>
 <blockquote>
 <p><strong>Nota Aclaratoria sobre sincronización de directorios</strong>:</p>
-<p><em>¿Los directorios <code>./hml</code> y <code>/var/www/html</code> se sincronizan automáticamente?</em></p>
-<pre><code>  En principio, **no**. En fichero `dockerfile` proporcionado no se establece una sincronización en tiempo real entre los directorios `./html` en nuestro sistema local y `/var/www/html` dentro del contenedor. La instrucción `COPY` en el `Dockerfile` simplemente **copia** el contenido del directorio local `html` al directorio `/var/www/html` dentro del contenedor durante el proceso de construcción de la imagen.
+<p><em>¿Se sincronizan los directorios <code>./hml</code> y <code>/var/www/html</code> automáticamente?</em></p>
+<pre><code>  En principio, **no**. En el fichero `dockerfile` proporcionado no se establece una sincronización en tiempo real entre el directorio `./html` de nuestro sistema local y el directorio `/var/www/html` del contenedor. La instrucción `COPY` en el `Dockerfile` simplemente **copia** el contenido del directorio local `html` al directorio `/var/www/html` dentro del contenedor durante el proceso de construcción de la imagen.
 </code></pre>
-<p>Una vez que se ha construido y se está ejecutando un contenedor a partir de la imagen, los cambios realizados en el directorio local <code>html</code> no se reflejarán automáticamente en el directorio <code>/var/www/html</code> del contenedor. Esto significa que si realizamos modificaciones en los archivos en el directorio <code>html</code> de tu sistema local después de iniciar el contenedor, los cambios no se sincronizarán automáticamente en el contenedor.</p>
+<p>Una vez que se ha construido y se está ejecutando un contenedor a partir de la imagen, los cambios realizados en el directorio local <code>html</code> no se reflejarán automáticamente en el directorio <code>/var/www/html</code> del contenedor. Esto significa que si realizamos modificaciones en los archivos en el directorio <code>html</code> de nuestro sistema local después de iniciar el contenedor, los cambios no se sincronizarán automáticamente en el contenedor.</p>
 <p><strong>Sin embargo</strong>, hay formas de lograr la sincronización en tiempo real entre el sistema local y el contenedor. Una de las formas más comunes es utilizando volúmenes de Docker.</p>
 <p>Al ejecutar el contenedor, podemos usar la opción <code>-v</code> o <code>--volume</code> para montar un volumen y establecer una <strong>sincronización bidireccional</strong> entre un directorio en tu sistema local y un directorio dentro del contenedor. Por ejemplo:</p>
 <p><code>docker run -d -p 8080:80 --name servidor_web -v /ruta/al/directorio/html:/var/www/html mi_nuevo_apache:v1</code></p>
-<p>En este caso, <code>/ruta/al/directorio/html</code> representa la ruta al directorio <code>html</code> en nuestro sistema local, y <code>/var/www/html</code> es el directorio dentro del contenedor. Con esta configuración, cualquier cambio realizado en el directorio <code>html</code> de tu sistema local se sincronizará automáticamente con el directorio <code>/var/www/html</code> dentro del contenedor.</p>
+<p>En este caso, <code>/ruta/al/directorio/html</code> representa la ruta al directorio <code>html</code> en nuestro sistema local, y <code>/var/www/html</code> es el directorio dentro del contenedor. Con esta configuración, cualquier cambio realizado en el directorio <code>html</code> de nuestro sistema local se sincronizará automáticamente con el directorio <code>/var/www/html</code> dentro del contenedor.</p>
 <p>Esta sincronización en tiempo real nos permite realizar cambios en los archivos del directorio <code>html</code> en nuestro sistema local y ver los resultados reflejados inmediatamente en el contenedor sin necesidad de reconstruir la imagen o reiniciar el contenedor.</p>
 <p>Es importante tener en cuenta que la sincronización de directorios utilizando volúmenes <strong>solo se produce mientras el contenedor está en ejecución</strong>. Si se elimina el contenedor, los datos del volumen no persistirán a menos que se utilicen volúmenes de Docker persistentes o se realice una configuración adicional.</p>
 </blockquote>
@@ -602,7 +602,7 @@ ENTRYPOINT ["/bin/echo"]
 <p><code>USER</code>: Para especificar (por nombre o <code>UID/GID</code>) el usuario de trabajo para todas las órdenes <code>RUN</code>, <code>CMD</code> y <code>ENTRYPOINT</code> posteriores.</p>
 <ul>
 <li>Ejemplos:
-    <code>USER jenkins / USER 1001:10001</code></li>
+    <code>USER gatsby / USER 1001:10001</code></li>
 </ul>
 </li>
 <li>
@@ -631,7 +631,6 @@ No se puede usar con <code>ENTRYPOINT</code> y <code>CMD</code>.</li>
 </li>
 </ul>
 <p>Para una descripción completa sobre el fichero Dockerfile, puedes acceder a la documentación oficial.</p>
-<p><a href="../03.-Construyendo%20im%C3%A1genes%20con%20docker%20build/">03.-Construyendo imágenes con docker build</a></p>
 <h1 id="ejemplo-de-dockerfile-aplicacion-python">Ejemplo de <code>Dockerfile</code>: Aplicación Python<a class="headerlink" href="#ejemplo-de-dockerfile-aplicacion-python" title="Permanent link">¶</a></h1>
 <pre><code># Usar una imagen base de python
 FROM python:3.10
@@ -656,7 +655,7 @@ COPY hola_mundo.py ./
 # Ejecutar el archivo con poetry run python
 CMD ["poetry", "run", "python", "hola_mundo.py"]
 </code></pre>
-<p>En este caso, el fichero <code>Dockerfile</code> se utiliza para construir una imagen de Docker que ejecuta un script de Python llamado <code>hola_mundo.py</code> utilizando Poetry como gestor de dependencias.</p>
+<p>En este caso, el fichero <code>Dockerfile</code> se utiliza para construir una imagen de Docker que ejecuta un script de Python llamado <code>hola_mundo.py</code> utilizando Poetry como gestor de dependencias y empaquetado.</p>
 <p><code>Poetry</code> es una herramienta de gestión de dependencias y empaquetado para aplicaciones y proyectos de Python. Está diseñada para simplificar y agilizar el manejo de las dependencias de Python, así como la gestión del <strong>entorno virtual</strong> y la <strong>construcción de paquetes</strong>.</p>
 <p>Aquí se explica el contenido y las acciones realizadas en cada instrucción de nuestro <code>Dockerfile</code>:</p>
 <ul>
@@ -688,10 +687,10 @@ CMD ["poetry", "run", "python", "hola_mundo.py"]
 <p><code>CMD ["poetry", "run", "python", "hola_mundo.py"]</code>: Define el comando predeterminado que se ejecutará cuando se inicie el contenedor. En este caso, se utiliza Poetry para ejecutar el script Python <code>hola_mundo.py</code>.</p>
 </li>
 </ul>
-<p>Para construir la imagen, se debe ejecutar el siguiente comando en la terminal, asegurándote de estar en la misma ubicación que el archivo <code>Dockerfile</code>:</p>
+<p>Para construir la imagen, se debe ejecutar el siguiente comando en la terminal, asegurándonos de estar en la misma ubicación que el archivo <code>Dockerfile</code>:</p>
 <pre><code>docker build -t «nombre-de-la-imagen:version» .
 </code></pre>
-<p>Después de construir y etiquetar la imagen, se puede subir a un registro de imágenes de Docker utilizando el comando <code>docker push</code>. Por ejemplo:</p>
+<p>Después de construir y etiquetar la imagen, se puede <a href="../05.-Subir%20im%C3%A1genes/">subir a un registro de imágenes de Docker</a> utilizando el comando <code>docker push</code>. Por ejemplo:</p>
 <pre><code>docker push «nombre-de-la-imagen:version»
 </code></pre>
 <p>Una vez subida la imagen, se puede descargar y ejecutar en cualquier sistema que admita Docker utilizando el comando <code>docker run</code>.</p>

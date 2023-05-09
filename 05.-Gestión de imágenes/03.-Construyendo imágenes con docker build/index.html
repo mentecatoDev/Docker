@@ -493,7 +493,7 @@
 <p>Tenemos que tener en cuenta que cada instrucción ejecutada crea una imagen intermedia. Una vez finalizada la construcción de la imagen nos devuelve su id. Algunas imágenes intermedias se guardan en caché, otras se borran. Por lo tanto, si por ejemplo, en un comando ejecutamos <code>cd /scripts/</code> y en otra línea le mandamos a ejecutar un script <code>./install.sh</code> no va a funcionar, ya que ha lanzado otra imagen intermedia. Teniendo esto en cuenta, la manera correcta de hacerlo sería:</p>
 <p><code>cd /scripts/;./install.sh</code></p>
 <p>Para terminar indicar que la creación de imágenes intermedias generadas por la ejecución de cada instrucción del <code>Dockerfile</code>, es un mecanismo de caché, es decir, si en algún momento falla la creación de la imagen, al corregir el <code>Dockerfile</code> y volver a construir la imagen, los pasos que habían funcionado anteriormente no se repiten ya que tenemos a nuestra disposición las imágenes intermedias, y el proceso continúa por la instrucción que causó el fallo.</p>
-<h2 id="ejemplo-de-dockerfile">Ejemplo de Dockerfile<a class="headerlink" href="#ejemplo-de-dockerfile" title="Permanent link">¶</a></h2>
+<h2 id="ejemplo-de-dockerfile">Ejemplo de <code>Dockerfile</code><a class="headerlink" href="#ejemplo-de-dockerfile" title="Permanent link">¶</a></h2>
 <p>Vamos a crear un directorio (nuestro entorno) donde vamos a crear un <code>Dockerfile</code> y un fichero <code>index.html</code>:</p>
 <pre><code>cd build
 ~/build$ ls
