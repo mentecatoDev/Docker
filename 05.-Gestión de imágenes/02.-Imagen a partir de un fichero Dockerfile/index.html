@@ -486,7 +486,7 @@
 <h1 id="gestion-de-imagenes">Gestión de imágenes<a class="headerlink" href="#gestion-de-imagenes" title="Permanent link">¶</a></h1>
 <p>Para crear una imagen de docker, se sigue el siguiente proceso básico:</p>
 <ol>
-<li><a href="#El%20fichero%20Dockerfile"><strong>Crear un archivo <code>Dockerfile</code></strong></a></li>
+<li><a href="#El-fichero-Dockerfile"><strong>Crear un archivo <code>Dockerfile</code></strong></a></li>
 <li><a href="#Instrucciones%20en%20un%20Dockerfile"><strong>Escribir las instrucciones de Dockerfile</strong></a></li>
 <li><a href="03.-Construcción%20de%20una%20imagen.md"><strong>Construir la imagen</strong></a></li>
 <li><a href="../04.-Etiquetado%20de%20im%C3%A1genes/"><strong>Etiquetar la imagen</strong></a></li>
@@ -527,7 +527,6 @@ CMD ["apache2ctl", "-D", "FOREGROUND"]
 <pre><code>docker run -d -p 8080:80 --name servidor_web -v ./html:/var/www/html mi_nuevo_apache:v1
 </code></pre>
 <p>Con estos pasos, tendremos un contenedor en ejecución que utiliza el archivo <code>index.html</code> desde el volumen local y expone el puerto 8080 en tu máquina host.</p>
-<h2 id="borrame">Borrame<a class="headerlink" href="#borrame" title="Permanent link">¶</a></h2>
 <p>Finalmente accederemos con nuestro navegador a la dirección: http://localhost:8080</p>
 <blockquote>
 <p><strong>Nota Aclaratoria sobre sincronización de directorios</strong>:</p>
