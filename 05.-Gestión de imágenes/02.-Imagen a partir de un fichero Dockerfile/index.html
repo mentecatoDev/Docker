@@ -486,8 +486,8 @@
 <h1 id="gestion-de-imagenes">Gestión de imágenes<a class="headerlink" href="#gestion-de-imagenes" title="Permanent link">¶</a></h1>
 <p>Para crear una imagen de docker, se sigue el siguiente proceso básico:</p>
 <ol>
-<li><strong>Crear un archivo <a href="01.-Dockerfile.md"><code>Dockerfile</code></a></strong></li>
-<li><strong>Escribir las <a href="02.-Instrucciones%20de%20Dockerfile.md">instrucciones de Dockerfile</a></strong></li>
+<li><a href="#El%20fichero%20Dockerfile"><strong>Crear un archivo <code>Dockerfile</code></strong></a></li>
+<li><a href="#Instrucciones%20en%20un%20Dockerfile"><strong>Escribir las instrucciones de Dockerfile</strong></a></li>
 <li><a href="03.-Construcción%20de%20una%20imagen.md"><strong>Construir la imagen</strong></a></li>
 <li><a href="../04.-Etiquetado%20de%20im%C3%A1genes/"><strong>Etiquetar la imagen</strong></a></li>
 <li><strong><a href="../05.-Subir%20im%C3%A1genes/">Subir la imagen</a> a un repositorio de imágenes</strong></li>
@@ -527,6 +527,7 @@ CMD ["apache2ctl", "-D", "FOREGROUND"]
 <pre><code>docker run -d -p 8080:80 --name servidor_web -v ./html:/var/www/html mi_nuevo_apache:v1
 </code></pre>
 <p>Con estos pasos, tendremos un contenedor en ejecución que utiliza el archivo <code>index.html</code> desde el volumen local y expone el puerto 8080 en tu máquina host.</p>
+<h2 id="borrame">Borrame<a class="headerlink" href="#borrame" title="Permanent link">¶</a></h2>
 <p>Finalmente accederemos con nuestro navegador a la dirección: http://localhost:8080</p>
 <blockquote>
 <p><strong>Nota Aclaratoria sobre sincronización de directorios</strong>:</p>
@@ -544,12 +545,12 @@ CMD ["apache2ctl", "-D", "FOREGROUND"]
 <h2 id="el-fichero-dockerfile">El fichero <code>Dockerfile</code><a class="headerlink" href="#el-fichero-dockerfile" title="Permanent link">¶</a></h2>
 <p>El archivo <code>Dockerfile</code> es un archivo de texto que contiene las instrucciones para construir una imagen de Docker. En él se especifican <strong>el sistema operativo base</strong>, las <strong>dependencias</strong>, las <strong>bibliotecas</strong> y las <strong>configuraciones</strong> necesarias para la aplicación. Contiene un conjunto de instrucciones que serán ejecutadas de forma secuencial para construir una nueva imagen docker. Cada una de estas instrucciones crea una nueva capa en la imagen que estamos creando y debe empezar por una palabra clave en mayúsculas, como FROM, RUN, COPY, etc. <code>Dockerfile</code> también puede especificar <strong>variables de entorno</strong>, <strong>puertos expuestos</strong>, <strong>comandos de entrada y salida</strong> y <a href="https://docs.docker.com/engine/reference/builder/"><strong>otros metadatos</strong></a></p>
 <p>En definitiva, <code>Dockerfile</code> es un fichero de texto que contiene una serie de instrucciones para construir una imagen docker. Cada instrucción añade una capa a la imagen.</p>
-<h2 id="formato-de-un-dockerfile">Formato de un <code>Dockerfile</code><a class="headerlink" href="#formato-de-un-dockerfile" title="Permanent link">¶</a></h2>
+<h3 id="formato-de-un-dockerfile">Formato de un <code>Dockerfile</code><a class="headerlink" href="#formato-de-un-dockerfile" title="Permanent link">¶</a></h3>
 <p>El fichero <code>Dockerfile</code> se creará dentro de la carpeta donde tengamos el proyecto</p>
 <pre><code>FROM ubuntu:14.04
 ENTRYPOINT ["/bin/echo"]
 </code></pre>
-<h3 id="ejecutar-un-comando">Ejecutar un comando<a class="headerlink" href="#ejecutar-un-comando" title="Permanent link">¶</a></h3>
+<h4 id="ejecutar-un-comando">Ejecutar un comando<a class="headerlink" href="#ejecutar-un-comando" title="Permanent link">¶</a></h4>
 <p>Si en lugar de utilizar entrypoints queremos pasar parámetros, podemos utilizar CMD</p>
 <pre><code>CMD ["/bin/echo" , "Hi Docker !"]
 </code></pre>
@@ -561,7 +562,8 @@ ENTRYPOINT ["/bin/echo"]
 <li>Configuración: Variable de entornos, usuarios, puertos: <code>USER, EXPOSE, ENV</code></li>
 <li>Instrucciones de arranque: <code>CMD, ENTRYPOINT</code></li>
 </ul>
-<p>Veamos las principales instrucciones que podemos usar:</p>
+<h3 id="instrucciones-en-un-dockerfile">Instrucciones en un <code>Dockerfile</code><a class="headerlink" href="#instrucciones-en-un-dockerfile" title="Permanent link">¶</a></h3>
+<p>Éstas son las principales instrucciones que podemos usar:</p>
 <ul>
 <li>
 <p><code>FROM</code>: Sirve para especificar la imagen sobre la que voy a construir la mía. Ejemplo: <code>FROM php:7.4-apache</code></p>
