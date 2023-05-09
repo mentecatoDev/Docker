@@ -8,7 +8,7 @@
 <link href="../01.-Ejercicios%20creaci%C3%B3n%20de%20contenedores%20b%C3%A1sicos%20I/" rel="prev"/>
 <link href="../../07.-Cheatsheet/" rel="next"/>
 <link href="../../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.4.3, mkdocs-material-9.1.9" name="generator"/>
+<meta content="mkdocs-1.4.3, mkdocs-material-9.1.11" name="generator"/>
 <title>02.-Ejercicios de creación de contenedores básicos II - Sistemas Informáticos</title>
 <link href="../../assets/stylesheets/main.85bb2934.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.a6bdf11c.min.css" rel="stylesheet"/>
@@ -577,6 +577,8 @@ php               7.4-apache                   20a3732f422b   5 months ago   453
 <ol>
 <li>Accede al fichero <code>info.php</code> desde un navegador web.</li>
 </ol>
+<pre><code>firefox http://localhost:8080/info.php/
+</code></pre>
 <h2 id="ejercicio-para-entregar">Ejercicio para entregar<a class="headerlink" href="#ejercicio-para-entregar" title="Permanent link">¶</a></h2>
 <h2 id="servidor-web">Servidor web<a class="headerlink" href="#servidor-web" title="Permanent link">¶</a></h2>
 <ul>
@@ -589,7 +591,9 @@ php               7.4-apache                   20a3732f422b   5 months ago   453
 <ul>
 <li>
 <p>Colocar en ese mismo directorio raíz un archivo llamado <code>index.php</code> con el siguiente contenido:</p>
-<p><code>&lt;?php echo phpinfo(); ?&gt;</code></p>
+<p><code>&lt;?php
+echo phpinfo();
+?&gt;</code></p>
 </li>
 <li>
 <p>Para crear los ficheros tienes tres alternativas:</p>
@@ -602,7 +606,7 @@ php               7.4-apache                   20a3732f422b   5 months ago   453
 </ul>
 <h3 id="servidor-de-base-de-datos">Servidor de base de datos<a class="headerlink" href="#servidor-de-base-de-datos" title="Permanent link">¶</a></h3>
 <ul>
-<li>Arrancar un contenedor que se llame <code>bbdd</code> y que ejecute una instancia de la imagen mariadb para que sea accesible desde el puerto 3336.</li>
+<li>Arrancar un contenedor que se llame <code>bbdd</code> y que ejecute una instancia de la imagen <code>mariadb</code> para que sea accesible desde el puerto 3336.</li>
 <li>
 <p>Antes de arrancarlo visitar la página del contenedor en <a href="https://hub.docker.com/_/mariadb">Docker Hub</a> y establecer las variables de entorno necesarias para que:</p>
 <ul>
