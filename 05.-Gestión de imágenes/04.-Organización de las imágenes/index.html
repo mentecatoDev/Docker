@@ -5,11 +5,11 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="../04.-Etiquetado%20de%20im%C3%A1genes/" rel="prev"/>
-<link href="../06.-Buenas%20pr%C3%A1cticas%20en%20creaci%C3%B3n%20de%20Dockerfile/" rel="next"/>
+<link href="../03.-Construyendo%20im%C3%A1genes%20con%20docker%20build/" rel="prev"/>
+<link href="../05.-Registro%20de%20im%C3%A1genes%20y%20Docker%20Hub/" rel="next"/>
 <link href="../../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.4.3, mkdocs-material-9.1.11" name="generator"/>
-<title>05.-Subir imágenes - Sistemas Informáticos</title>
+<meta content="mkdocs-1.4.3, mkdocs-material-9.1.9" name="generator"/>
+<title>04.-Organización de las imágenes - Sistemas Informáticos</title>
 <link href="../../assets/stylesheets/main.85bb2934.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.a6bdf11c.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -44,7 +44,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              05.-Subir imágenes
+              04.-Organización de las imágenes
             
           </span>
 </div>
@@ -127,13 +127,13 @@
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../06.-Ejercicios/">
-        06.-Ejercicios
+<a class="md-tabs__link" href="../../09.-Ejercicios/">
+        09.-Ejercicios
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../07.-Cheatsheet/">
-        07.-Cheatsheet
+<a class="md-tabs__link" href="../../10.-Cheatsheet/">
+        10.-Cheatsheet
       </a>
 </li>
 </ul>
@@ -349,6 +349,11 @@
         10.-Limpiándolo todo
       </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../04.-Manos%20a%20la%20obra/11.-Ejercicios%20creaci%C3%B3n%20de%20contenedores%20b%C3%A1sicos%20I/">
+        11.-Ejercicios creación de contenedores básicos I
+      </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -381,20 +386,25 @@
         03.-Construyendo imágenes con docker build
       </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../04.-Etiquetado%20de%20im%C3%A1genes/">
-        04.-Etiquetado de imágenes
-      </a>
-</li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
 <a class="md-nav__link md-nav__link--active" href="./">
-        05.-Subir imágenes
+        04.-Organización de las imágenes
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../05.-Registro%20de%20im%C3%A1genes%20y%20Docker%20Hub/">
+        05.-Registro de imágenes y Docker Hub
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../06.-Buenas%20pr%C3%A1cticas%20en%20creaci%C3%B3n%20de%20Dockerfile/">
         06.-Buenas prácticas en creación de Dockerfile
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../07.-Ejercicios%20de%20creaci%C3%B3n%20de%20contenedores%20b%C3%A1sicos%20II/">
+        07.-Ejercicios de creación de contenedores básicos II
       </a>
 </li>
 </ul>
@@ -403,39 +413,26 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_7" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../06.-Ejercicios/">06.-Ejercicios</a>
-<label for="__nav_7">
-<span class="md-nav__icon md-icon"></span>
-</label>
+<a href="../../09.-Ejercicios/">09.-Ejercicios</a>
 </div>
 <nav aria-expanded="false" aria-labelledby="__nav_7_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_7">
 <span class="md-nav__icon md-icon"></span>
-          06.-Ejercicios
+          09.-Ejercicios
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../06.-Ejercicios/01.-Ejercicios%20creaci%C3%B3n%20de%20contenedores%20b%C3%A1sicos%20I/">
-        01.-Ejercicios creación de contenedores básicos I
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../06.-Ejercicios/02.-Ejercicios%20de%20creaci%C3%B3n%20de%20contenedores%20b%C3%A1sicos%20II/">
-        02.-Ejercicios de creación de contenedores básicos II
-      </a>
-</li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_8" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../07.-Cheatsheet/">07.-Cheatsheet</a>
+<a href="../../10.-Cheatsheet/">10.-Cheatsheet</a>
 </div>
 <nav aria-expanded="false" aria-labelledby="__nav_8_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_8">
 <span class="md-nav__icon md-icon"></span>
-          07.-Cheatsheet
+          10.-Cheatsheet
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 </ul>
@@ -456,8 +453,52 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1>05.-Subir imágenes</h1>
-<p>Registro de imágenes de Docker, como <a href="../../03.-Conceptos%20Clave/01.-Im%C3%A1genes/02.-Docker%20Hub/">Docker Hub</a>, para que otras personas puedan descargarla y utilizarla para crear contenedores.</p>
+<h1>04.-Organización de las imágenes</h1>
+<p>Las imágenes están hechas de <strong>capas ordenadas</strong>. Puedes pensar en una capa como un conjunto de cambios en el sistema de archivos. Cuando tomas todas las capas y las apilas, obtienes una nueva imagen que contiene todos los cambios acumulados.</p>
+<p>Si tienes muchas imágenes basadas en capas similares, como Sistema Operativo base o paquetes comunes, entonces todas éstas capas comunes será almacenadas solo una vez.</p>
+<p><img alt="docker" src="../../img/container-layers.jpg"/></p>
+<p>Cuando un nuevo contenedor es creado desde una imagen, todas las capas de la imagen son únicamente de lectura y una delgada capa lectura-escritura es agregada arriba. Todos los cambios efectuados al contenedor específico son almacenados en esa capa.</p>
+<p>El contenedor no puede modificar los archivos desde su capa de imagen (que es sólo lectura). Creará una copia del fichero en su capa superior, y desde ese punto en adelante, cualquiera que trate de acceder al archivo obtendrá la copia de la capa superior.</p>
+<p><img alt="docker" src="../../img/sharing-layers.jpg"/></p>
+<p>Por lo tanto cuando creamos un contenedor ocupa muy poco de disco duro, porque las capas de la imagen desde la que se ha creado se comparten con el contenedor:</p>
+<p>Veamos el tamaño de nuestra imagen <code>ubuntu</code>:</p>
+<pre><code>$ docker images
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+ubuntu              latest              f63181f19b2f        7 days ago          72.9MB
+</code></pre>
+<p>Si creamos un contenedor interactivo:</p>
+<pre><code>$ docker run -it --name contenedor1 ubuntu /bin/bash 
+</code></pre>
+<p>Nos salimos, y a continuación visualizamos los contenedores con la opción <code>-s</code> (size):</p>
+<pre><code>$ docker ps -a -s
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS                       PORTS               NAMES               SIZE
+a2d1ce6990d8        ubuntu              "/bin/bash"              8 seconds ago       Exited (130) 5 seconds ago                       contenedor1         0B (virtual 72.9MB)
+</code></pre>
+<p>Nos damos cuenta que el tamaño real del contenedor es 0B y el virtual, el que comparte con la imagen son los 72,9MB que es el tamaño de la imagen ubuntu.</p>
+<p>Si a continuación volvemos a acceder al contenedor y creamos un fichero:</p>
+<pre><code>$ docker start contenedor1
+contenedor1
+$ docker attach contenedor1
+root@a2d1ce6990d8:/# echo "00000000000000000"&gt;file.txt
+</code></pre>
+<p>Y volvemos a ver el tamaño, vemos que ha crecido con la creación del fichero:</p>
+<pre><code>$ docker ps -a -s
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS                      PORTS               NAMES               SIZE
+a2d1ce6990d8        ubuntu              "/bin/bash"              56 seconds ago      Exited (0) 2 seconds ago                        contenedor1         52B (virtual 72.9MB)
+</code></pre>
+<p>Por todo lo que hemos explicado, ahora se entiende que <strong>no podemos eliminar una imagen cuando tenemos contenedores creados a a partir de ella</strong>.</p>
+<p>Por último al solicitar información de la imagen, podemos ver información sobre sus capas:</p>
+<pre><code>$ docker inspect ubuntu:latest
+...
+"RootFS": {
+        "Type": "layers",
+        "Layers": [
+            "sha256:9f32931c9d28f10104a8eb1330954ba90e76d92b02c5256521ba864feec14009",
+            "sha256:dbf2c0f42a39b60301f6d3936f7f8adb59bb97d31ec11cc4a049ce81155fef89",
+            "sha256:02473afd360bd5391fa51b6e7849ce88732ae29f50f3630c3551f528eba66d1e"
+        ]
+...
+</code></pre>
 </article>
 </div>
 </div>
