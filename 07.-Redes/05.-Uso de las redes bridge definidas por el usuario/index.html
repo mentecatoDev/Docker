@@ -5,11 +5,11 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="../../05.-Gesti%C3%B3n%20de%20im%C3%A1genes/07.-Ejercicios%20de%20creaci%C3%B3n%20de%20contenedores%20b%C3%A1sicos%20II/" rel="prev"/>
-<link href="../02.-Asociando%20almacenamiento%20a%20los%20contenedores%20I/" rel="next"/>
+<link href="../04.-Uso%20de%20la%20red%20bridge%20por%20defecto/" rel="prev"/>
+<link href="../06.-Convertir%20el%20uso%20de%20la%20red%20bridge%20por%20defecto%20por%20una%20definida%20por%20el%20usuario/" rel="next"/>
 <link href="../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.4.3, mkdocs-material-9.1.9" name="generator"/>
-<title>01.-Volúmenes docker y bind mount - Sistemas Informáticos</title>
+<title>05.-Uso de las redes bridge definidas por el usuario - Sistemas Informáticos</title>
 <link href="../../assets/stylesheets/main.85bb2934.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.a6bdf11c.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -23,7 +23,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#los-contenedores-son-efimeros">
+<a class="md-skip" href="#conectando-los-contenedores-a-otras-redes">
           Saltar a contenido
         </a>
 </div>
@@ -47,7 +47,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              01.-Volúmenes docker y bind mount
+              05.-Uso de las redes bridge definidas por el usuario
             
           </span>
 </div>
@@ -130,8 +130,18 @@
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link md-tabs__link--active" href="./">
-        06.-Volúmenes y Redes
+<a class="md-tabs__link" href="../../06.-Vol%C3%BAmenes/01.-Vol%C3%BAmenes%20docker%20y%20bind%20mount/">
+        06.-Volúmenes
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link md-tabs__link--active" href="../01.-Introducci%C3%B3n%20a%20las%20redes%20en%20docker/">
+        07.-Redes
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../08.-Escenarios%20multicontenedor/01.-Instalaci%C3%B3n%20de%20docker-compose/">
+        08.-Escenarios multicontenedor
       </a>
 </li>
 <li class="md-tabs__item">
@@ -417,26 +427,96 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" id="__nav_7" type="checkbox"/>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_7" type="checkbox"/>
 <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
-          06.-Volúmenes y Redes
+          06.-Volúmenes
           <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="true" aria-labelledby="__nav_7_label" class="md-nav" data-md-level="1">
+<nav aria-expanded="false" aria-labelledby="__nav_7_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_7">
 <span class="md-nav__icon md-icon"></span>
-          06.-Volúmenes y Redes
+          06.-Volúmenes
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../06.-Vol%C3%BAmenes/01.-Vol%C3%BAmenes%20docker%20y%20bind%20mount/">
+        01.-Volúmenes docker y bind mount
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../06.-Vol%C3%BAmenes/02.-Asociando%20almacenamiento%20a%20los%20contenedores%20I/">
+        02.-Asociando almacenamiento a los contenedores I
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../06.-Vol%C3%BAmenes/03.-Asociando%20almacenamiento%20a%20los%20contenedores%20II/">
+        03.-Asociando almacenamiento a los contenedores II
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../06.-Vol%C3%BAmenes/04.-Redes%20en%20docker/">
+        04.-Redes en docker
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../06.-Vol%C3%BAmenes/05.-Ejemplos/">
+        05.-Ejemplos
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../06.-Vol%C3%BAmenes/06.-Otros%20usos%20del%20almacenamiento/">
+        06.-Otros usos del almacenamiento
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../06.-Vol%C3%BAmenes/Ejercicios%20de%20Vol%C3%BAmenes/">
+        Ejercicios de Volúmenes
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_8" type="checkbox"/>
+<label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+          07.-Redes
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_8_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_8">
+<span class="md-nav__icon md-icon"></span>
+          07.-Redes
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../01.-Introducci%C3%B3n%20a%20las%20redes%20en%20docker/">
+        01.-Introducción a las redes en docker
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../02.-Tipos%20de%20redes%20en%20docker/">
+        02.-Tipos de redes en docker
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../03.-Gestionando%20redes%20en%20docker/">
+        03.-Gestionando redes en docker
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../04.-Uso%20de%20la%20red%20bridge%20por%20defecto/">
+        04.-Uso de la red bridge por defecto
+      </a>
+</li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
 <label class="md-nav__link md-nav__link--active" for="__toc">
-          01.-Volúmenes docker y bind mount
+          05.-Uso de las redes bridge definidas por el usuario
           <span class="md-nav__icon md-icon"></span>
 </label>
 <a class="md-nav__link md-nav__link--active" href="./">
-        01.-Volúmenes docker y bind mount
+        05.-Uso de las redes bridge definidas por el usuario
       </a>
 <nav aria-label="Tabla de contenidos" class="md-nav md-nav--secondary">
 <label class="md-nav__title" for="__toc">
@@ -445,62 +525,83 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#los-contenedores-son-efimeros">
-    Los contenedores son efímeros
+<a class="md-nav__link" href="#conectando-los-contenedores-a-otras-redes">
+    Conectando los contenedores a otras redes
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#los-datos-en-los-contenedores">
-    Los datos en los contenedores
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#volumenes-docker">
-    Volúmenes docker
-  </a>
-<nav aria-label="Volúmenes docker" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#gestionando-volumenes">
-    Gestionando volúmenes
+<a class="md-nav__link" href="#mas-opciones-al-trabajar-con-redes-en-docker">
+    Más opciones al trabajar con redes en docker
   </a>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#bind-mounts">
-    Bind mounts
-  </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../02.-Asociando%20almacenamiento%20a%20los%20contenedores%20I/">
-        02.-Asociando almacenamiento a los contenedores I
+<a class="md-nav__link" href="../06.-Convertir%20el%20uso%20de%20la%20red%20bridge%20por%20defecto%20por%20una%20definida%20por%20el%20usuario/">
+        06.-Convertir el uso de la red bridge por defecto por una definida por el usuario
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../03.-Asociando%20almacenamiento%20a%20los%20contenedores%20II/">
-        03.-Asociando almacenamiento a los contenedores II
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../04.-Redes%20en%20docker/">
-        04.-Redes en docker
+<a class="md-nav__link" href="../07.-Ejemplos/">
+        07.-Ejemplos
       </a>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_8" type="checkbox"/>
+<input class="md-nav__toggle md-toggle" id="__nav_9" type="checkbox"/>
+<label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+          08.-Escenarios multicontenedor
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_9_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_9">
+<span class="md-nav__icon md-icon"></span>
+          08.-Escenarios multicontenedor
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08.-Escenarios%20multicontenedor/01.-Instalaci%C3%B3n%20de%20docker-compose/">
+        01.-Instalación de docker-compose
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08.-Escenarios%20multicontenedor/02.-El%20fichero%20docker-compose.yml/">
+        02.-El fichero docker-compose.yml
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08.-Escenarios%20multicontenedor/03.-El%20comando%20docker-compose/">
+        03.-El comando docker-compose
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08.-Escenarios%20multicontenedor/04.-Almacenamiento%20con%20docker-compose/">
+        04.-Almacenamiento con docker-compose
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08.-Escenarios%20multicontenedor/05.-Redes%20con%20docker-compose/">
+        05.-Redes con docker-compose
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08.-Escenarios%20multicontenedor/06.-Ejemplos/">
+        06.-Ejemplos
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_10" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
 <a href="../../09.-Ejercicios/">09.-Ejercicios</a>
 </div>
-<nav aria-expanded="false" aria-labelledby="__nav_8_label" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_8">
+<nav aria-expanded="false" aria-labelledby="__nav_10_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_10">
 <span class="md-nav__icon md-icon"></span>
           09.-Ejercicios
         </label>
@@ -509,12 +610,12 @@
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_9" type="checkbox"/>
+<input class="md-nav__toggle md-toggle" id="__nav_11" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
 <a href="../../10.-Cheatsheet/">10.-Cheatsheet</a>
 </div>
-<nav aria-expanded="false" aria-labelledby="__nav_9_label" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_9">
+<nav aria-expanded="false" aria-labelledby="__nav_11_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_11">
 <span class="md-nav__icon md-icon"></span>
           10.-Cheatsheet
         </label>
@@ -537,32 +638,13 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#los-contenedores-son-efimeros">
-    Los contenedores son efímeros
+<a class="md-nav__link" href="#conectando-los-contenedores-a-otras-redes">
+    Conectando los contenedores a otras redes
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#los-datos-en-los-contenedores">
-    Los datos en los contenedores
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#volumenes-docker">
-    Volúmenes docker
-  </a>
-<nav aria-label="Volúmenes docker" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#gestionando-volumenes">
-    Gestionando volúmenes
-  </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#bind-mounts">
-    Bind mounts
+<a class="md-nav__link" href="#mas-opciones-al-trabajar-con-redes-en-docker">
+    Más opciones al trabajar con redes en docker
   </a>
 </li>
 </ul>
@@ -572,39 +654,161 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1>01.-Volúmenes docker y bind mount</h1>
-<h2 id="los-contenedores-son-efimeros">Los contenedores son efímeros<a class="headerlink" href="#los-contenedores-son-efimeros" title="Permanent link">¶</a></h2>
-<p><strong>Los contenedores son efímeros</strong>, es decir, los ficheros, datos y configuraciones que creamos en los contenedores sobreviven a las paradas de los mismos pero, sin embargo, son destruidos si el contenedor es destruido.</p>
-<h2 id="los-datos-en-los-contenedores">Los datos en los contenedores<a class="headerlink" href="#los-datos-en-los-contenedores" title="Permanent link">¶</a></h2>
-<p><img alt="docker" src="../../img/types-of-mounts.png"/></p>
-<p>Ante la situación anteriormente descrita Docker nos proporciona varias soluciones para persistir los datos de los contenedores. En este curso nos vamos a centrar en las dos que considero que son más importantes:</p>
+<h1>05.-Uso de las redes bridge definidas por el usuario</h1>
+<p>Vamos a crear una red tipo bridge definida por el usuario con la instrucción <code>docker network create</code>:</p>
+<pre><code>$ docker network create red1
+
+</code></pre>
+<p>Como no hemos indicado ninguna configuración en la red que hemos creado, docker asigna un direccionamiento a la red:</p>
+<pre><code>$ docker network inspect red1
+[
+    {
+        "Name": "red1",
+        ...
+            "Config": [
+                {
+                    "Subnet": "172.18.0.0/16",
+                    "Gateway": "172.18.0.1"
+                }
+            ]
+        },
+        ...
+]
+</code></pre>
+<p>Vamos a crear dos contenedores conectados a dicha red:</p>
+<pre><code>$ docker run -d --name my-apache-app --network red1 -p 8080:80 httpd:2.4
+</code></pre>
+<p>Lo primero que vamos a comprobar es la resolución DNS:</p>
+<pre><code>$ docker run -it --name contenedor1 --network red1 debian bash
+root@98ab5a0c2f0c:/# apt update &amp;&amp; apt install dnsutils -y
+...
+root@98ab5a0c2f0c:/# dig my-apache-app
+...
+;; ANSWER SECTION:
+my-apache-app.      600 IN  A   172.18.0.2
+...
+;; SERVER: 127.0.0.11#53(127.0.0.11)
+...
+</code></pre>
+<p>Podemos comprobar la configuración DNS del contenedor:</p>
+<pre><code>root@98ab5a0c2f0c:/# cat /etc/resolv.conf 
+nameserver 127.0.0.11
+...
+</code></pre>
+<p>Evidentemente desde los dos contenedores se pueden resolver los dos nombres:</p>
+<pre><code>root@98ab5a0c2f0c:/# dig contenedor1
+...
+;; ANSWER SECTION:
+contenedor1.        600 IN  A   172.18.0.3
+...
+;; SERVER: 127.0.0.11#53(127.0.0.11)
+...
+</code></pre>
+<h2 id="conectando-los-contenedores-a-otras-redes"><a href="https://iesgn.github.io/curso_docker_2021/sesion4/definida.html#conectando-los-contenedores-a-otras-redes"></a>Conectando los contenedores a otras redes<a class="headerlink" href="#conectando-los-contenedores-a-otras-redes" title="Permanent link">¶</a></h2>
+<p>A continuación vamos a crear otra red bridge, pero vamos a indicar el direccionamiento:</p>
+<pre><code>$ docker network create red2 --subnet 192.168.100.0/24 --gateway 192.168.100.1
+</code></pre>
+<p>Creamos un contenedor conectado a esta nueva red y comprobamos que no hay conectividad con los dos anteriores:</p>
+<pre><code>$ docker run -it --name contenedor2 --network red2 debian bash
+root@f9c7ac830a18:/# ip a
+...
+    inet 192.168.100.2/24 brd 192.168.100.255 scope global eth0
+...
+root@f9c7ac830a18:/# ping contenedor1
+ping: contenedor1: Name or service not known
+</code></pre>
+<p>Ahora podemos probar como podemos conectar un contenedor a una red. Para conectar usaremos <code>docker network connect</code> y para desconectarla usaremos <code>docker network disconnect</code>.</p>
+<pre><code>$ docker network connect red2 contenedor1 
+
+$ docker start contenedor1
+contenedor1
+
+$ docker start contenedor2
+contenedor2
+
+$ docker attach contenedor1
+root@98ab5a0c2f0c:/# ip a
+...
+46: eth0@if47: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc noqueue state UP group default
+    ...
+    inet 172.18.0.3/16 brd 172.18.255.255 scope global eth0
+...
+48: eth1@if49: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc noqueue state UP group default 
+...    
+    inet 192.168.100.2/24 brd 192.168.100.255 scope global eth1
+...
+root@98ab5a0c2f0c:/# ping contenedor2
+PING contenedor2 (192.168.100.3) 56(84) bytes of data.
+64 bytes from contenedor2.red2 (192.168.100.3): icmp_seq=1 ttl=64 time=0.082 ms
+...
+</code></pre>
+<p>Evidentemente desde el <code>contenedor2</code> también tenemos conectividad a contenedor1, pero evidentemente no al contenedor <code>my-apache-app</code>:</p>
+<pre><code>$ docker attach contenedor2
+root@f9c7ac830a18:/# ping contenedor1
+PING contenedor1 (192.168.100.2) 56(84) bytes of data.
+64 bytes from contenedor1.red2 (192.168.100.2): icmp_seq=1 ttl=64 time=0.072 ms
+...
+root@f9c7ac830a18:/# ping my-apache-app
+ping: my-apache-app: Name or service not known
+</code></pre>
+<h2 id="mas-opciones-al-trabajar-con-redes-en-docker"><a href="https://iesgn.github.io/curso_docker_2021/sesion4/definida.html#más-opciones-al-trabajar-con-redes-en-docker"></a>Más opciones al trabajar con redes en docker<a class="headerlink" href="#mas-opciones-al-trabajar-con-redes-en-docker" title="Permanent link">¶</a></h2>
+<p>Tanto al crear un contenedor con el flag <code>--network</code>, como con la instrucción <code>docker network connect</code>, podemos usar algunos otros flags:</p>
 <ul>
-<li>Los <strong>volúmenes docker</strong>.</li>
-<li>Los <strong>bind mount</strong></li>
-<li>Los <strong>tmpfs mounts</strong>: Almacenan en memoria la información. (No lo vamos a ver en este curso)</li>
+<li><code>--dns</code>: para establecer unos servidores DNS predeterminados.</li>
+<li><code>--ip</code>: Para establecer una ip fija en el contenedor.</li>
+<li><code>--ip6</code>: para establecer la dirección de red ipv6</li>
+<li><code>--hostname</code> o <code>-h</code>: para establecer el nombre de host del contenedor. Si no lo establezco será el ID del mismo.</li>
+<li><code>--add-host</code>: añade entradas de nuevos hosts en el fichero <code>/etc/hosts</code></li>
 </ul>
-<h2 id="volumenes-docker">Volúmenes docker<a class="headerlink" href="#volumenes-docker" title="Permanent link">¶</a></h2>
-<p>Si elegimos conseguir la persistencia usando volúmenes estamos haciendo que los datos de los contenedores que nosotros decidamos se almacenen en una parte del sistema de ficheros que es gestionada por docker y a la que, debido a sus permisos, sólo docker tendrá acceso. En linux se guardan en <code>/var/lib/docker/volumes</code>. Este tipo de volúmenes se suele usar en los siguientes casos:</p>
+<p>Veamos un ejemplo:</p>
+<p>Primero creamos una red:</p>
+<pre><code>$ docker network create --subnet 192.168.100.0/24 red3
+</code></pre>
+<p>Y creamos un contenedor conectado a esta red con algunos parámetros extras:</p>
+<pre><code>$ docker run -it --name contenedor --network red3 \
+                                   --ip 192.168.100.10 \
+                                   --add-host=testing.example.com:192.168.100.20 \
+                                   --dns 8.8.8.8 \
+                                   --hostname servidor1 \
+                                   debian
+</code></pre>
+<p>Como hemos comentado anteriormente estos parámetros también lo podemos usar al conectar un contenedor a una red con <code>docker network connect</code>. Veamos con detenimiento cada uno de los parámetros:</p>
 <ul>
-<li>Para compartir datos entre contenedores. Simplemente tendrán que usar el mismo volumen.</li>
-<li>Para copias de seguridad ya sea para que sean usadas posteriormente por otros contenedores o para mover esos volúmenes a otros hosts.</li>
-<li>Cuando queremos almacenar los datos de nuestro contenedor no localmente sino en un proveedor cloud.</li>
+<li><code>--hostname servidor1</code>: Indicamos el nombre de la máquina. Lo comprobamos:</li>
 </ul>
-<h3 id="gestionando-volumenes">Gestionando volúmenes<a class="headerlink" href="#gestionando-volumenes" title="Permanent link">¶</a></h3>
-<p>Algunos comando útiles para trabajar con volúmenes docker:</p>
+<pre><code>root@servidor1:/# cat /etc/hostname 
+servidor1
+</code></pre>
 <ul>
-<li><strong>docker volumen create</strong>: Crea un volumen con el nombre indicado.</li>
-<li><strong>docker volume rm</strong>: Elimina el volumen indicado.</li>
-<li><strong>docker volumen prune</strong>: Para eliminar los volúmenes que no están siendo usados por ningún contenedor.</li>
-<li><strong>docker volume ls</strong>: Nos proporciona una lista de los volúmenes creados y algo de información adicional.</li>
-<li><strong>docker volume inspect</strong>: Nos dará una información mucho más detallada de el volumen que hayamos elegido.</li>
+<li><code>--ip 192.168.100.10</code>: Nos permite poner una ip fija en el contenedor. Vamos a comprobarlo:</li>
 </ul>
-<h2 id="bind-mounts">Bind mounts<a class="headerlink" href="#bind-mounts" title="Permanent link">¶</a></h2>
-<p>Si elegimos conseguir la persistencia de los datos de los contenedores usando bind mount lo que estamos haciendo es “mapear” (montar) una parte de mi sistema de ficheros, de la que yo normalmente tengo el control, con una parte del sistema de ficheros del contenedor. Por lo tanto podemos montar tanto <strong>directorios</strong> como <strong>ficheros</strong>. De esta manera conseguimos:</p>
+<pre><code>root@servidor1:/# ip a
+...
+25: eth0@if26: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc noqueue state UP group default 
+    ...
+    inet 192.168.100.10/24 brd 192.168.100.255 scope global eth0
+    ...
+</code></pre>
 <ul>
-<li>Compartir ficheros entre el host y los containers.</li>
-<li>Que otras aplicaciones que no sean docker tengan acceso a esos ficheros, ya sean código, ficheros etc…</li>
+<li><code>--add-host=testing.example.com:192.168.100.20</code>: Añadimos un nuevos host como resolución estática. Lo comprobamos:</li>
 </ul>
+<pre><code>root@servidor1:/# cat /etc/hosts
+...
+192.168.100.20  testing.example.com
+192.168.100.10  servidor1
+
+root@servidor1:/# ping testing.example.com
+PING testing.example.com (192.168.100.20) 56(84) bytes of data.
+...
+</code></pre>
+<ul>
+<li><code>--dns 8.8.8.8</code>: Hemos configurado como DNS el servidor <code>8.8.8.8</code>. Veamos esto con detenimiento, como hemos visto anteriormente al conectar el contenedor a una red bridge definida por el usuario se crea un servidor DNS que nos permite la resolución por el nombre del contenedor (parámetro <code>--name</code>, no se resuelve el nombre que hayamos indicado con el parámetro <code>--hostname</code>), veamos el servidor DNS:</li>
+</ul>
+<pre><code>root@servidor1:/# cat /etc/resolv.conf 
+nameserver 127.0.0.11
+...
+</code></pre>
+<p>Por defecto este servidor hace forward con el servidor DNS que tenga configurado el anfitrión (es decir usa el DNS del anfitrión para resolver los nombre que no conoce). Con la opción <code>--dns 8.8.8.8</code>, estamos cambiando el DNS al que hacemos forwarding, por lo tanto ese cambio no se visualizar en el fichero <code>/etc/resolv.conf</code>.</p>
 </article>
 </div>
 </div>

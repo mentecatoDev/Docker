@@ -5,11 +5,11 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="../02.-Asociando%20almacenamiento%20a%20los%20contenedores%20I/" rel="prev"/>
-<link href="../04.-Redes%20en%20docker/" rel="next"/>
+<link href="../02.-Tipos%20de%20redes%20en%20docker/" rel="prev"/>
+<link href="../04.-Uso%20de%20la%20red%20bridge%20por%20defecto/" rel="next"/>
 <link href="../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.4.3, mkdocs-material-9.1.9" name="generator"/>
-<title>03.-Asociando almacenamiento a los contenedores II - Sistemas Informáticos</title>
+<title>03.-Gestionando redes en docker - Sistemas Informáticos</title>
 <link href="../../assets/stylesheets/main.85bb2934.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.a6bdf11c.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -23,9 +23,6 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#ejemplo-montando-directorios-usando-bind-mount">
-          Saltar a contenido
-        </a>
 </div>
 <div data-md-component="announce">
 </div>
@@ -47,7 +44,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              03.-Asociando almacenamiento a los contenedores II
+              03.-Gestionando redes en docker
             
           </span>
 </div>
@@ -130,8 +127,18 @@
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link md-tabs__link--active" href="../01.-Vol%C3%BAmenes%20docker%20y%20bind%20mount/">
-        06.-Volúmenes y Redes
+<a class="md-tabs__link" href="../../06.-Vol%C3%BAmenes/01.-Vol%C3%BAmenes%20docker%20y%20bind%20mount/">
+        06.-Volúmenes
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link md-tabs__link--active" href="../01.-Introducci%C3%B3n%20a%20las%20redes%20en%20docker/">
+        07.-Redes
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../08.-Escenarios%20multicontenedor/01.-Instalaci%C3%B3n%20de%20docker-compose/">
+        08.-Escenarios multicontenedor
       </a>
 </li>
 <li class="md-tabs__item">
@@ -417,66 +424,159 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" id="__nav_7" type="checkbox"/>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_7" type="checkbox"/>
 <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
-          06.-Volúmenes y Redes
+          06.-Volúmenes
           <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="true" aria-labelledby="__nav_7_label" class="md-nav" data-md-level="1">
+<nav aria-expanded="false" aria-labelledby="__nav_7_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_7">
 <span class="md-nav__icon md-icon"></span>
-          06.-Volúmenes y Redes
+          06.-Volúmenes
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../01.-Vol%C3%BAmenes%20docker%20y%20bind%20mount/">
+<a class="md-nav__link" href="../../06.-Vol%C3%BAmenes/01.-Vol%C3%BAmenes%20docker%20y%20bind%20mount/">
         01.-Volúmenes docker y bind mount
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../02.-Asociando%20almacenamiento%20a%20los%20contenedores%20I/">
+<a class="md-nav__link" href="../../06.-Vol%C3%BAmenes/02.-Asociando%20almacenamiento%20a%20los%20contenedores%20I/">
         02.-Asociando almacenamiento a los contenedores I
       </a>
 </li>
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-          03.-Asociando almacenamiento a los contenedores II
-          <span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../06.-Vol%C3%BAmenes/03.-Asociando%20almacenamiento%20a%20los%20contenedores%20II/">
         03.-Asociando almacenamiento a los contenedores II
       </a>
-<nav aria-label="Tabla de contenidos" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      Tabla de contenidos
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+</li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#ejemplo-montando-directorios-usando-bind-mount">
-    Ejemplo: montando directorios usando bind mount
-  </a>
+<a class="md-nav__link" href="../../06.-Vol%C3%BAmenes/04.-Redes%20en%20docker/">
+        04.-Redes en docker
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../06.-Vol%C3%BAmenes/05.-Ejemplos/">
+        05.-Ejemplos
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../06.-Vol%C3%BAmenes/06.-Otros%20usos%20del%20almacenamiento/">
+        06.-Otros usos del almacenamiento
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../06.-Vol%C3%BAmenes/Ejercicios%20de%20Vol%C3%BAmenes/">
+        Ejercicios de Volúmenes
+      </a>
 </li>
 </ul>
 </nav>
 </li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_8" type="checkbox"/>
+<label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+          07.-Redes
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_8_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_8">
+<span class="md-nav__icon md-icon"></span>
+          07.-Redes
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../04.-Redes%20en%20docker/">
-        04.-Redes en docker
+<a class="md-nav__link" href="../01.-Introducci%C3%B3n%20a%20las%20redes%20en%20docker/">
+        01.-Introducción a las redes en docker
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../02.-Tipos%20de%20redes%20en%20docker/">
+        02.-Tipos de redes en docker
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<a class="md-nav__link md-nav__link--active" href="./">
+        03.-Gestionando redes en docker
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../04.-Uso%20de%20la%20red%20bridge%20por%20defecto/">
+        04.-Uso de la red bridge por defecto
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../05.-Uso%20de%20las%20redes%20bridge%20definidas%20por%20el%20usuario/">
+        05.-Uso de las redes bridge definidas por el usuario
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../06.-Convertir%20el%20uso%20de%20la%20red%20bridge%20por%20defecto%20por%20una%20definida%20por%20el%20usuario/">
+        06.-Convertir el uso de la red bridge por defecto por una definida por el usuario
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../07.-Ejemplos/">
+        07.-Ejemplos
       </a>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_8" type="checkbox"/>
+<input class="md-nav__toggle md-toggle" id="__nav_9" type="checkbox"/>
+<label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+          08.-Escenarios multicontenedor
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_9_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_9">
+<span class="md-nav__icon md-icon"></span>
+          08.-Escenarios multicontenedor
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08.-Escenarios%20multicontenedor/01.-Instalaci%C3%B3n%20de%20docker-compose/">
+        01.-Instalación de docker-compose
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08.-Escenarios%20multicontenedor/02.-El%20fichero%20docker-compose.yml/">
+        02.-El fichero docker-compose.yml
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08.-Escenarios%20multicontenedor/03.-El%20comando%20docker-compose/">
+        03.-El comando docker-compose
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08.-Escenarios%20multicontenedor/04.-Almacenamiento%20con%20docker-compose/">
+        04.-Almacenamiento con docker-compose
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08.-Escenarios%20multicontenedor/05.-Redes%20con%20docker-compose/">
+        05.-Redes con docker-compose
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08.-Escenarios%20multicontenedor/06.-Ejemplos/">
+        06.-Ejemplos
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_10" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
 <a href="../../09.-Ejercicios/">09.-Ejercicios</a>
 </div>
-<nav aria-expanded="false" aria-labelledby="__nav_8_label" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_8">
+<nav aria-expanded="false" aria-labelledby="__nav_10_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_10">
 <span class="md-nav__icon md-icon"></span>
           09.-Ejercicios
         </label>
@@ -485,12 +585,12 @@
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_9" type="checkbox"/>
+<input class="md-nav__toggle md-toggle" id="__nav_11" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
 <a href="../../10.-Cheatsheet/">10.-Cheatsheet</a>
 </div>
-<nav aria-expanded="false" aria-labelledby="__nav_9_label" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_9">
+<nav aria-expanded="false" aria-labelledby="__nav_11_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_11">
 <span class="md-nav__icon md-icon"></span>
           10.-Cheatsheet
         </label>
@@ -507,54 +607,40 @@
 <div class="md-sidebar__scrollwrap">
 <div class="md-sidebar__inner">
 <nav aria-label="Tabla de contenidos" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      Tabla de contenidos
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#ejemplo-montando-directorios-usando-bind-mount">
-    Ejemplo: montando directorios usando bind mount
-  </a>
-</li>
-</ul>
 </nav>
 </div>
 </div>
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1>03.-Asociando almacenamiento a los contenedores II</h1>
-<h2 id="ejemplo-montando-directorios-usando-bind-mount">Ejemplo: montando directorios usando bind mount<a class="headerlink" href="#ejemplo-montando-directorios-usando-bind-mount" title="Permanent link">¶</a></h2>
-<p>En este caso vamos a crear un directorio en el sistema de archivo del host, donde vamos a crear un fichero <code>index.html</code>:</p>
-<pre><code>$ mkdir web
-$ cd web
-/web$ echo "&lt;h1&gt;Hola&lt;/h1&gt;" &gt; index.html
-</code></pre>
-<p>Y podemos montar ese directorio en un contenedor, en este caso usamos la opción <code>-v</code>:</p>
-<pre><code>$ docker run -d --name my-apache-app -v /home/usuario/web:/usr/local/apache2/htdocs -p 8080:80 httpd:2.4
-8de025f6ff4d4b8a5a57d10a9cbb283b103209f358c43148a4716a33a404e208
-</code></pre>
-<p>Y comprobamos que realmente estamos sirviendo el fichero que tenemos en el directorio que hemos creado.</p>
-<pre><code>$ curl http://localhost:8080
-&lt;h1&gt;Hola&lt;/h1&gt;
-</code></pre>
-<p>Eliminamos el contenedor y volvemos a crear otro con el directorio montado:</p>
-<pre><code>$ docker rm -f my-apache-app 
-my-apache-app
-
-$ docker run -d --name my-apache-app -v /home/usuario/web:/usr/local/apache2/htdocs -p 8080:80 httpd:2.4
-1751b04b0548217d7faa628fd69c10e84c695b0e5cc33b482df2c04a6af83292
-
-$ curl http://localhost:8080
-&lt;h1&gt;Hola&lt;/h1&gt;
-</code></pre>
-<p>Además podemos comprobar que podemos modificar el contenido del fichero aunque este montado en el contenedor:</p>
-<pre><code>$ echo "&lt;h1&gt;Adios&lt;/h1&gt;" &gt; web/index.html 
-$ curl http://localhost:8080
-&lt;h1&gt;Adios&lt;/h1&gt;
-</code></pre>
-<p>Por último, indicar que si nuestra carpeta origen no existe y hacemos un bind mount con <code>-v</code>, esa carpeta se creará pero lo que tendremos en el contenedor es una carpeta vacía.</p>
+<h1>03.-Gestionando redes en docker</h1>
+<p>Tenemos que hacer una diferenciación entre dos tipos de redes <strong>bridge</strong>:</p>
+<ul>
+<li>La red creada por defecto por docker para que funcionen todos los contenedores.</li>
+<li>Y las redes “bridge” definidas por el usuario.</li>
+</ul>
+<p>Esta red “bridge” por defecto, que es la usada por defecto por los contenedores, se diferencia en varios aspectos de las redes “bridge” que creamos nosotros. Estos aspectos son los siguientes:</p>
+<ul>
+<li>Las redes que nosotros definamos proporcionan <strong>resolución DNS</strong> entre los contenedores, cosa que la red por defecto no hace a no ser que usemos opciones que ya se consideran obsoletas (“deprectated”) (<code>--link</code>).</li>
+<li>Puedo <strong>conectar en caliente</strong> a los contenedores redes “bridge” definidas por el usuario. Si uso la red por defecto tengo que parar previamente el contenedor.</li>
+<li>Me permite gestionar de manera más segura el <strong>aislamiento</strong> de los contenedores, ya que si no indico una red al arrancar un contenedor éste se incluye en la red por defecto donde pueden convivir servicios que no tengan nada que ver.</li>
+<li>Tengo más <strong>control</strong> sobre la configuración de las redes si las defino yo. Los contenedores de la red por defecto comparten todos la misma configuración de red (MTU, reglas ip tables etc…).</li>
+<li>Los contenedores dentro de la red “bridge” por defecto comparten todos ciertas variables de entorno lo que puede provocar ciertos conflictos.</li>
+</ul>
+<p>En definitiva: <strong>Es importante que nuestro contenedores en producción se estén ejecutando sobre una red definida por el usuario.</strong></p>
+<p>Para gestionar las redes creadas por el usuario:</p>
+<ul>
+<li><strong>docker network ls</strong>: Listado de las redes.</li>
+<li><strong>docker network create</strong>: Creación de redes. Ejemplos:<ul>
+<li><code>docker network create red1</code></li>
+<li><code>docker network create -d bridge --subnet 172.24.0.0/16 --gateway 172.24.0.1 red2</code></li>
+</ul>
+</li>
+<li><strong>docker network rm/prune</strong>: Borrar redes. Teniendo en cuenta que no puedo borrar una red que tenga contenedores que la estén usando. deberé primero borrar los contenedores o desconectar la red.</li>
+<li><strong>docker network inspect</strong>: Nos da información de la red.</li>
+</ul>
+<p>Nota: <strong>Cada red docker que creo crea un puente de red específico para cada red que podemos ver con <code>ip a</code></strong>:</p>
+<p><img alt="docker" src="https://iesgn.github.io/curso_docker_2021/sesion4/img/bridge2.png"/></p>
 </article>
 </div>
 </div>

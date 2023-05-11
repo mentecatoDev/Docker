@@ -5,11 +5,11 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="../01.-Vol%C3%BAmenes%20docker%20y%20bind%20mount/" rel="prev"/>
-<link href="../03.-Asociando%20almacenamiento%20a%20los%20contenedores%20II/" rel="next"/>
+<link href="../05.-Ejemplos/" rel="prev"/>
+<link href="../Ejercicios%20de%20Vol%C3%BAmenes/" rel="next"/>
 <link href="../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.4.3, mkdocs-material-9.1.9" name="generator"/>
-<title>02.-Asociando almacenamiento a los contenedores I - Sistemas Informáticos</title>
+<title>06.-Otros usos del almacenamiento - Sistemas Informáticos</title>
 <link href="../../assets/stylesheets/main.85bb2934.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.a6bdf11c.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -23,7 +23,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#ejemplo-usando-volumenes-docker">
+<a class="md-skip" href="#compartir-informacion-entre-contenedores">
           Saltar a contenido
         </a>
 </div>
@@ -47,7 +47,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              02.-Asociando almacenamiento a los contenedores I
+              06.-Otros usos del almacenamiento
             
           </span>
 </div>
@@ -131,7 +131,17 @@
 </li>
 <li class="md-tabs__item">
 <a class="md-tabs__link md-tabs__link--active" href="../01.-Vol%C3%BAmenes%20docker%20y%20bind%20mount/">
-        06.-Volúmenes y Redes
+        06.-Volúmenes
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../07.-Redes/01.-Introducci%C3%B3n%20a%20las%20redes%20en%20docker/">
+        07.-Redes
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../08.-Escenarios%20multicontenedor/01.-Instalaci%C3%B3n%20de%20docker-compose/">
+        08.-Escenarios multicontenedor
       </a>
 </li>
 <li class="md-tabs__item">
@@ -420,13 +430,13 @@
 <li class="md-nav__item md-nav__item--active md-nav__item--nested">
 <input checked="" class="md-nav__toggle md-toggle" id="__nav_7" type="checkbox"/>
 <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
-          06.-Volúmenes y Redes
+          06.-Volúmenes
           <span class="md-nav__icon md-icon"></span>
 </label>
 <nav aria-expanded="true" aria-labelledby="__nav_7_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_7">
 <span class="md-nav__icon md-icon"></span>
-          06.-Volúmenes y Redes
+          06.-Volúmenes
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -434,28 +444,10 @@
         01.-Volúmenes docker y bind mount
       </a>
 </li>
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-          02.-Asociando almacenamiento a los contenedores I
-          <span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../02.-Asociando%20almacenamiento%20a%20los%20contenedores%20I/">
         02.-Asociando almacenamiento a los contenedores I
       </a>
-<nav aria-label="Tabla de contenidos" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      Tabla de contenidos
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#ejemplo-usando-volumenes-docker">
-    Ejemplo usando volúmenes docker
-  </a>
-</li>
-</ul>
-</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../03.-Asociando%20almacenamiento%20a%20los%20contenedores%20II/">
@@ -467,16 +459,149 @@
         04.-Redes en docker
       </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../05.-Ejemplos/">
+        05.-Ejemplos
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          06.-Otros usos del almacenamiento
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+        06.-Otros usos del almacenamiento
+      </a>
+<nav aria-label="Tabla de contenidos" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#compartir-informacion-entre-contenedores">
+    Compartir información entre contenedores
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#comprobar-compatibilidad-de-codigo-entre-distintas-versiones-de-un-lenguaje-de-programacion">
+    Comprobar compatibilidad de código entre distintas versiones de un lenguaje de programación
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Ejercicios%20de%20Vol%C3%BAmenes/">
+        Ejercicios de Volúmenes
+      </a>
+</li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_8" type="checkbox"/>
+<label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+          07.-Redes
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_8_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_8">
+<span class="md-nav__icon md-icon"></span>
+          07.-Redes
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../07.-Redes/01.-Introducci%C3%B3n%20a%20las%20redes%20en%20docker/">
+        01.-Introducción a las redes en docker
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../07.-Redes/02.-Tipos%20de%20redes%20en%20docker/">
+        02.-Tipos de redes en docker
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../07.-Redes/03.-Gestionando%20redes%20en%20docker/">
+        03.-Gestionando redes en docker
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../07.-Redes/04.-Uso%20de%20la%20red%20bridge%20por%20defecto/">
+        04.-Uso de la red bridge por defecto
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../07.-Redes/05.-Uso%20de%20las%20redes%20bridge%20definidas%20por%20el%20usuario/">
+        05.-Uso de las redes bridge definidas por el usuario
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../07.-Redes/06.-Convertir%20el%20uso%20de%20la%20red%20bridge%20por%20defecto%20por%20una%20definida%20por%20el%20usuario/">
+        06.-Convertir el uso de la red bridge por defecto por una definida por el usuario
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../07.-Redes/07.-Ejemplos/">
+        07.-Ejemplos
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_9" type="checkbox"/>
+<label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+          08.-Escenarios multicontenedor
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_9_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_9">
+<span class="md-nav__icon md-icon"></span>
+          08.-Escenarios multicontenedor
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08.-Escenarios%20multicontenedor/01.-Instalaci%C3%B3n%20de%20docker-compose/">
+        01.-Instalación de docker-compose
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08.-Escenarios%20multicontenedor/02.-El%20fichero%20docker-compose.yml/">
+        02.-El fichero docker-compose.yml
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08.-Escenarios%20multicontenedor/03.-El%20comando%20docker-compose/">
+        03.-El comando docker-compose
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08.-Escenarios%20multicontenedor/04.-Almacenamiento%20con%20docker-compose/">
+        04.-Almacenamiento con docker-compose
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08.-Escenarios%20multicontenedor/05.-Redes%20con%20docker-compose/">
+        05.-Redes con docker-compose
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08.-Escenarios%20multicontenedor/06.-Ejemplos/">
+        06.-Ejemplos
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_10" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
 <a href="../../09.-Ejercicios/">09.-Ejercicios</a>
 </div>
-<nav aria-expanded="false" aria-labelledby="__nav_8_label" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_8">
+<nav aria-expanded="false" aria-labelledby="__nav_10_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_10">
 <span class="md-nav__icon md-icon"></span>
           09.-Ejercicios
         </label>
@@ -485,12 +610,12 @@
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_9" type="checkbox"/>
+<input class="md-nav__toggle md-toggle" id="__nav_11" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
 <a href="../../10.-Cheatsheet/">10.-Cheatsheet</a>
 </div>
-<nav aria-expanded="false" aria-labelledby="__nav_9_label" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_9">
+<nav aria-expanded="false" aria-labelledby="__nav_11_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_11">
 <span class="md-nav__icon md-icon"></span>
           10.-Cheatsheet
         </label>
@@ -513,8 +638,13 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#ejemplo-usando-volumenes-docker">
-    Ejemplo usando volúmenes docker
+<a class="md-nav__link" href="#compartir-informacion-entre-contenedores">
+    Compartir información entre contenedores
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#comprobar-compatibilidad-de-codigo-entre-distintas-versiones-de-un-lenguaje-de-programacion">
+    Comprobar compatibilidad de código entre distintas versiones de un lenguaje de programación
   </a>
 </li>
 </ul>
@@ -524,40 +654,46 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1>02.-Asociando almacenamiento a los contenedores I</h1>
-<p>Veamos como puedo usar <strong>los volúmenes</strong> y los <strong>bind mounts</strong> en los contenedores. Aunque hay dos formas de asociar el almacenamiento al contenedor nosotros vamos a usar el flag <code>--volume</code> o <code>-v</code>.</p>
-<p>Si usamos imágenes de DockerHub, debemos leer la información que cada imagen nos proporciona en su página ya que esa información suele indicar cómo persistir los datos de esa imagen, ya sea con volúmenes o bind mounts, y cuáles son las carpetas importantes en caso de ser imágenes que contengan ciertos servicios (web, base de datos etc…)</p>
-<h2 id="ejemplo-usando-volumenes-docker">Ejemplo usando volúmenes docker<a class="headerlink" href="#ejemplo-usando-volumenes-docker" title="Permanent link">¶</a></h2>
-<p>Lo primero que vamos a hacer es crear un volumen docker:</p>
-<pre><code>$ docker volume create miweb
-miweb
+<h1>06.-Otros usos del almacenamiento</h1>
+<p>En los ejemplos anteriores hemos usado los volúmenes como copia de seguridad de la información, para hacer persistente los contenedores. En este apartado vamos a ver dos ejemplos explicando otros dos usos que le podemos dar al almacenamiento en docker:</p>
+<h2 id="compartir-informacion-entre-contenedores">Compartir información entre contenedores<a class="headerlink" href="#compartir-informacion-entre-contenedores" title="Permanent link">¶</a></h2>
+<p>En este caso vamos a usar un volumen o bind mount para compartir información entre dos contenedores. Si seguimos el principio que un contenedor tiene que ejecutar un sólo proceso, en ocasiones nos puede hacer falta que otro contenedor haga una operación auxiliar y genere una información que compartirá con el primero por medio de almacenamiento que estará montado en los dos contenedores.</p>
+<p>Un ejemplo podría ser un servicio web que está ofreciendo información que tiene que ir leyendo de un repositorio Git. en este caso podríamos poner un contenedor secundario que cada cierto tiempo leyera el repositorio y le pasara la información al primer contenedor por medio de almacenamiento compartido.</p>
+<p>En nuestro ejemplo vamos a hacer algo mucho más sencillo: el contenedor principal es un servidor web que ofrece un fichero <code>index.html</code> y este fichero se va actualizando por el segundo contenedor, que en el ejemplo lo único que va a hacer es escribir la fecha y la hora cada un segundo. Vemos el ejemplo usando volúmenes docker:</p>
+<p>Lo primero creamos el volumen:</p>
+<pre><code>$ docker volume create datos_compartidos
 </code></pre>
-<p>A continuación creamos un contenedor con el volumen asociado, usando <code>--mount</code>, y creamos un fichero <code>index.html</code>:</p>
-<pre><code>$ docker run -d --name my-apache-app -v miweb:/usr/local/apache2/htdocs -p 8080:80 httpd:2.4
-b51f89eb21701362279489c5b52a06b1a44c10194c00291de895b404ab347b80
+<p>Creamos el primer contenedor con el volumen montado en el <em>DocumentRoot</em> y el tipo de acceso <strong>solo lectura</strong>, opción <code>ro</code>:</p>
+<pre><code>$ docker run -d -p 8181:80 --name contenedor1 -v datos_compartidos:/var/www/html:ro php:7.4-apache
+</code></pre>
+<p>A continuación creamos el segundo contenedor con un proceso que va a modificar el fichero <code>index.html</code> que guarda en el volumen cada un segundo:</p>
+<pre><code>$ docker run -d  --name contenedor2 -v datos_compartidos:/srv debian bash -c "while true; do date &gt;&gt; /srv/index.html;sleep 1;done"
+</code></pre>
+<p>Accedemos al puerto 8181 del anfitrión y comprueba cómo se va actualizando el fichero <code>index.html</code> que estamos viendo.</p>
+<p>Lo podríamos hacer también con bind mount:</p>
+<pre><code>$ docker run -d -p 8181:80 --name contenedor1 -v /home/vagrant/compartido:/var/www/html:ro php:7.4-apache
+$ docker run -d  --name contenedor2 -v /home/vagrant/compartido:/srv debian bash -c "while true; do date &gt;&gt; /srv/index.html;sleep 1;done"
+</code></pre>
+<p>Y podríamos ver el contenido del fichero <code>~/compartido/index.html</code>.</p>
+<h2 id="comprobar-compatibilidad-de-codigo-entre-distintas-versiones-de-un-lenguaje-de-programacion">Comprobar compatibilidad de código entre distintas versiones de un lenguaje de programación<a class="headerlink" href="#comprobar-compatibilidad-de-codigo-entre-distintas-versiones-de-un-lenguaje-de-programacion" title="Permanent link">¶</a></h2>
+<p>Otro utilidad que le podemos dar al almacenamiento, en este caso a los bind mount, es la posibilidad de comprobar la compatibilidad e un código en diferentes versiones del lenguaje de programación.</p>
+<p>Veamos un ejemplo en PHP: imaginemos que tenemos un código que es compatible y funciona bien en PHP 5 y queremos comprobar como se comporta en la versión PHP 7.</p>
+<p>Siguiendo la documentación <a href="https://www.php.net/manual/es/migration70.php">Migración de PHP 5.6.x a PHP 7.0.x</a>, he escogido la función <a href="https://www.php.net/manual/es/function.list.php">list</a> que se comporta de manera distinta en PHP5 que en PHP7.</p>
+<p>Imaginemos que tenemos un directorio <code>codigo</code> con nuestra aplicación <code>index.php</code>:</p>
+<pre><code>&lt;?php
+// Funciona bien en php5 ya que list hace la asignación desde el último al primero
+$info = array('cafeína','marrón', 'café');
 
-$ docker exec my-apache-app bash -c 'echo "&lt;h1&gt;Hola&lt;/h1&gt;" &gt; /usr/local/apache2/htdocs/index.html'
-
-$ curl http://localhost:8080
-&lt;h1&gt;Hola&lt;/h1&gt;
-
-$ docker rm -f my-apache-app 
-my-apache-app
+// Enumerar todas las variables
+list($datos[], $datos[], $datos[]) = $info;
+echo "El $datos[0] es $datos[1] y la $datos[2] lo hace especial.\n";
+?&gt;
 </code></pre>
-<p>Después de borrar el contenedor, volvemos a crear otro contenedor con el mismo volumen asociado:</p>
-<pre><code>$ docker run -d --name my-apache-app -v miweb:/usr/local/apache2/htdocs -p 8080:80 httpd:2.4
-baa3511ca2227e30d90fa2b4b225e209889be4badff583ce58ac1feaa73d5d77
+<p>A continuación vamos a crear dos contenedores que sirva este código usando imágenes distintas , para cada versión de PHP y usando puertos distintos para acceder a cada versión de la aplicación:</p>
+<pre><code>$ docker run -d -p 8081:80 --name php56 -v /home/vagrant/codigo:/var/www/html:ro php:5.6-apache
+$ docker run -d -p 8082:80 --name php74 -v /home/vagrant/codigo:/var/www/html:ro php:7.4-apache
 </code></pre>
-<p>Y podemos comprobar que no no se ha perdido la información (el fichero <code>index.html</code>):</p>
-<pre><code>$ curl http://localhost:8080
-&lt;h1&gt;Hola&lt;/h1&gt;
-</code></pre>
-<p>Algunas aclaraciones:</p>
-<ul>
-<li>Al no indicar el volumen, se creará un nuevo volumen.</li>
-<li>Si usamos el flag <code>-v</code> e indicamos un nombre, se creará un volumen docker nuevo.</li>
-<li>Al usar tanto volúmenes como bind mount, el contenido de lo que tenemos sobreescribirá la carpeta destino en el sistema de ficheros del contenedor en caso de que exista.</li>
-</ul>
+<p>Y ya podemos acceder a los dos puertos de nuestro anfitrión y comprobar cómo se comporta en PHP5 y en PHP7.</p>
 </article>
 </div>
 </div>

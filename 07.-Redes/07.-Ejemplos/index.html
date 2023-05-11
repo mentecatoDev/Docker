@@ -1,0 +1,778 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../06.-Convertir%20el%20uso%20de%20la%20red%20bridge%20por%20defecto%20por%20una%20definida%20por%20el%20usuario/" rel="prev"/>
+<link href="../../08.-Escenarios%20multicontenedor/01.-Instalaci%C3%B3n%20de%20docker-compose/" rel="next"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.4.3, mkdocs-material-9.1.9" name="generator"/>
+<title>07.-Ejemplos - Sistemas Informáticos</title>
+<link href="../../assets/stylesheets/main.85bb2934.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.a6bdf11c.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="green" data-md-color-primary="blue-grey" data-md-color-scheme="default" dir="ltr">
+<script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#ejemplo-1-despliegue-de-la-aplicacion-guestbook">
+          Saltar a contenido
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Cabecera" class="md-header__inner md-grid">
+<a aria-label="Sistemas Informáticos" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Sistemas Informáticos">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Sistemas Informáticos
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              07.-Ejemplos
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="green" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="blue-grey" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"></path></svg>
+</label>
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="green" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="blue-grey" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"></path></svg>
+</label>
+</form>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Búsqueda" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Búsqueda" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</label>
+<nav aria-label="Buscar" class="md-search__options">
+<button aria-label="Limpiar" class="md-search__icon md-icon" tabindex="-1" title="Limpiar" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<nav aria-label="Pestañas" class="md-tabs" data-md-component="tabs">
+<div class="md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../..">
+      docker
+    </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../01.-Introducci%C3%B3n/">
+        01.-Introducción
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../02.-Instalaci%C3%B3n/">
+        02.-Instalación
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../03.-Conceptos%20Clave/">
+        03.-Conceptos Clave
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../04.-Manos%20a%20la%20obra/">
+        04.-Manos a la obra
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../05.-Gesti%C3%B3n%20de%20im%C3%A1genes/">
+        05.-Gestión de imágenes
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../06.-Vol%C3%BAmenes/01.-Vol%C3%BAmenes%20docker%20y%20bind%20mount/">
+        06.-Volúmenes
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link md-tabs__link--active" href="../01.-Introducci%C3%B3n%20a%20las%20redes%20en%20docker/">
+        07.-Redes
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../08.-Escenarios%20multicontenedor/01.-Instalaci%C3%B3n%20de%20docker-compose/">
+        08.-Escenarios multicontenedor
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../09.-Ejercicios/">
+        09.-Ejercicios
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../10.-Cheatsheet/">
+        10.-Cheatsheet
+      </a>
+</li>
+</ul>
+</div>
+</nav>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navegación" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Sistemas Informáticos" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Sistemas Informáticos">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+    Sistemas Informáticos
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../..">
+        docker
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../01.-Introducci%C3%B3n/">01.-Introducción</a>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+          01.-Introducción
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../02.-Instalaci%C3%B3n/">02.-Instalación</a>
+<label for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+          02.-Instalación
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../02.-Instalaci%C3%B3n/01.-Instalaci%C3%B3n%20r%C3%A1pida%20en%20Arch%20Linux/">
+        01.-Instalación rápida en Arch Linux
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../02.-Instalaci%C3%B3n/02.-Instalaci%C3%B3n%20r%C3%A1pida%20en%20Fedora/">
+        02.-Instalación rápida en Fedora
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../02.-Instalaci%C3%B3n/03.-Instalaci%C3%B3n%20r%C3%A1pida%20en%20Ubuntu/">
+        03.-Instalación rápida en Ubuntu
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../02.-Instalaci%C3%B3n/04.-Instalaci%C3%B3n%20r%C3%A1pida%20en%20Ubuntu/">
+        04.-Instalación rápida en Ubuntu
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../02.-Instalaci%C3%B3n/05.-Instalaci%C3%B3n%20r%C3%A1pida%20en%20Ubuntu/">
+        05.-Instalación rápida en Ubuntu
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../02.-Instalaci%C3%B3n/06.-Instalaci%C3%B3n%20r%C3%A1pida%20en%20Ubuntu/">
+        06.-Instalación rápida en Ubuntu
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../03.-Conceptos%20Clave/">03.-Conceptos Clave</a>
+<label for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+          03.-Conceptos Clave
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+          01.-Imágenes
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_2">
+<span class="md-nav__icon md-icon"></span>
+          01.-Imágenes
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../03.-Conceptos%20Clave/01.-Im%C3%A1genes/01.-Im%C3%A1genes/">
+        01.-Imágenes
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../03.-Conceptos%20Clave/01.-Im%C3%A1genes/02.-Docker%20Hub/">
+        02.-Docker Hub
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../03.-Conceptos%20Clave/02.-Contenedores/">
+        02.-Contenedores
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../03.-Conceptos%20Clave/03.-Vol%C3%BAmenes/">
+        03.-Volúmenes
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../03.-Conceptos%20Clave/04.-Capas/">
+        04.-Capas
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../03.-Conceptos%20Clave/05.-Redes/">
+        05.-Redes
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../03.-Conceptos%20Clave/06.-Estructura%20de%20docker/">
+        06.-Estructura de docker
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../04.-Manos%20a%20la%20obra/">04.-Manos a la obra</a>
+<label for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+          04.-Manos a la obra
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../04.-Manos%20a%20la%20obra/01.-Versi%C3%B3n%20y%20Gesti%C3%B3n%20del%20Servicio/">
+        01.-Versión y Gestión del Servicio
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../04.-Manos%20a%20la%20obra/02.-Usar%20el%20comando%20docker/">
+        02.-Usar el comando docker
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../04.-Manos%20a%20la%20obra/03.-Trabajar%20con%20im%C3%A1genes%20de%20docker/">
+        03.-Trabajar con imágenes de docker
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../04.-Manos%20a%20la%20obra/04.-Ejecutar%20un%20contenedor%20de%20Docker/">
+        04.-Ejecutar un contenedor de Docker
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../04.-Manos%20a%20la%20obra/05.-Administrar%20contenedores%20de%20docker/">
+        05.-Administrar contenedores de docker
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../04.-Manos%20a%20la%20obra/06.-Creaci%C3%B3n%20de%20una%20imagen%20personalizada%20a%20partir%20de%20un%20contenedor/">
+        06.-Creación de una imagen personalizada a partir de un contenedor
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../04.-Manos%20a%20la%20obra/07.-Guardar%20im%C3%A1genes%20de%20docker%20en%20un%20repositorio%20de%20docker/">
+        07.-Guardar imágenes de docker en un repositorio de docker
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../04.-Manos%20a%20la%20obra/08.-Variables%20de%20entorno/">
+        08.-Variables de entorno
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../04.-Manos%20a%20la%20obra/09.-Practica%20con%20Docker%20Playground/">
+        09.-Practica con Docker Playground
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../04.-Manos%20a%20la%20obra/10.-Limpi%C3%A1ndolo%20todo/">
+        10.-Limpiándolo todo
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../04.-Manos%20a%20la%20obra/11.-Ejercicios%20creaci%C3%B3n%20de%20contenedores%20b%C3%A1sicos%20I/">
+        11.-Ejercicios creación de contenedores básicos I
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_6" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../05.-Gesti%C3%B3n%20de%20im%C3%A1genes/">05.-Gestión de imágenes</a>
+<label for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_6_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+          05.-Gestión de imágenes
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../05.-Gesti%C3%B3n%20de%20im%C3%A1genes/01.-Imagen%20a%20partir%20de%20un%20contenedor/">
+        01.-Imagen a partir de un contenedor
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../05.-Gesti%C3%B3n%20de%20im%C3%A1genes/02.-Imagen%20a%20partir%20de%20un%20fichero%20Dockerfile/">
+        02.-Imagen a partir de un fichero Dockerfile
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../05.-Gesti%C3%B3n%20de%20im%C3%A1genes/03.-Construyendo%20im%C3%A1genes%20con%20docker%20build/">
+        03.-Construyendo imágenes con docker build
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../05.-Gesti%C3%B3n%20de%20im%C3%A1genes/04.-Organizaci%C3%B3n%20de%20las%20im%C3%A1genes/">
+        04.-Organización de las imágenes
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../05.-Gesti%C3%B3n%20de%20im%C3%A1genes/05.-Registro%20de%20im%C3%A1genes%20y%20Docker%20Hub/">
+        05.-Registro de imágenes y Docker Hub
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../05.-Gesti%C3%B3n%20de%20im%C3%A1genes/06.-Buenas%20pr%C3%A1cticas%20en%20creaci%C3%B3n%20de%20Dockerfile/">
+        06.-Buenas prácticas en creación de Dockerfile
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../05.-Gesti%C3%B3n%20de%20im%C3%A1genes/07.-Ejercicios%20de%20creaci%C3%B3n%20de%20contenedores%20b%C3%A1sicos%20II/">
+        07.-Ejercicios de creación de contenedores básicos II
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+          06.-Volúmenes
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_7_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_7">
+<span class="md-nav__icon md-icon"></span>
+          06.-Volúmenes
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../06.-Vol%C3%BAmenes/01.-Vol%C3%BAmenes%20docker%20y%20bind%20mount/">
+        01.-Volúmenes docker y bind mount
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../06.-Vol%C3%BAmenes/02.-Asociando%20almacenamiento%20a%20los%20contenedores%20I/">
+        02.-Asociando almacenamiento a los contenedores I
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../06.-Vol%C3%BAmenes/03.-Asociando%20almacenamiento%20a%20los%20contenedores%20II/">
+        03.-Asociando almacenamiento a los contenedores II
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../06.-Vol%C3%BAmenes/04.-Redes%20en%20docker/">
+        04.-Redes en docker
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../06.-Vol%C3%BAmenes/05.-Ejemplos/">
+        05.-Ejemplos
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../06.-Vol%C3%BAmenes/06.-Otros%20usos%20del%20almacenamiento/">
+        06.-Otros usos del almacenamiento
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../06.-Vol%C3%BAmenes/Ejercicios%20de%20Vol%C3%BAmenes/">
+        Ejercicios de Volúmenes
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_8" type="checkbox"/>
+<label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+          07.-Redes
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_8_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_8">
+<span class="md-nav__icon md-icon"></span>
+          07.-Redes
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../01.-Introducci%C3%B3n%20a%20las%20redes%20en%20docker/">
+        01.-Introducción a las redes en docker
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../02.-Tipos%20de%20redes%20en%20docker/">
+        02.-Tipos de redes en docker
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../03.-Gestionando%20redes%20en%20docker/">
+        03.-Gestionando redes en docker
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../04.-Uso%20de%20la%20red%20bridge%20por%20defecto/">
+        04.-Uso de la red bridge por defecto
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../05.-Uso%20de%20las%20redes%20bridge%20definidas%20por%20el%20usuario/">
+        05.-Uso de las redes bridge definidas por el usuario
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../06.-Convertir%20el%20uso%20de%20la%20red%20bridge%20por%20defecto%20por%20una%20definida%20por%20el%20usuario/">
+        06.-Convertir el uso de la red bridge por defecto por una definida por el usuario
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<a class="md-nav__link md-nav__link--active" href="./">
+        07.-Ejemplos
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_9" type="checkbox"/>
+<label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+          08.-Escenarios multicontenedor
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_9_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_9">
+<span class="md-nav__icon md-icon"></span>
+          08.-Escenarios multicontenedor
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08.-Escenarios%20multicontenedor/01.-Instalaci%C3%B3n%20de%20docker-compose/">
+        01.-Instalación de docker-compose
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08.-Escenarios%20multicontenedor/02.-El%20fichero%20docker-compose.yml/">
+        02.-El fichero docker-compose.yml
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08.-Escenarios%20multicontenedor/03.-El%20comando%20docker-compose/">
+        03.-El comando docker-compose
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08.-Escenarios%20multicontenedor/04.-Almacenamiento%20con%20docker-compose/">
+        04.-Almacenamiento con docker-compose
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08.-Escenarios%20multicontenedor/05.-Redes%20con%20docker-compose/">
+        05.-Redes con docker-compose
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08.-Escenarios%20multicontenedor/06.-Ejemplos/">
+        06.-Ejemplos
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_10" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../09.-Ejercicios/">09.-Ejercicios</a>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_10_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_10">
+<span class="md-nav__icon md-icon"></span>
+          09.-Ejercicios
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_11" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../10.-Cheatsheet/">10.-Cheatsheet</a>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_11_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_11">
+<span class="md-nav__icon md-icon"></span>
+          10.-Cheatsheet
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Tabla de contenidos" class="md-nav md-nav--secondary">
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="ejemplo-1-despliegue-de-la-aplicacion-guestbook">Ejemplo 1: Despliegue de la aplicación Guestbook<a class="headerlink" href="#ejemplo-1-despliegue-de-la-aplicacion-guestbook" title="Permanent link">¶</a></h1>
+<p>En este ejemplo vamos a desplegar una aplicación web que requiere de dos servicios (servicio web y servicio de base de datos) para su ejecución. La aplicación se llama GuestBook y necesita los dos siguientes servicios:</p>
+<ul>
+<li>La aplicación guestbook es una aplicación web desarrollada en python que es servida por el puerto 5000/tcp. Utilizaremos la imagen <code>iesgn/guestbook</code>.</li>
+<li>Esta aplicación guarda la información en una base de datos no relacional redis, que utiliza el puerto 6379/tcp para conectarnos. Usaremos la imagen <code>redis</code>.</li>
+</ul>
+<p>La aplicación guestbook por defecto utiliza el nombre <code>redis</code> para conectarse a la base de datos, por lo tanto debemos nombrar al contenedor redis con ese nombre para que tengamos una resolución de nombres adecuada.</p>
+<p>Los dos contenedores tienen que estar en la misma red y deben tener acceso por nombres (resolución DNS) ya que de principio no sabemos que ip va a coger cada contenedor. Por lo tanto vamos a crear los contenedores en la misma red:</p>
+<pre><code>$ docker network create red_guestbook
+</code></pre>
+<p>Para ejecutar los contenedores:</p>
+<pre><code>$ docker run -d --name redis --network red_guestbook redis
+
+$ docker run -d -p 80:5000 --name guestbook --network red_guestbook iesgn/guestbook
+</code></pre>
+<p>Algunas observaciones:</p>
+<ul>
+<li>No es necesario mapear el puerto de <code>redis</code>, ya que no vamos a acceder desde el exterior. Sin embargo la aplicación <code>guestbook</code> va a poder acceder a la base de datos porque están conectado a la misma red.</li>
+<li>Al nombrar al contenedor de la base de datos con <code>redis</code> se crea una entrada en el DNS que resuelve ese nombre con la ip del contenedor. Como hemos indicado, por defecto, la aplicación guestbook usa ese nombre para acceder.</li>
+</ul>
+<p><img alt="guestbook" src="https://iesgn.github.io/curso_docker_2021/sesion4/img/guestbook.png"/></p>
+<h1 id="ejemplo-2-despliegue-de-la-aplicacion-temperaturas">Ejemplo 2: Despliegue de la aplicación Temperaturas<a class="headerlink" href="#ejemplo-2-despliegue-de-la-aplicacion-temperaturas" title="Permanent link">¶</a></h1>
+<p>Vamos a hacer un despliegue completo de una aplicación llamada Temperaturas. Esta aplicación nos permite consultar la temperatura mínima y máxima de todos los municipios de España. Esta aplicación está formada por dos microservicios:</p>
+<ul>
+<li><code>frontend</code>: Es una aplicación escrita en Python que nos ofrece una página web para hacer las búsquedas y visualizar los resultados. Este microservicio hará peticiones HTTP al segundo microservicio para obtener la información. Este microservicio ofrece el servicio en el puerto 3000/tcp. Usaremos la imagen <code>iesgn/temperaturas_frontend</code>.</li>
+<li><code>backend</code>: Es el segundo microservicio que nos ofrece un servicio web de tipo API Restful. A esta API Web podemos hacerles consultas sobre los municipios y sobre las temperaturas. En este caso, se utiliza el puerto 5000/tcp para ofrecer el servicio. Usaremos la imagen <code>iesgn/temperaturas_backend</code>.</li>
+</ul>
+<p>El microservicio <code>frontend</code> se conecta a <code>backend</code> usando el nombre <code>temperaturas-backend</code>. Por lo tanto el contenedor con el micorservicio <code>backend</code> tendrá ese nombre para disponer de una resolución de nombres adecuada en el dns.</p>
+<p>Vamos a crear una red para conectar los dos contenedores:</p>
+<pre><code>$ docker network create red_temperaturas
+</code></pre>
+<p>Para ejecutar los contenedores:</p>
+<pre><code>$ docker run -d --name temperaturas-backend --network red_temperaturas iesgn/temperaturas_backend
+
+$ docker run -d -p 80:3000 --name temperaturas-frontend --network red_temperaturas iesgn/temperaturas_frontend
+</code></pre>
+<p>Algunas observaciones:</p>
+<ul>
+<li>Este es un tipo de aplicación, que se caracteriza por no necesitar guardar información para su funcionamiento. Son las denominadas <strong>aplicaciones sin estado</strong>, por lo tanto no necesitamos almacenamiento adicional para la aplicación.</li>
+<li>No es necesario mapear el puerto de <code>backend</code>, ya que no vamos a acceder desde el exterior. Sin embargo el microservicio <code>frontend</code> va a poder acceder a <code>backend</code> al puerto 5000 porque están conectado a la misma red.</li>
+<li>Al nombrar al contenedor de la base de datos con <code>temperaturas-backend</code> se crea una entrada en el DNS que resuelve ese nombre con la ip del contenedor. Como hemos indicado, por defecto, el microservicio <code>frontend</code> usa ese nombre para acceder.</li>
+</ul>
+<p><img alt="temperaturas" src="https://iesgn.github.io/curso_docker_2021/sesion4/img/temperaturas.png"/></p>
+<h1 id="ejemplo-3-despliegue-de-wordpress-mariadb">Ejemplo 3: Despliegue de Wordpress + mariadb<a class="headerlink" href="#ejemplo-3-despliegue-de-wordpress-mariadb" title="Permanent link">¶</a></h1>
+<p>Para la instalación de WordPress necesitamos dos contenedores: la base de datos (imagen <code>mariadb</code>) y el servidor web con la aplicación (imagen <code>wordpress</code>). Los dos contenedores tienen que estar en la misma red y deben tener acceso por nombres (resolución DNS) ya que de principio no sabemos que ip va a coger cada contenedor. Por lo tanto vamos a crear los contenedores en la misma red:</p>
+<pre><code>$ docker network create red_wp
+</code></pre>
+<p>Siguiendo la documentación de la imagen <a href="https://hub.docker.com/_/mariadb">mariadb</a> y la imagen <a href="https://hub.docker.com/_/wordpress">wordpress</a> podemos ejecutar los siguientes comandos para crear los dos contenedores:</p>
+<pre><code>$ docker run -d --name servidor_mysql \
+                --network red_wp \
+                -v /opt/mysql_wp:/var/lib/mysql \
+                -e MYSQL_DATABASE=bd_wp \
+                -e MYSQL_USER=user_wp \
+                -e MYSQL_PASSWORD=asdasd \
+                -e MYSQL_ROOT_PASSWORD=asdasd \
+                mariadb
+
+$ docker run -d --name servidor_wp \
+                --network red_wp \
+                -v /opt/wordpress:/var/www/html/wp-content \
+                -e WORDPRESS_DB_HOST=servidor_mysql \
+                -e WORDPRESS_DB_USER=user_wp \
+                -e WORDPRESS_DB_PASSWORD=asdasd \
+                -e WORDPRESS_DB_NAME=bd_wp \
+                -p 80:80 \
+                wordpress
+
+$ docker ps
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                NAMES
+5b2c5a82a524        wordpress           "docker-entrypoint.s…"   9 minutes ago       Up 9 minutes        0.0.0.0:80-&gt;80/tcp   servidor_wp
+f70f22aed3d1        mariadb             "docker-entrypoint.s…"   9 minutes ago       Up 9 minutes        3306/tcp             servidor_mysql
+</code></pre>
+<p>Algunas observaciones:</p>
+<ul>
+<li>El contenedor <code>servidor_mysql</code> ejecuta un script <code>docker-entrypoint.sh</code> que es el encargado, a partir de las variables de entorno, configurar la base de datos: crea usuario, crea base de datos, cambia la contraseña del usuario root,… y termina ejecutando el servidor mariadb.</li>
+<li>Al crear la imagen <code>mariadb</code> han tenido en cuenta de que tiene que permitir la conexión desde otra máquina, por lo que en la configuración tenemos comentado el parámetro <code>bind-address</code>.</li>
+<li>Del mismo modo el contenedor <code>servidor_wp</code> ejecuta un script <code>docker-entrypoint.sh</code>, que entre otras cosas, a partir de las variables de entorno, ha creado el fichero <code>wp-config.php</code> de wordpress, por lo que durante la instalación no te ha pedido las credenciales de la base de datos.</li>
+<li>Si te das cuenta la variable de entorno <code>WORDPRESS_DB_HOST</code> la hemos inicializado al nombre del servidor de base de datos. Como están conectada a la misma red definida por el usuario, el contenedor wordpress al intentar acceder al nombre <code>servidor_mysql</code> estará accediendo al contenedor de la base de datos.</li>
+<li>Al servicio al que vamos a acceder desde el exterior es al servidor web, es por lo que hemos mapeado los puertos con la opción <code>-p</code>. Sin embargo en el contenedor de la base de datos no es necesario mapear los puertos porque no vamos a acceder a ella desde el exterior. Sin embargo, el contenedor <code>servidor_wp</code> puede acceder al puerto 3306 del <code>servidor_mysql</code> sin problemas ya que están conectados a la misma red.</li>
+</ul>
+<p><img alt="wordpress" src="https://iesgn.github.io/curso_docker_2021/sesion4/img/wp.png"/></p>
+<h1 id="ejemplo-4-despliegue-de-tomcat-nginx">Ejemplo 4: Despliegue de tomcat + nginx<a class="headerlink" href="#ejemplo-4-despliegue-de-tomcat-nginx" title="Permanent link">¶</a></h1>
+<p>En este ejemplo vamos a desplegar una aplicación muy sencilla en un servidor de aplicación Tomcat, a la que accederemos utilizando un proxy inverso nginx. En este ejercicio, además de seguir trabajando con las redes de tipo bridge definida por el usuario, vamos a usar bind mount para montar los ficheros de configuración y de despliegue en los contenedores.</p>
+<h2 id="desplegando-tomcat">Desplegando tomcat<a class="headerlink" href="#desplegando-tomcat" title="Permanent link">¶</a></h2>
+<p>Antes de hacer el despliegue del primer contenedor, vamos a crear una red bridge para conectar los contenedores:</p>
+<pre><code>$ docker network create red_tomcat
+</code></pre>
+<p>A continuación vamos a crear un contenedor a partir de la imagen <a href="https://hub.docker.com/_/tomcat"><code>tomcat</code></a>. En la documentación podemos ver que el directorio <code>/usr/local/tomcat/webapps/</code> es donde tenemos que poner el fichero de despliegue <code>war</code> (vamos a usar <strong>bind mount</strong> para montar el fichero war en el directorio). No vamos a mapear puerto porque no vamos a acceder a este contenedor desde el exterior.</p>
+<p>Tenemos un directorio donde tenemos el fichero war (puedes encontrar estos ficheros en el <a href="https://github.com/iesgn/curso_docker_2021/tree/main/ejemplos/sesion4/ejemplo4">repositorio github</a>):</p>
+<pre><code>$ cd tomcat
+~/tomcat$ ls
+default.conf  sample.war
+</code></pre>
+<p>Y creamos el contenedor conectada a nuestra nueva red:</p>
+<pre><code>$ docker run -d --name aplicacionjava \
+                --network red_tomcat \
+                -v /home/vagrant/tomcat/sample.war:/usr/local/tomcat/webapps/sample.war:ro \
+                tomcat:9.0
+</code></pre>
+<h2 id="desplegando-nginx-como-proxy-inverso">Desplegando nginx como proxy inverso<a class="headerlink" href="#desplegando-nginx-como-proxy-inverso" title="Permanent link">¶</a></h2>
+<p>Como vimos anteriormente en el directorio de trabajo tenemos también la configuración de nginx para que funcione como proxy inverso:</p>
+<pre><code>server {
+    listen       80;
+    listen  [::]:80;
+    server_name  localhost;
+
+    location / {
+        root   /usr/share/nginx/html;
+    proxy_pass http://aplicacionjava:8080/sample/;
+    }
+    error_page   500 502 503 504  /50x.html;
+    location = /50x.html {
+        root   /usr/share/nginx/html;
+    }
+}
+</code></pre>
+<p>Como vemos para realizar el proxy inverso usamos la directiva <code>proxy_pass</code>indicando la dirección que nos ofrece tomcat, en este caso usamos el nombre del contenedor anterior (<code>aplicacionjava</code>) que será resuelto por el servidor DNS interno, usando el puerto estándar de tomcat el 8080 y el directorio <code>sample</code> donde se ha desplegado la aplicación. Para la creación del contenedor de nginx:</p>
+<pre><code>$ docker run -d --name proxy \
+                -p 80:80 \
+                --network red_tomcat \
+                -v /home/vagrant/tomcat/default.conf:/etc/nginx/conf.d/default.conf:ro \
+                nginx
+</code></pre>
+<p>Y al acceder la ip de nuestro host:</p>
+<p><img alt="tomcat" src="https://iesgn.github.io/curso_docker_2021/sesion4/img/tomcat.png"/></p>
+<hr/>
+</article>
+</div>
+</div>
+<button class="md-top md-icon" data-md-component="top" hidden="" type="button">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"></path></svg>
+            Volver al principio
+          </button>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../..", "features": ["navigation.top", "navigation.top.sticky", "navigation.tabs", "navigation.indexes"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}}</script>
+<script src="../../assets/javascripts/bundle.fac441b0.min.js"></script>
+<script src="../../javascripts/mathjax.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</body>
+</html>
