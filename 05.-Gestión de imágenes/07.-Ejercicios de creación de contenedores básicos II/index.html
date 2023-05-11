@@ -472,13 +472,13 @@
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../06.-Vol%C3%BAmenes%20y%20Redes/02.-Asociando%20almacenamiento%20a%20los%20contenedores/">
-        02.-Asociando almacenamiento a los contenedores
+<a class="md-nav__link" href="../../06.-Vol%C3%BAmenes%20y%20Redes/02.-Asociando%20almacenamiento%20a%20los%20contenedores%20I/">
+        02.-Asociando almacenamiento a los contenedores I
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../06.-Vol%C3%BAmenes%20y%20Redes/03.-Asociando%20almacenamiento%20a%20los%20contenedores/">
-        03.-Asociando almacenamiento a los contenedores
+<a class="md-nav__link" href="../../06.-Vol%C3%BAmenes%20y%20Redes/03.-Asociando%20almacenamiento%20a%20los%20contenedores%20II/">
+        03.-Asociando almacenamiento a los contenedores II
       </a>
 </li>
 <li class="md-nav__item">
@@ -564,19 +564,19 @@
 <article class="md-content__inner md-typeset">
 <h1>07.-Ejercicios de creación de contenedores básicos II</h1>
 <h2 id="ejercicios-para-repasar">Ejercicios para repasar<a class="headerlink" href="#ejercicios-para-repasar" title="Permanent link">¶</a></h2>
-<ol>
+<ul>
 <li>Descarga las siguientes imágenes: <code>ubuntu:18.04</code>, <code>httpd</code>, <code>tomcat:9.0.74-jdk17-temurin-jammy</code>
 , <code>jenkins/jenkins:lts</code>, <code>php:7.4-apache</code>.</li>
-</ol>
+</ul>
 <pre><code>$ docker pull ubuntu:18.04
 $ docker pull httpd
 $ docker pull tomcat:9.0.74-jdk17-temurin-jammy
 $ docker pull jenkins/jenkins:lts
 $ docker pull php:7.4-apache
 </code></pre>
-<ol>
-<li>Muestras las imágenes que tienes descargadas.</li>
-</ol>
+<ul>
+<li>Muestra las imágenes que tienes descargadas.</li>
+</ul>
 <pre><code>$ docker images
 REPOSITORY        TAG                          IMAGE ID       CREATED        SIZE
 tomcat            9.0.74-jdk17-temurin-jammy   3f55087df9b4   18 hours ago   476MB
@@ -585,35 +585,37 @@ jenkins/jenkins   lts                          976459dc87b0   45 hours ago   472
 ubuntu            18.04                        3941d3b032a8   8 weeks ago    63.1MB
 php               7.4-apache                   20a3732f422b   5 months ago   453MB
 </code></pre>
-<ol>
+<ul>
 <li>Crea un contenedor demonio con la imagen <code>php:7.4-apache</code>.</li>
-</ol>
+</ul>
 <pre><code>docker run -d --name -p 8080:80 php php:7.4-apache
 </code></pre>
-<ol>
+<ul>
 <li>Comprueba el tamaño del contenedor en el disco duro.</li>
-</ol>
+</ul>
 <pre><code>docker ps --sa
 </code></pre>
-<ol>
+<ul>
 <li>
 <p>Con la instrucción <code>docker cp</code> podemos copiar ficheros a o desde un contenedor. Puedes encontrar información es esta <a href="https://docs.docker.com/engine/reference/commandline/cp/">página</a>. Crea un fichero en tu ordenador, con el siguiente contenido:</p>
 <p><code>&lt;?php
  echo phpinfo();
  ?&gt;</code></p>
 </li>
-</ol>
+<li>
 <p>Copia un fichero <code>info.php</code> al directorio <code>/var/www/html</code> del contenedor con <code>docker cp</code>.</p>
+</li>
+</ul>
 <pre><code>$ docker cp ./info.php php:/var/www/html
 </code></pre>
-<ol>
+<ul>
 <li>Vuelve a comprobar el espacio ocupado por el contenedor.</li>
-</ol>
+</ul>
 <pre><code>docker ps --sa
 </code></pre>
-<ol>
+<ul>
 <li>Accede al fichero <code>info.php</code> desde un navegador web.</li>
-</ol>
+</ul>
 <pre><code>firefox http://localhost:8080/info.php/
 </code></pre>
 <h2 id="ejercicio-para-entregar">Ejercicio para entregar<a class="headerlink" href="#ejercicio-para-entregar" title="Permanent link">¶</a></h2>
@@ -626,15 +628,11 @@ php               7.4-apache                   20a3732f422b   5 months ago   453
 </code></pre>
 <p>Deberás sustituir XXXXXXXXXXX por tu nombre y tus apellidos.</p>
 <ul>
-<li>
-<p>Colocar en ese mismo directorio raíz un archivo llamado <code>index.php</code> con el siguiente contenido:</p>
-<p><code>&lt;?php
-echo phpinfo();
-?&gt;</code></p>
-</li>
-<li>
-<p>Para crear los ficheros tienes tres alternativas:</p>
-<ul>
+<li>Colocar en ese mismo directorio raíz un archivo llamado <code>index.php</code> con el siguiente contenido:<br/>
+<code>&lt;?php
+    echo phpinfo();
+    ?&gt;</code></li>
+<li>Para crear los ficheros tienes tres alternativas:<ul>
 <li>Ejecutando bash de forma interactiva en el contenedor y creando los ficheros.</li>
 <li>Ejecutando un comando <code>echo</code> en el contenedor con <code>docker exec</code>.</li>
 <li>Usando <code>docker cp</code> como hemos visto en el ejercicio 5.</li>
