@@ -706,9 +706,9 @@
 <h2 id="volumenes-docker">Volúmenes docker<a class="headerlink" href="#volumenes-docker" title="Permanent link">¶</a></h2>
 <p>Si elegimos conseguir la persistencia usando volúmenes estamos haciendo que los datos de los contenedores que nosotros decidamos se almacenen en una parte del sistema de ficheros que es gestionada por docker y a la que, debido a sus permisos, sólo docker tendrá acceso. En linux se guardan en <code>/var/lib/docker/volumes</code>. Este tipo de volúmenes se suele usar en los siguientes casos:</p>
 <ul>
-<li>Para compartir datos entre contenedores. Simplemente tendrán que usar el mismo volumen.</li>
-<li>Para copias de seguridad ya sea para que sean usadas posteriormente por otros contenedores o para mover esos volúmenes a otros hosts.</li>
-<li>Cuando queremos almacenar los datos de nuestro contenedor no localmente sino en un proveedor cloud.</li>
+<li><strong>Para compartir datos entre contenedores</strong>. Simplemente tendrán que usar el mismo volumen.</li>
+<li><strong>Para copias de seguridad</strong> ya sea para que sean usadas posteriormente por otros contenedores o para mover esos volúmenes a otros hosts.</li>
+<li>Cuando queremos <strong>almacenar</strong> los datos de nuestro contenedor no localmente sino <strong>en un proveedor cloud.</strong></li>
 </ul>
 <h3 id="gestionando-volumenes">Gestionando volúmenes<a class="headerlink" href="#gestionando-volumenes" title="Permanent link">¶</a></h3>
 <p>Algunos comando útiles para trabajar con volúmenes docker:</p>

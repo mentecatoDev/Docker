@@ -655,8 +655,15 @@ miweb
 <p>A continuación creamos un contenedor con el volumen asociado, usando <code>--mount</code>, y creamos un fichero <code>index.html</code>:</p>
 <pre><code>$ docker run -d --name my-apache-app -v miweb:/usr/local/apache2/htdocs -p 8080:80 httpd:2.4
 b51f89eb21701362279489c5b52a06b1a44c10194c00291de895b404ab347b80
-
-$ docker exec my-apache-app bash -c 'echo "&lt;h1&gt;Hola&lt;/h1&gt;" &gt; /usr/local/apache2/htdocs/index.html'
+</code></pre>
+<blockquote>
+<p><strong>-d</strong>: Ejecuta el contenedor en segundo plano y muestra el ID del contenedor.
+<strong>--name my-apache-app</strong>: Asigna el nombre my-apache-app al contenedor.
+<strong>-v miweb:/usr/local/apache2/htdocs</strong>: Monta el volumen <code>miweb</code> en el directorio <code>/usr/local/apache2/htdocs</code> del contenedor, donde se almacenan los archivos web del servidor Apache.
+<strong>-p 8080:80:</strong> Publica el puerto <code>80</code> del contenedor en el puerto <code>8080</code> del host, permitiendo acceder al servidor web desde el host.
+<strong>httpd:2.4</strong>: Es la imagen base del contenedor, que contiene el servidor web Apache versión 2.4.</p>
+</blockquote>
+<pre><code>$ docker exec my-apache-app bash -c 'echo "&lt;h1&gt;Hola&lt;/h1&gt;" &gt; /usr/local/apache2/htdocs/index.html'
 
 $ curl http://localhost:8080
 &lt;h1&gt;Hola&lt;/h1&gt;
@@ -676,7 +683,7 @@ baa3511ca2227e30d90fa2b4b225e209889be4badff583ce58ac1feaa73d5d77
 <ul>
 <li>Al no indicar el volumen, se creará un nuevo volumen.</li>
 <li>Si usamos el flag <code>-v</code> e indicamos un nombre, se creará un volumen docker nuevo.</li>
-<li>Al usar tanto volúmenes como bind mount, el contenido de lo que tenemos sobreescribirá la carpeta destino en el sistema de ficheros del contenedor en caso de que exista.</li>
+<li>Cuando usamos volúmenes o bind mount, el contenido de lo que tenemos sobreescribirá la carpeta destino en el sistema de ficheros del contenedor en caso de que exista.</li>
 </ul>
 </article>
 </div>

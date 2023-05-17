@@ -688,9 +688,9 @@ AUTHORS   apps     console.php  cron.php  data         index.php   occ  ocs     
 <p>Podemos comprobar que al eliminar el contenedor y crearlo de nuevo usando el mismo directorio bind mount, toda la configuración y los ficheros subidos no se han perdido.</p>
 <h1 id="ejemplo2-contenedor-mariadb-con-almacenamiento-persistente">Ejemplo2: Contenedor mariadb con almacenamiento persistente<a class="headerlink" href="#ejemplo2-contenedor-mariadb-con-almacenamiento-persistente" title="Permanent link">¶</a></h1>
 <p>Si estudiamos la documentación de la <a href="https://hub.docker.com/_/mariadb">imagen mariadb</a> en Docker Hub, nos indica que podemos crear un contenedor con información persistente de mariadb, de la siguiente forma:</p>
-<pre><code>$ docker run --name some-mariadb -v /home/vagrant/datadir:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mariadb
+<pre><code>$ docker run --name some-mariadb -v /home/«usuario»/datadir:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mariadb
 </code></pre>
-<p>Es decir se va a crear un directorio <code>/home/usuario/datadir</code> en el host, donde se va a guardar la información de la base de datos. Si tenemos que crear de nuevo el contenedor indicaremos ese directorio como bind mount y volveremos a tener accesible la información.</p>
+<p>Es decir se va a crear un directorio <code>/home/«usuario»/datadir</code> en el host, donde se va a guardar la información de la base de datos. Si tenemos que crear de nuevo el contenedor indicaremos ese directorio como bind mount y volveremos a tener accesible la información.</p>
 <pre><code>$ cd datadir/
 ~/datadir$ ls
 aria_log.00000001  aria_log_control  ib_buffer_pool  ib_logfile0  ibdata1  ibtmp1  multi-master.info  mysql  performance_schema
@@ -706,7 +706,7 @@ some-mariadb
 $ docker run --name some-mariadb -v /home/vagrant/datadir:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mariadb
 f36589090dd33b116da87e599850b1f25c9ae40e4b28c036c23e602d7bde4cc5
 
-$ docker exec -it some-mariadb bash -c 'mysql -uroot -p$MYSQL_ROOT_PASSWORD'
+$ docker exec -it some-mariadb bash -c 'mysql -uroot -p $MYSQL_ROOT_PASSWORD'
 ...
 MariaDB [(none)]&gt; show databases;
 +--------------------+
@@ -719,7 +719,7 @@ MariaDB [(none)]&gt; show databases;
 +--------------------+
 4 rows in set (0.003 sec)
 </code></pre>
-<h2 id="que-informacion-tenemos-que-guardar"><a href="https://iesgn.github.io/curso_docker_2021/sesion3/mariadb.html#qué-información-tenemos-que-guardar"></a>¿Qué información tenemos que guardar?<a class="headerlink" href="#que-informacion-tenemos-que-guardar" title="Permanent link">¶</a></h2>
+<h2 id="que-informacion-tenemos-que-guardar">¿Qué información tenemos que guardar?<a class="headerlink" href="#que-informacion-tenemos-que-guardar" title="Permanent link">¶</a></h2>
 <p>Para terminar: ¿Qué debemos guardar de forma persistente en un contenedor?</p>
 <ul>
 <li>Los datos de la aplicación</li>

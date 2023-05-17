@@ -669,10 +669,10 @@ $ docker run -d --name my-apache-app -v /home/usuario/web:/usr/local/apache2/htd
 $ curl http://localhost:8080
 &lt;h1&gt;Hola&lt;/h1&gt;
 </code></pre>
-<p>Además podemos comprobar que podemos modificar el contenido del fichero aunque este montado en el contenedor:</p>
-<pre><code>$ echo "&lt;h1&gt;Adios&lt;/h1&gt;" &gt; web/index.html 
+<p>Además podemos comprobar que podemos modificar el contenido del fichero aunque esté montado en el contenedor:</p>
+<pre><code>$ echo "&lt;h1&gt;Adiós&lt;/h1&gt;" &gt; web/index.html 
 $ curl http://localhost:8080
-&lt;h1&gt;Adios&lt;/h1&gt;
+&lt;h1&gt;Adiós&lt;/h1&gt;
 </code></pre>
 <p>Por último, indicar que si nuestra carpeta origen no existe y hacemos un bind mount con <code>-v</code>, esa carpeta se creará pero lo que tendremos en el contenedor es una carpeta vacía.</p>
 </article>

@@ -676,9 +676,9 @@ $ docker run -d  --name contenedor2 -v /home/vagrant/compartido:/srv debian bash
 </code></pre>
 <p>Y podríamos ver el contenido del fichero <code>~/compartido/index.html</code>.</p>
 <h2 id="comprobar-compatibilidad-de-codigo-entre-distintas-versiones-de-un-lenguaje-de-programacion">Comprobar compatibilidad de código entre distintas versiones de un lenguaje de programación<a class="headerlink" href="#comprobar-compatibilidad-de-codigo-entre-distintas-versiones-de-un-lenguaje-de-programacion" title="Permanent link">¶</a></h2>
-<p>Otro utilidad que le podemos dar al almacenamiento, en este caso a los bind mount, es la posibilidad de comprobar la compatibilidad e un código en diferentes versiones del lenguaje de programación.</p>
+<p>Otro utilidad que le podemos dar al almacenamiento, en este caso a los bind mount, es la posibilidad de comprobar la compatibilidad de un código en diferentes versiones del lenguaje de programación.</p>
 <p>Veamos un ejemplo en PHP: imaginemos que tenemos un código que es compatible y funciona bien en PHP 5 y queremos comprobar como se comporta en la versión PHP 7.</p>
-<p>Siguiendo la documentación <a href="https://www.php.net/manual/es/migration70.php">Migración de PHP 5.6.x a PHP 7.0.x</a>, he escogido la función <a href="https://www.php.net/manual/es/function.list.php">list</a> que se comporta de manera distinta en PHP5 que en PHP7.</p>
+<p>Siguiendo la documentación <a href="https://www.php.net/manual/es/migration70.php">Migración de PHP 5.6.x a PHP 7.0.x</a>, se ha escogido la función <a href="https://www.php.net/manual/es/function.list.php">list</a> que se comporta de manera distinta en PHP5 que en PHP7.</p>
 <p>Imaginemos que tenemos un directorio <code>codigo</code> con nuestra aplicación <code>index.php</code>:</p>
 <pre><code>&lt;?php
 // Funciona bien en php5 ya que list hace la asignación desde el último al primero
