@@ -623,15 +623,15 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="introduccion-a-las-redes-en-docker">Introducción a las redes en docker<a class="headerlink" href="#introduccion-a-las-redes-en-docker" title="Permanent link">¶</a></h1>
-<p>Vamos a crear un contenedor interactivos con la imagen <code>debian</code>:</p>
+<p>Vamos a crear un contenedor interactivo con la imagen <code>debian</code>:</p>
 <pre><code>$ docker run -it --name contenedor1 --rm debian bash
 </code></pre>
-<p><strong>Nota: Hemos usado la opción <code>--rm</code> para al finalizar de ejecutar el proceso, el contenedor se elimina.</strong></p>
+<p><strong>Nota: Hemos usado la opción <code>--rm</code> para, al finalizar de ejecutar el proceso, el contenedor se elimine.</strong></p>
 <p>En otra pestaña, podemos ejecutar esta instrucción para obtener la ip que se le ha asignado:</p>
 <pre><code>$ docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' contenedor1
 172.17.0.2
 </code></pre>
-<p>Obtenemos información del contenedor filtrando el json de salida para obtener la IPv4 que se le ha asignado.</p>
+<p>Obtenemos información del contenedor filtrando el fichero <em>json</em> de salida para obtener la IPv4 que se le ha asignado.</p>
 <p>Observamos que el contenedor tiene una ip en la red <code>172.17.0.0/16</code>. Además podemos comprobar que se ha creado un <code>bridge</code> en el host, al que se conectan los contenedores:</p>
 <pre><code>$ ip a
 ...
@@ -643,7 +643,7 @@
        valid_lft forever preferred_lft forever
 ...
 </code></pre>
-<p>Además podemos comprobar que se han creado distintas cadenas en el cortafuegos para gestionar la comunicación de los contenedores. Podemos ejecutar como administrador: <code>iptables -L -n</code> y <code>iptables -L -n - t nat</code> y comprobarlo.</p>
+<p>Podemos comprobar también que se han creado distintas cadenas en el cortafuegos para gestionar la comunicación de los contenedores. Podemos ejecutar como administrador: <code>iptables -L -n</code> e <code>iptables -L -n - t nat</code> para comprobarlo.</p>
 </article>
 </div>
 </div>

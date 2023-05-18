@@ -620,7 +620,8 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1>04.-Uso de la red bridge por defecto</h1>
-<p>Esta manera en enlazar contenedores no está recomendada y esta obsoleta. Además el uso de contenedores conectados a la red por defecto no está recomendado en entornos de producción. Para realizar este tipo de enlace vamos a usar el flag <code>--link</code>. <strong>Si hemos comentado que no se suele usar. ¿Por qué lo vamos a explicar?</strong>: La razón es que en la documentación de las imágenes en DockerHub se suele explicar el enlazado de contenedores usando esta opción.</p>
+<p>Esta manera en enlazar contenedores no está recomendada y es obsoleta. Además, el uso de contenedores conectados a la red por defecto no está recomendado en entornos de producción. Para realizar este tipo de enlace vamos a usar el flag <code>--link</code>. </p>
+<p><strong>¿Por qué tratamos sobre ella si ya hemos determinado que no se suelen usar?</strong>: La razón es que en la documentación de las imágenes en DockerHub se suele explicar el enlazado de contenedores usando esta opción.</p>
 <p>Veamos un ejemplo, primero creamos un contenedor de mariadb:</p>
 <pre><code>$ docker run -d --name servidor_mariadb \
                 -e MYSQL_DATABASE=mi_basededatos \
@@ -646,7 +647,7 @@
 ...
 nameserver 192.168.121.1
 </code></pre>
-<p>El servidor DNS <code>192.168.121.1</code> es el que tiene configurado mi ordenador donde tengo instalado docker.</p>
+<p>El servidor DNS <code>192.168.121.1</code> es el que tiene configurado el equipo local donde hemos instalado docker.</p>
 <ul>
 <li>Se comparten las variables de entorno</li>
 </ul>

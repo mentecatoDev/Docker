@@ -632,14 +632,14 @@ ec77cfd20583        bridge              bridge              local
 <p>Por defecto los contenedores que creamos se conectan a la red de tipo <strong>bridge</strong> llamada <code>bridge</code> (por defecto el direccionamiento de esta red es 172.17.0.0/16). Los contenedores conectados a esta red que quieren exponer algún puerto al exterior tienen que usar la opción <code>-p</code> para mapear puertos.</p>
 <p>Este tipo de red nos van a permitir:</p>
 <ul>
-<li>Aislar los distintos contenedores que tengo en distintas subredes docker, de tal manera que desde cada una de las subredes solo podremos acceder a los equipos de esa misma subred.</li>
+<li>Aislar los distintos contenedores que tenemos en distintas subredes docker, de tal manera que desde cada una de las subredes solo podremos acceder a los equipos de esa misma subred.</li>
 <li>Aislar los contenedores del acceso exterior.</li>
 <li>Publicar servicios que tengamos en los contenedores mediante redirecciones que docker implementará con las pertinentes reglas de iptables.</li>
 </ul>
-<p><img alt="docker" src="https://iesgn.github.io/curso_docker_2021/sesion4/img/bridge1.png"/></p>
+<p><img alt="docker" src="../../img/bridge1.png"/></p>
 </li>
 <li>
-<p>Si conecto un contenedor a la red <strong>host</strong>, el contenedor ofrece el servicio que tiene configurado en el puerto de la red del anfitrión. No tiene ip propia, sino es cómo si tuviera la ip del anfitrión. Por lo tanto, los puertos son accesibles directamente desde el host. Por ejemplo:</p>
+<p>Si conecto un contenedor a la red <strong>host</strong>, el contenedor ofrece el servicio que tiene configurado en el puerto de la red del anfitrión. No tiene ip propia, sino es como si tuviera la ip del anfitrión. Por lo tanto, los puertos son accesibles directamente desde el host. Por ejemplo:</p>
 <p>```
   $ docker run -d --name mi_servidor --network host josedom24/aplicacionweb:v1</p>
 <p>$ docker ps
