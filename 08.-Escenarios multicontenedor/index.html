@@ -5,17 +5,17 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="../05.-Administrar%20contenedores%20de%20docker/" rel="prev"/>
-<link href="../07.-Guardar%20im%C3%A1genes%20de%20docker%20en%20un%20repositorio%20de%20docker/" rel="next"/>
-<link href="../../assets/images/favicon.png" rel="icon"/>
+<link href="../07.-Redes/07.-Ejemplos/" rel="prev"/>
+<link href="01.-Instalaci%C3%B3n%20de%20docker-compose/" rel="next"/>
+<link href="../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.4.3, mkdocs-material-9.1.9" name="generator"/>
-<title>06.-Creación de una imagen personalizada a partir de un contenedor - Sistemas Informáticos</title>
-<link href="../../assets/stylesheets/main.85bb2934.min.css" rel="stylesheet"/>
-<link href="../../assets/stylesheets/palette.a6bdf11c.min.css" rel="stylesheet"/>
+<title>08.- Escenarios multicontenedor - Sistemas Informáticos</title>
+<link href="../assets/stylesheets/main.85bb2934.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/palette.a6bdf11c.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
-<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 </head>
 <body data-md-color-accent="green" data-md-color-primary="blue-grey" data-md-color-scheme="default" dir="ltr">
 <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
@@ -23,12 +23,15 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
+<a class="md-skip" href="#08-escenarios-multicontenedor">
+          Saltar a contenido
+        </a>
 </div>
 <div data-md-component="announce">
 </div>
 <header class="md-header" data-md-component="header">
 <nav aria-label="Cabecera" class="md-header__inner md-grid">
-<a aria-label="Sistemas Informáticos" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Sistemas Informáticos">
+<a aria-label="Sistemas Informáticos" class="md-header__button md-logo" data-md-component="logo" href=".." title="Sistemas Informáticos">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
 </a>
 <label class="md-header__button md-icon" for="__drawer">
@@ -44,7 +47,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              06.-Creación de una imagen personalizada a partir de un contenedor
+              08.- Escenarios multicontenedor
             
           </span>
 </div>
@@ -97,57 +100,57 @@
 <div class="md-grid">
 <ul class="md-tabs__list">
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../..">
+<a class="md-tabs__link" href="..">
       docker
     </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../01.-Introducci%C3%B3n/">
+<a class="md-tabs__link" href="../01.-Introducci%C3%B3n/">
         01.-Introducción
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../02.-Instalaci%C3%B3n/">
+<a class="md-tabs__link" href="../02.-Instalaci%C3%B3n/">
         02.-Instalación
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../03.-Conceptos%20Clave/">
+<a class="md-tabs__link" href="../03.-Conceptos%20Clave/">
         03.-Conceptos Clave
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link md-tabs__link--active" href="../">
+<a class="md-tabs__link" href="../04.-Manos%20a%20la%20obra/">
         04.-Manos a la obra
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../05.-Gesti%C3%B3n%20de%20im%C3%A1genes/">
+<a class="md-tabs__link" href="../05.-Gesti%C3%B3n%20de%20im%C3%A1genes/">
         05.-Gestión de imágenes
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../06.-Vol%C3%BAmenes/">
+<a class="md-tabs__link" href="../06.-Vol%C3%BAmenes/">
         06.-Volúmenes
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../07.-Redes/">
+<a class="md-tabs__link" href="../07.-Redes/">
         07.-Redes
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../08.-Escenarios%20multicontenedor/">
+<a class="md-tabs__link md-tabs__link--active" href="./">
         08.-Escenarios multicontenedor
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../09.-Ejercicios/">
+<a class="md-tabs__link" href="../09.-Ejercicios/">
         09.-Ejercicios
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../10.-Cheatsheet/">
+<a class="md-tabs__link" href="../10.-Cheatsheet/">
         10.-Cheatsheet
       </a>
 </li>
@@ -161,21 +164,21 @@
 <div class="md-sidebar__inner">
 <nav aria-label="Navegación" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
-<a aria-label="Sistemas Informáticos" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Sistemas Informáticos">
+<a aria-label="Sistemas Informáticos" class="md-nav__button md-logo" data-md-component="logo" href=".." title="Sistemas Informáticos">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
 </a>
     Sistemas Informáticos
   </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../..">
+<a class="md-nav__link" href="..">
         docker
       </a>
 </li>
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../01.-Introducci%C3%B3n/">01.-Introducción</a>
+<a href="../01.-Introducci%C3%B3n/">01.-Introducción</a>
 </div>
 <nav aria-expanded="false" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_2">
@@ -189,7 +192,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../02.-Instalaci%C3%B3n/">02.-Instalación</a>
+<a href="../02.-Instalaci%C3%B3n/">02.-Instalación</a>
 <label for="__nav_3">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -201,32 +204,32 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../02.-Instalaci%C3%B3n/01.-Instalaci%C3%B3n%20r%C3%A1pida%20en%20Arch%20Linux/">
+<a class="md-nav__link" href="../02.-Instalaci%C3%B3n/01.-Instalaci%C3%B3n%20r%C3%A1pida%20en%20Arch%20Linux/">
         01.-Instalación rápida en Arch Linux
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../02.-Instalaci%C3%B3n/02.-Instalaci%C3%B3n%20r%C3%A1pida%20en%20Fedora/">
+<a class="md-nav__link" href="../02.-Instalaci%C3%B3n/02.-Instalaci%C3%B3n%20r%C3%A1pida%20en%20Fedora/">
         02.-Instalación rápida en Fedora
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../02.-Instalaci%C3%B3n/03.-Instalaci%C3%B3n%20r%C3%A1pida%20en%20Ubuntu/">
+<a class="md-nav__link" href="../02.-Instalaci%C3%B3n/03.-Instalaci%C3%B3n%20r%C3%A1pida%20en%20Ubuntu/">
         03.-Instalación rápida en Ubuntu
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../02.-Instalaci%C3%B3n/04.-Instalaci%C3%B3n%20r%C3%A1pida%20en%20Ubuntu/">
+<a class="md-nav__link" href="../02.-Instalaci%C3%B3n/04.-Instalaci%C3%B3n%20r%C3%A1pida%20en%20Ubuntu/">
         04.-Instalación rápida en Ubuntu
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../02.-Instalaci%C3%B3n/05.-Instalaci%C3%B3n%20r%C3%A1pida%20en%20Ubuntu/">
+<a class="md-nav__link" href="../02.-Instalaci%C3%B3n/05.-Instalaci%C3%B3n%20r%C3%A1pida%20en%20Ubuntu/">
         05.-Instalación rápida en Ubuntu
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../02.-Instalaci%C3%B3n/06.-Instalaci%C3%B3n%20r%C3%A1pida%20en%20Ubuntu/">
+<a class="md-nav__link" href="../02.-Instalaci%C3%B3n/06.-Instalaci%C3%B3n%20r%C3%A1pida%20en%20Ubuntu/">
         06.-Instalación rápida en Ubuntu
       </a>
 </li>
@@ -236,7 +239,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_4" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../03.-Conceptos%20Clave/">03.-Conceptos Clave</a>
+<a href="../03.-Conceptos%20Clave/">03.-Conceptos Clave</a>
 <label for="__nav_4">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -260,12 +263,12 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../03.-Conceptos%20Clave/01.-Im%C3%A1genes/01.-Im%C3%A1genes/">
+<a class="md-nav__link" href="../03.-Conceptos%20Clave/01.-Im%C3%A1genes/01.-Im%C3%A1genes/">
         01.-Imágenes
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../03.-Conceptos%20Clave/01.-Im%C3%A1genes/02.-Docker%20Hub/">
+<a class="md-nav__link" href="../03.-Conceptos%20Clave/01.-Im%C3%A1genes/02.-Docker%20Hub/">
         02.-Docker Hub
       </a>
 </li>
@@ -273,100 +276,99 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../03.-Conceptos%20Clave/02.-Contenedores/">
+<a class="md-nav__link" href="../03.-Conceptos%20Clave/02.-Contenedores/">
         02.-Contenedores
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../03.-Conceptos%20Clave/03.-Vol%C3%BAmenes/">
+<a class="md-nav__link" href="../03.-Conceptos%20Clave/03.-Vol%C3%BAmenes/">
         03.-Volúmenes
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../03.-Conceptos%20Clave/04.-Capas/">
+<a class="md-nav__link" href="../03.-Conceptos%20Clave/04.-Capas/">
         04.-Capas
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../03.-Conceptos%20Clave/05.-Redes/">
+<a class="md-nav__link" href="../03.-Conceptos%20Clave/05.-Redes/">
         05.-Redes
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../03.-Conceptos%20Clave/06.-Estructura%20de%20docker/">
+<a class="md-nav__link" href="../03.-Conceptos%20Clave/06.-Estructura%20de%20docker/">
         06.-Estructura de docker
       </a>
 </li>
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" id="__nav_5" type="checkbox"/>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../">04.-Manos a la obra</a>
+<a href="../04.-Manos%20a%20la%20obra/">04.-Manos a la obra</a>
 <label for="__nav_5">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-expanded="true" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
+<nav aria-expanded="false" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_5">
 <span class="md-nav__icon md-icon"></span>
           04.-Manos a la obra
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../01.-Versi%C3%B3n%20y%20Gesti%C3%B3n%20del%20Servicio/">
+<a class="md-nav__link" href="../04.-Manos%20a%20la%20obra/01.-Versi%C3%B3n%20y%20Gesti%C3%B3n%20del%20Servicio/">
         01.-Versión y Gestión del Servicio
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../02.-Usar%20el%20comando%20docker/">
+<a class="md-nav__link" href="../04.-Manos%20a%20la%20obra/02.-Usar%20el%20comando%20docker/">
         02.-Usar el comando docker
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../03.-Trabajar%20con%20im%C3%A1genes%20de%20docker/">
+<a class="md-nav__link" href="../04.-Manos%20a%20la%20obra/03.-Trabajar%20con%20im%C3%A1genes%20de%20docker/">
         03.-Trabajar con imágenes de docker
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../04.-Ejecutar%20un%20contenedor%20de%20Docker/">
+<a class="md-nav__link" href="../04.-Manos%20a%20la%20obra/04.-Ejecutar%20un%20contenedor%20de%20Docker/">
         04.-Ejecutar un contenedor de Docker
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../05.-Administrar%20contenedores%20de%20docker/">
+<a class="md-nav__link" href="../04.-Manos%20a%20la%20obra/05.-Administrar%20contenedores%20de%20docker/">
         05.-Administrar contenedores de docker
       </a>
 </li>
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
-<a class="md-nav__link md-nav__link--active" href="./">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../04.-Manos%20a%20la%20obra/06.-Creaci%C3%B3n%20de%20una%20imagen%20personalizada%20a%20partir%20de%20un%20contenedor/">
         06.-Creación de una imagen personalizada a partir de un contenedor
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../07.-Guardar%20im%C3%A1genes%20de%20docker%20en%20un%20repositorio%20de%20docker/">
+<a class="md-nav__link" href="../04.-Manos%20a%20la%20obra/07.-Guardar%20im%C3%A1genes%20de%20docker%20en%20un%20repositorio%20de%20docker/">
         07.-Guardar imágenes de docker en un repositorio de docker
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../08.-Variables%20de%20entorno/">
+<a class="md-nav__link" href="../04.-Manos%20a%20la%20obra/08.-Variables%20de%20entorno/">
         08.-Variables de entorno
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../09.-Practica%20con%20Docker%20Playground/">
+<a class="md-nav__link" href="../04.-Manos%20a%20la%20obra/09.-Practica%20con%20Docker%20Playground/">
         09.-Practica con Docker Playground
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../10.-Limpi%C3%A1ndolo%20todo/">
+<a class="md-nav__link" href="../04.-Manos%20a%20la%20obra/10.-Limpi%C3%A1ndolo%20todo/">
         10.-Limpiándolo todo
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../11.-Ejercicios%20creaci%C3%B3n%20de%20contenedores%20b%C3%A1sicos%20I/">
+<a class="md-nav__link" href="../04.-Manos%20a%20la%20obra/11.-Ejercicios%20creaci%C3%B3n%20de%20contenedores%20b%C3%A1sicos%20I/">
         11.-Ejercicios creación de contenedores básicos I
       </a>
 </li>
@@ -376,7 +378,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_6" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../05.-Gesti%C3%B3n%20de%20im%C3%A1genes/">05.-Gestión de imágenes</a>
+<a href="../05.-Gesti%C3%B3n%20de%20im%C3%A1genes/">05.-Gestión de imágenes</a>
 <label for="__nav_6">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -388,37 +390,37 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../05.-Gesti%C3%B3n%20de%20im%C3%A1genes/01.-Imagen%20a%20partir%20de%20un%20contenedor/">
+<a class="md-nav__link" href="../05.-Gesti%C3%B3n%20de%20im%C3%A1genes/01.-Imagen%20a%20partir%20de%20un%20contenedor/">
         01.-Imagen a partir de un contenedor
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../05.-Gesti%C3%B3n%20de%20im%C3%A1genes/02.-Imagen%20a%20partir%20de%20un%20fichero%20Dockerfile/">
+<a class="md-nav__link" href="../05.-Gesti%C3%B3n%20de%20im%C3%A1genes/02.-Imagen%20a%20partir%20de%20un%20fichero%20Dockerfile/">
         02.-Imagen a partir de un fichero Dockerfile
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../05.-Gesti%C3%B3n%20de%20im%C3%A1genes/03.-Construyendo%20im%C3%A1genes%20con%20docker%20build/">
+<a class="md-nav__link" href="../05.-Gesti%C3%B3n%20de%20im%C3%A1genes/03.-Construyendo%20im%C3%A1genes%20con%20docker%20build/">
         03.-Construyendo imágenes con docker build
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../05.-Gesti%C3%B3n%20de%20im%C3%A1genes/04.-Organizaci%C3%B3n%20de%20las%20im%C3%A1genes/">
+<a class="md-nav__link" href="../05.-Gesti%C3%B3n%20de%20im%C3%A1genes/04.-Organizaci%C3%B3n%20de%20las%20im%C3%A1genes/">
         04.-Organización de las imágenes
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../05.-Gesti%C3%B3n%20de%20im%C3%A1genes/05.-Registro%20de%20im%C3%A1genes%20y%20Docker%20Hub/">
+<a class="md-nav__link" href="../05.-Gesti%C3%B3n%20de%20im%C3%A1genes/05.-Registro%20de%20im%C3%A1genes%20y%20Docker%20Hub/">
         05.-Registro de imágenes y Docker Hub
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../05.-Gesti%C3%B3n%20de%20im%C3%A1genes/06.-Buenas%20pr%C3%A1cticas%20en%20creaci%C3%B3n%20de%20Dockerfile/">
+<a class="md-nav__link" href="../05.-Gesti%C3%B3n%20de%20im%C3%A1genes/06.-Buenas%20pr%C3%A1cticas%20en%20creaci%C3%B3n%20de%20Dockerfile/">
         06.-Buenas prácticas en creación de Dockerfile
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../05.-Gesti%C3%B3n%20de%20im%C3%A1genes/07.-Ejercicios%20de%20creaci%C3%B3n%20de%20contenedores%20b%C3%A1sicos%20II/">
+<a class="md-nav__link" href="../05.-Gesti%C3%B3n%20de%20im%C3%A1genes/07.-Ejercicios%20de%20creaci%C3%B3n%20de%20contenedores%20b%C3%A1sicos%20II/">
         07.-Ejercicios de creación de contenedores básicos II
       </a>
 </li>
@@ -428,7 +430,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_7" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../06.-Vol%C3%BAmenes/">06.-Volúmenes</a>
+<a href="../06.-Vol%C3%BAmenes/">06.-Volúmenes</a>
 <label for="__nav_7">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -440,37 +442,37 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../06.-Vol%C3%BAmenes/01.-Vol%C3%BAmenes%20docker%20y%20bind%20mount/">
+<a class="md-nav__link" href="../06.-Vol%C3%BAmenes/01.-Vol%C3%BAmenes%20docker%20y%20bind%20mount/">
         01.-Volúmenes docker y bind mount
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../06.-Vol%C3%BAmenes/02.-Asociando%20almacenamiento%20a%20los%20contenedores%20I/">
+<a class="md-nav__link" href="../06.-Vol%C3%BAmenes/02.-Asociando%20almacenamiento%20a%20los%20contenedores%20I/">
         02.-Asociando almacenamiento a los contenedores I
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../06.-Vol%C3%BAmenes/03.-Asociando%20almacenamiento%20a%20los%20contenedores%20II/">
+<a class="md-nav__link" href="../06.-Vol%C3%BAmenes/03.-Asociando%20almacenamiento%20a%20los%20contenedores%20II/">
         03.-Asociando almacenamiento a los contenedores II
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../06.-Vol%C3%BAmenes/04.-Redes%20en%20docker/">
+<a class="md-nav__link" href="../06.-Vol%C3%BAmenes/04.-Redes%20en%20docker/">
         04.-Redes en docker
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../06.-Vol%C3%BAmenes/05.-Ejemplos/">
+<a class="md-nav__link" href="../06.-Vol%C3%BAmenes/05.-Ejemplos/">
         05.-Ejemplos
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../06.-Vol%C3%BAmenes/06.-Otros%20usos%20del%20almacenamiento/">
+<a class="md-nav__link" href="../06.-Vol%C3%BAmenes/06.-Otros%20usos%20del%20almacenamiento/">
         06.-Otros usos del almacenamiento
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../06.-Vol%C3%BAmenes/Ejercicios%20de%20Vol%C3%BAmenes/">
+<a class="md-nav__link" href="../06.-Vol%C3%BAmenes/Ejercicios%20de%20Vol%C3%BAmenes/">
         Ejercicios de Volúmenes
       </a>
 </li>
@@ -480,7 +482,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_8" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../07.-Redes/">07.-Redes</a>
+<a href="../07.-Redes/">07.-Redes</a>
 <label for="__nav_8">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -492,84 +494,84 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../07.-Redes/01.-Introducci%C3%B3n%20a%20las%20redes%20en%20docker/">
+<a class="md-nav__link" href="../07.-Redes/01.-Introducci%C3%B3n%20a%20las%20redes%20en%20docker/">
         01.-Introducción a las redes en docker
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../07.-Redes/02.-Tipos%20de%20redes%20en%20docker/">
+<a class="md-nav__link" href="../07.-Redes/02.-Tipos%20de%20redes%20en%20docker/">
         02.-Tipos de redes en docker
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../07.-Redes/03.-Gestionando%20redes%20en%20docker/">
+<a class="md-nav__link" href="../07.-Redes/03.-Gestionando%20redes%20en%20docker/">
         03.-Gestionando redes en docker
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../07.-Redes/04.-Uso%20de%20la%20red%20bridge%20por%20defecto/">
+<a class="md-nav__link" href="../07.-Redes/04.-Uso%20de%20la%20red%20bridge%20por%20defecto/">
         04.-Uso de la red bridge por defecto
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../07.-Redes/05.-Uso%20de%20las%20redes%20bridge%20definidas%20por%20el%20usuario/">
+<a class="md-nav__link" href="../07.-Redes/05.-Uso%20de%20las%20redes%20bridge%20definidas%20por%20el%20usuario/">
         05.-Uso de las redes bridge definidas por el usuario
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../07.-Redes/06.-Convertir%20el%20uso%20de%20la%20red%20bridge%20por%20defecto%20por%20una%20definida%20por%20el%20usuario/">
+<a class="md-nav__link" href="../07.-Redes/06.-Convertir%20el%20uso%20de%20la%20red%20bridge%20por%20defecto%20por%20una%20definida%20por%20el%20usuario/">
         06.-Convertir el uso de la red bridge por defecto por una definida por el usuario
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../07.-Redes/07.-Ejemplos/">
+<a class="md-nav__link" href="../07.-Redes/07.-Ejemplos/">
         07.-Ejemplos
       </a>
 </li>
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_9" type="checkbox"/>
-<div class="md-nav__link md-nav__link--index">
-<a href="../../08.-Escenarios%20multicontenedor/">08.-Escenarios multicontenedor</a>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_9" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index md-nav__link--active">
+<a href="./">08.-Escenarios multicontenedor</a>
 <label for="__nav_9">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-expanded="false" aria-labelledby="__nav_9_label" class="md-nav" data-md-level="1">
+<nav aria-expanded="true" aria-labelledby="__nav_9_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_9">
 <span class="md-nav__icon md-icon"></span>
           08.-Escenarios multicontenedor
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../08.-Escenarios%20multicontenedor/01.-Instalaci%C3%B3n%20de%20docker-compose/">
+<a class="md-nav__link" href="01.-Instalaci%C3%B3n%20de%20docker-compose/">
         01.-Instalación de docker-compose
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../08.-Escenarios%20multicontenedor/02.-El%20fichero%20docker-compose.yml/">
+<a class="md-nav__link" href="02.-El%20fichero%20docker-compose.yml/">
         02.-El fichero docker-compose.yml
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../08.-Escenarios%20multicontenedor/03.-El%20comando%20docker-compose/">
+<a class="md-nav__link" href="03.-El%20comando%20docker-compose/">
         03.-El comando docker-compose
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../08.-Escenarios%20multicontenedor/04.-Almacenamiento%20con%20docker-compose/">
+<a class="md-nav__link" href="04.-Almacenamiento%20con%20docker-compose/">
         04.-Almacenamiento con docker-compose
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../08.-Escenarios%20multicontenedor/05.-Redes%20con%20docker-compose/">
+<a class="md-nav__link" href="05.-Redes%20con%20docker-compose/">
         05.-Redes con docker-compose
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../08.-Escenarios%20multicontenedor/06.-Ejemplos/">
+<a class="md-nav__link" href="06.-Ejemplos/">
         06.-Ejemplos
       </a>
 </li>
@@ -579,7 +581,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_10" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../09.-Ejercicios/">09.-Ejercicios</a>
+<a href="../09.-Ejercicios/">09.-Ejercicios</a>
 </div>
 <nav aria-expanded="false" aria-labelledby="__nav_10_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_10">
@@ -593,7 +595,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_11" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../10.-Cheatsheet/">10.-Cheatsheet</a>
+<a href="../10.-Cheatsheet/">10.-Cheatsheet</a>
 </div>
 <nav aria-expanded="false" aria-labelledby="__nav_11_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_11">
@@ -619,20 +621,22 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1>06.-Creación de una imagen personalizada a partir de un contenedor</h1>
-<p>Los contenedores pueden convertirse en imágenes que podremos usar para crear contenedores nuevos. Veamos cómo funciona.</p>
-<p>Después de instalar el editor de texto <code>nano</code> dentro del contenedor de Ubuntu, dispondremos de un contenedor que se ejecuta a partir de una imagen, pero este es diferente de la imagen que utilizamos para crearlo. Sin embargo, quizás deseemos reutilizar este contenedor que ya tiene instalado <code>nano</code> como base de nuevas imágenes posteriormente.</p>
-<pre><code>$ docker commit -m «Escribimos una breve descripción del contenedor» -a «Nombre del autor» id_contenedor repositorio/nombre_nueva_imagen
-</code></pre>
-<p>El conmutador <code>-m</code> es el mensaje que permite a otros saber qué cambios realizamos, mientras que <code>-a</code> se utiliza para especificar el autor. El <code>container_id</code> es el que observamos anteriormente cuando iniciamos la sesión interactiva de Docker. A menos que hayamos creado repositorios adicionales en Docker Hub, el campo repositorio generalmente corresponde a nuestro nombre de usuario de Docker Hub.</p>
-<p>Partiendo del siguiente caso vamos a crear una imagen personalizada de ubuntu con el editor de texto preinstalado por nosotros.</p>
-<p>Copiamos el ID del contenedor.</p>
-<p>Con el comando exit salimos del contenedor y adaptamos el comando anterior a nuestro propio caso.</p>
-<pre><code>$ docker commit -m "Ubuntu con editor de texto" -a Mentecato bea6a695cbc3 ubuntu_con_nano
-</code></pre>
-<p>Comprobamos que se ha guardado la imagen localmente con el nombre <code>ubuntu_con_nano</code></p>
-<pre><code>$ docker images
-</code></pre>
+<h1 id="08-escenarios-multicontenedor">08.- Escenarios multicontenedor<a class="headerlink" href="#08-escenarios-multicontenedor" title="Permanent link">¶</a></h1>
+<p>Compose es una herramienta para definir y ejecutar aplicaciones Docker multicontenedor. Con Compose, utilizamos un archivo YAML para configurar los servicios de nuestra aplicación. Luego, con un solo comando, creamos e iniciamos todos los servicios a partir de nuestra configuración.</p>
+<p>Compose funciona en todos los entornos: producción, staging, desarrollo, pruebas, así como flujos de trabajo CI (<em>Continuous Integration</em>). También dispone de comandos para gestionar todo el ciclo de vida de su aplicación:</p>
+<ul>
+<li>Iniciar, detener y reconstruir servicios</li>
+<li>Ver el estado de los servicios en ejecución</li>
+<li>Transmitir la salida de registro de los servicios en ejecución</li>
+<li>Ejecutar un comando puntual en un servicio</li>
+</ul>
+<p>Las características clave de Compose que lo hacen eficaz son:</p>
+<ul>
+<li>Disponer de múltiples entornos aislados en un único host</li>
+<li>Preserva los datos de volumen cuando se crean contenedores</li>
+<li>Sólo recrea los contenedores que han cambiado</li>
+<li>Soporta variables y el movimiento de las composiciones entre entornos</li>
+</ul>
 </article>
 </div>
 </div>
@@ -659,9 +663,9 @@
 <div class="md-dialog" data-md-component="dialog">
 <div class="md-dialog__inner md-typeset"></div>
 </div>
-<script id="__config" type="application/json">{"base": "../..", "features": ["navigation.top", "navigation.top.sticky", "navigation.tabs", "navigation.indexes"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}}</script>
-<script src="../../assets/javascripts/bundle.fac441b0.min.js"></script>
-<script src="../../javascripts/mathjax.js"></script>
+<script id="__config" type="application/json">{"base": "..", "features": ["navigation.top", "navigation.top.sticky", "navigation.tabs", "navigation.indexes"], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}}</script>
+<script src="../assets/javascripts/bundle.fac441b0.min.js"></script>
+<script src="../javascripts/mathjax.js"></script>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>

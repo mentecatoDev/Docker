@@ -5,7 +5,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="../../06.-Vol%C3%BAmenes/Ejercicios%20de%20Vol%C3%BAmenes/" rel="prev"/>
+<link href="../" rel="prev"/>
 <link href="../02.-Tipos%20de%20redes%20en%20docker/" rel="next"/>
 <link href="../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.4.3, mkdocs-material-9.1.9" name="generator"/>
@@ -130,17 +130,17 @@
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../06.-Vol%C3%BAmenes/01.-Vol%C3%BAmenes%20docker%20y%20bind%20mount/">
+<a class="md-tabs__link" href="../../06.-Vol%C3%BAmenes/">
         06.-Volúmenes
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link md-tabs__link--active" href="./">
+<a class="md-tabs__link md-tabs__link--active" href="../">
         07.-Redes
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../08.-Escenarios%20multicontenedor/01.-Instalaci%C3%B3n%20de%20docker-compose/">
+<a class="md-tabs__link" href="../../08.-Escenarios%20multicontenedor/">
         08.-Escenarios multicontenedor
       </a>
 </li>
@@ -429,10 +429,12 @@
 </li>
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_7" type="checkbox"/>
-<label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
-          06.-Volúmenes
-          <span class="md-nav__icon md-icon"></span>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../06.-Vol%C3%BAmenes/">06.-Volúmenes</a>
+<label for="__nav_7">
+<span class="md-nav__icon md-icon"></span>
 </label>
+</div>
 <nav aria-expanded="false" aria-labelledby="__nav_7_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_7">
 <span class="md-nav__icon md-icon"></span>
@@ -479,10 +481,12 @@
 </li>
 <li class="md-nav__item md-nav__item--active md-nav__item--nested">
 <input checked="" class="md-nav__toggle md-toggle" id="__nav_8" type="checkbox"/>
-<label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
-          07.-Redes
-          <span class="md-nav__icon md-icon"></span>
+<div class="md-nav__link md-nav__link--index">
+<a href="../">07.-Redes</a>
+<label for="__nav_8">
+<span class="md-nav__icon md-icon"></span>
 </label>
+</div>
 <nav aria-expanded="true" aria-labelledby="__nav_8_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_8">
 <span class="md-nav__icon md-icon"></span>
@@ -530,10 +534,12 @@
 </li>
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_9" type="checkbox"/>
-<label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
-          08.-Escenarios multicontenedor
-          <span class="md-nav__icon md-icon"></span>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../08.-Escenarios%20multicontenedor/">08.-Escenarios multicontenedor</a>
+<label for="__nav_9">
+<span class="md-nav__icon md-icon"></span>
 </label>
+</div>
 <nav aria-expanded="false" aria-labelledby="__nav_9_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_9">
 <span class="md-nav__icon md-icon"></span>
@@ -617,7 +623,6 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="introduccion-a-las-redes-en-docker">Introducción a las redes en docker<a class="headerlink" href="#introduccion-a-las-redes-en-docker" title="Permanent link">¶</a></h1>
-<p>Aunque hasta ahora no lo hemos tenido en cuenta, cada vez que creamos un contenedor, esté se conecta a una red virtual y docker hace una configuración del sistema (usando bridges e iptables) para que la máquina tenga una ip interna, tenga acceso al exterior, podamos mapear (DNAT) puertos,…</p>
 <p>Vamos a crear un contenedor interactivos con la imagen <code>debian</code>:</p>
 <pre><code>$ docker run -it --name contenedor1 --rm debian bash
 </code></pre>

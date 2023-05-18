@@ -5,7 +5,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="../../05.-Gesti%C3%B3n%20de%20im%C3%A1genes/07.-Ejercicios%20de%20creaci%C3%B3n%20de%20contenedores%20b%C3%A1sicos%20II/" rel="prev"/>
+<link href="../" rel="prev"/>
 <link href="../02.-Asociando%20almacenamiento%20a%20los%20contenedores%20I/" rel="next"/>
 <link href="../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.4.3, mkdocs-material-9.1.9" name="generator"/>
@@ -23,7 +23,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#los-contenedores-son-efimeros">
+<a class="md-skip" href="#volumenes-docker">
           Saltar a contenido
         </a>
 </div>
@@ -130,17 +130,17 @@
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link md-tabs__link--active" href="./">
+<a class="md-tabs__link md-tabs__link--active" href="../">
         06.-Volúmenes
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../07.-Redes/01.-Introducci%C3%B3n%20a%20las%20redes%20en%20docker/">
+<a class="md-tabs__link" href="../../07.-Redes/">
         07.-Redes
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../08.-Escenarios%20multicontenedor/01.-Instalaci%C3%B3n%20de%20docker-compose/">
+<a class="md-tabs__link" href="../../08.-Escenarios%20multicontenedor/">
         08.-Escenarios multicontenedor
       </a>
 </li>
@@ -429,10 +429,12 @@
 </li>
 <li class="md-nav__item md-nav__item--active md-nav__item--nested">
 <input checked="" class="md-nav__toggle md-toggle" id="__nav_7" type="checkbox"/>
-<label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
-          06.-Volúmenes
-          <span class="md-nav__icon md-icon"></span>
+<div class="md-nav__link md-nav__link--index">
+<a href="../">06.-Volúmenes</a>
+<label for="__nav_7">
+<span class="md-nav__icon md-icon"></span>
 </label>
+</div>
 <nav aria-expanded="true" aria-labelledby="__nav_7_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_7">
 <span class="md-nav__icon md-icon"></span>
@@ -454,16 +456,6 @@
       Tabla de contenidos
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#los-contenedores-son-efimeros">
-    Los contenedores son efímeros
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#los-datos-en-los-contenedores">
-    Los datos en los contenedores
-  </a>
-</li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#volumenes-docker">
     Volúmenes docker
@@ -521,10 +513,12 @@
 </li>
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_8" type="checkbox"/>
-<label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
-          07.-Redes
-          <span class="md-nav__icon md-icon"></span>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../07.-Redes/">07.-Redes</a>
+<label for="__nav_8">
+<span class="md-nav__icon md-icon"></span>
 </label>
+</div>
 <nav aria-expanded="false" aria-labelledby="__nav_8_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_8">
 <span class="md-nav__icon md-icon"></span>
@@ -571,10 +565,12 @@
 </li>
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_9" type="checkbox"/>
-<label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
-          08.-Escenarios multicontenedor
-          <span class="md-nav__icon md-icon"></span>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../08.-Escenarios%20multicontenedor/">08.-Escenarios multicontenedor</a>
+<label for="__nav_9">
+<span class="md-nav__icon md-icon"></span>
 </label>
+</div>
 <nav aria-expanded="false" aria-labelledby="__nav_9_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_9">
 <span class="md-nav__icon md-icon"></span>
@@ -657,16 +653,6 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#los-contenedores-son-efimeros">
-    Los contenedores son efímeros
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#los-datos-en-los-contenedores">
-    Los datos en los contenedores
-  </a>
-</li>
-<li class="md-nav__item">
 <a class="md-nav__link" href="#volumenes-docker">
     Volúmenes docker
   </a>
@@ -693,16 +679,6 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1>01.-Volúmenes docker y bind mount</h1>
-<h2 id="los-contenedores-son-efimeros">Los contenedores son efímeros<a class="headerlink" href="#los-contenedores-son-efimeros" title="Permanent link">¶</a></h2>
-<p><strong>Los contenedores son efímeros</strong>, es decir, los ficheros, datos y configuraciones que creamos en los contenedores sobreviven a las paradas de los mismos pero, sin embargo, son destruidos si el contenedor es destruido.</p>
-<h2 id="los-datos-en-los-contenedores">Los datos en los contenedores<a class="headerlink" href="#los-datos-en-los-contenedores" title="Permanent link">¶</a></h2>
-<p><img alt="docker" src="../../img/types-of-mounts.png"/></p>
-<p>Ante la situación anteriormente descrita Docker nos proporciona varias soluciones para persistir los datos de los contenedores. En este curso nos vamos a centrar en las dos que considero que son más importantes:</p>
-<ul>
-<li>Los <strong>volúmenes docker</strong>.</li>
-<li>Los <strong>bind mount</strong></li>
-<li>Los <strong>tmpfs mounts</strong>: Almacenan en memoria la información. (No lo vamos a ver en este curso)</li>
-</ul>
 <h2 id="volumenes-docker">Volúmenes docker<a class="headerlink" href="#volumenes-docker" title="Permanent link">¶</a></h2>
 <p>Si elegimos conseguir la persistencia usando volúmenes estamos haciendo que los datos de los contenedores que nosotros decidamos se almacenen en una parte del sistema de ficheros que es gestionada por docker y a la que, debido a sus permisos, sólo docker tendrá acceso. En linux se guardan en <code>/var/lib/docker/volumes</code>. Este tipo de volúmenes se suele usar en los siguientes casos:</p>
 <ul>
