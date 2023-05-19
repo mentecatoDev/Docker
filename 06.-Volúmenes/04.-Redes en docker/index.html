@@ -694,7 +694,7 @@ ec77cfd20583        bridge              bridge              local
        valid_lft forever preferred_lft forever
 ...
 </code></pre>
-<p>Además podemos comprobar que se han creado distintas cadenas en el cortafuegos para gestionar la comunicación de los contenedores. Podemos ejecutar como administrador: <code>iptables -L -n</code> y <code>iptables -L -n - t nat</code> y comprobarlo.</p>
+<p>Además podemos comprobar que se han creado distintas cadenas en el cortafuegos para gestionar la comunicación de los contenedores. Podemos ejecutar como administrador: <code>iptables -L -n</code> y <code>iptables -L -n -t nat</code> y comprobarlo.</p>
 <ul>
 <li>Si conecto un contenedor a la red <strong>host</strong>, el contenedor ofrece el servicio que tiene configurado en el puerto de la red del anfitrión. No tiene ip propia, sino es cómo si tuviera la ip del anfitrión. Por lo tanto, los puertos son accesibles directamente desde el host. Por ejemplo:</li>
 </ul>

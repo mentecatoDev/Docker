@@ -658,7 +658,7 @@ $ cd web
 /web$ echo "&lt;h1&gt;Hola&lt;/h1&gt;" &gt; index.html
 </code></pre>
 <p>Y podemos montar ese directorio en un contenedor, en este caso usamos la opción <code>-v</code>:</p>
-<pre><code>$ docker run -d --name my-apache-app -v /home/usuario/web:/usr/local/apache2/htdocs -p 8080:80 httpd:2.4
+<pre><code>$ docker run -d --name my-apache-app -v /home/«usuario»/web:/usr/local/apache2/htdocs -p 8080:80 httpd:2.4
 8de025f6ff4d4b8a5a57d10a9cbb283b103209f358c43148a4716a33a404e208
 </code></pre>
 <p>Y comprobamos que realmente estamos sirviendo el fichero que tenemos en el directorio que hemos creado.</p>

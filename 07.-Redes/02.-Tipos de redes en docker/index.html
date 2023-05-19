@@ -640,17 +640,17 @@ ec77cfd20583        bridge              bridge              local
 </li>
 <li>
 <p>Si conecto un contenedor a la red <strong>host</strong>, el contenedor ofrece el servicio que tiene configurado en el puerto de la red del anfitrión. No tiene ip propia, sino es como si tuviera la ip del anfitrión. Por lo tanto, los puertos son accesibles directamente desde el host. Por ejemplo:</p>
-<p>```
-  $ docker run -d --name mi_servidor --network host josedom24/aplicacionweb:v1</p>
-<p>$ docker ps
-  CONTAINER ID        IMAGE                        COMMAND                  CREATED             STATUS              PORTS               NAMES
-  135c742af1ff        josedom24/aplicacionweb:v1   "/usr/sbin/apache2ct…"   3 seconds ago       Up 2 seconds                                  mi_servidor
-```</p>
-<p>Prueba acceder directamente al puerto 80 del servidor para ver la página web.</p>
 </li>
-<li>
-<p>La red <strong>none</strong> no configurará ninguna IP para el contenedor y no tiene acceso a la red externa ni a otros contenedores. Tiene la dirección loopback y se puede usar para ejecutar trabajos por lotes.</p>
-</li>
+</ul>
+<pre><code>      $ docker run -d --name mi_servidor --network host josedom24/aplicacionweb:v1
+
+      $ docker ps
+      CONTAINER ID        IMAGE                        COMMAND                  CREATED             STATUS              PORTS               NAMES
+      135c742af1ff        josedom24/aplicacionweb:v1   "/usr/sbin/apache2ct…"   3 seconds ago       Up 2 seconds                                  mi_servidor
+</code></pre>
+<p>Probemos a acceder directamente al puerto 80 del servidor para ver la página web.</p>
+<ul>
+<li>La red <strong>none</strong> no configurará ninguna IP para el contenedor y no tiene acceso a la red externa ni a otros contenedores. Tiene la dirección loopback y se puede usar para ejecutar trabajos por lotes.</li>
 </ul>
 </article>
 </div>
